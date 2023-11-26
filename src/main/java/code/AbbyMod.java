@@ -49,10 +49,10 @@ public class AbbyMod implements
         return modID + ":" + idText;
     }
 
-    public static Color characterColor = CardHelper.getColor(200.0f, 200.0f, 220.0f);
+    public static Color characterColor = CardHelper.getColor(165.0f, 122.0f, 191.0f);
 
     public static final String SHOULDER1 = makeCharacterPath("mainChar/shoulder.png");
-    public static final String SHOULDER2 = makeCharacterPath("mainChar/shoulder2.png");
+    public static final String SHOULDER2 = makeCharacterPath("mainChar/shoulder.png");
     public static final String CORPSE = makeCharacterPath("mainChar/corpse.png");
     private static final String ATTACK_S_ART = makeImagePath("512/attack.png");
     private static final String SKILL_S_ART = makeImagePath("512/skill.png");

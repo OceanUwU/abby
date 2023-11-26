@@ -36,13 +36,12 @@ public class TheAberrant extends CustomPlayer {
 
 
     public TheAberrant(String name, PlayerClass setClass) {
-        super(name, setClass, new CustomEnergyOrb(orbTextures, makeCharacterPath("mainChar/orb/vfx.png"), null), new SpriterAnimation(
-                makeCharacterPath("mainChar/static.scml")));
-        initializeClass(null,
+        super(name, setClass, new CustomEnergyOrb(orbTextures, makeCharacterPath("mainChar/orb/vfx.png"), null), new SpriterAnimation(makeCharacterPath("mainChar/static.scml")));
+        initializeClass(makeCharacterPath("mainChar/abby.png"),
                 SHOULDER1,
                 SHOULDER2,
                 CORPSE,
-                getLoadout(), 20.0F, -10.0F, 166.0F, 327.0F, new EnergyManager(3));
+                getLoadout(), 0f, 0f, 410.0F, 290.0F, new EnergyManager(3));
 
 
         dialogX = (drawX + 0.0F * Settings.scale);
@@ -52,7 +51,7 @@ public class TheAberrant extends CustomPlayer {
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(NAMES[0], TEXT[0],
-                80, 80, 0, 99, 5, this, getStartingRelics(),
+                75, 75, 0, 99, 5, this, getStartingRelics(),
                 getStartingDeck(), false);
     }
 
@@ -76,7 +75,7 @@ public class TheAberrant extends CustomPlayer {
 
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("UNLOCK_PING", MathUtils.random(-0.2F, 0.2F));
+        CardCrawlGame.sound.playA("MAW_DEATH", MathUtils.random(-0.2F, 0.2F));
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
                 false);
     }
@@ -97,12 +96,12 @@ public class TheAberrant extends CustomPlayer {
 
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "UNLOCK_PING";
+        return "MAW_DEATH";
     }
 
     @Override
     public int getAscensionMaxHPLoss() {
-        return 8;
+        return 4;
     }
 
     @Override
@@ -117,7 +116,7 @@ public class TheAberrant extends CustomPlayer {
 
     @Override
     public BitmapFont getEnergyNumFont() {
-        return FontHelper.energyNumFontRed;
+        return FontHelper.energyNumFontPurple;
     }
 
     @Override
@@ -167,6 +166,11 @@ public class TheAberrant extends CustomPlayer {
     @Override
     public String getVampireText() {
         return TEXT[2];
+    }
+
+    @Override
+    public String getSensoryStoneText() {
+        return TEXT[3];
     }
 
     public static class Enums {
