@@ -1,4 +1,4 @@
-package code;
+package code.characters;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
@@ -24,18 +24,18 @@ import code.relics.TodoItem;
 
 import java.util.ArrayList;
 
-import static code.CharacterFile.Enums.TODO_COLOR;
-import static code.ModFile.*;
+import static code.AbbyMod.*;
+import static code.characters.TheAberrant.Enums.ABERRANT_COLOUR;
 
-public class CharacterFile extends CustomPlayer {
+public class TheAberrant extends CustomPlayer {
 
     static final String ID = makeID("ModdedCharacter");
-    static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
+    public static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
 
 
-    public CharacterFile(String name, PlayerClass setClass) {
+    public TheAberrant(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, makeCharacterPath("mainChar/orb/vfx.png"), null), new SpriterAnimation(
                 makeCharacterPath("mainChar/static.scml")));
         initializeClass(null,
@@ -107,7 +107,7 @@ public class CharacterFile extends CustomPlayer {
 
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return TODO_COLOR;
+        return ABERRANT_COLOUR;
     }
 
     @Override
@@ -138,7 +138,7 @@ public class CharacterFile extends CustomPlayer {
 
     @Override
     public AbstractPlayer newInstance() {
-        return new CharacterFile(name, chosenClass);
+        return new TheAberrant(name, chosenClass);
     }
 
     @Override
@@ -172,10 +172,10 @@ public class CharacterFile extends CustomPlayer {
     public static class Enums {
         //TODO: Change these.
         @SpireEnum
-        public static AbstractPlayer.PlayerClass THE_TODO;
-        @SpireEnum(name = "TODO_COLOR")
-        public static AbstractCard.CardColor TODO_COLOR;
-        @SpireEnum(name = "TODO_COLOR")
+        public static AbstractPlayer.PlayerClass THE_ABERRANT;
+        @SpireEnum(name = "OCEAN_ABERRANT_COLOUR")
+        public static AbstractCard.CardColor ABERRANT_COLOUR;
+        @SpireEnum(name = "OCEAN_ABERRANT_COLOUR")
         @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }

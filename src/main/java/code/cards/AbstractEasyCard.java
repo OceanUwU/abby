@@ -15,11 +15,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import code.CharacterFile;
+import code.characters.TheAberrant;
 import code.util.CardArtRoller;
 
-import static code.ModFile.makeImagePath;
-import static code.ModFile.modID;
+import static code.AbbyMod.makeImagePath;
+import static code.AbbyMod.modID;
 import static code.util.Wiz.atb;
 import static code.util.Wiz.att;
 
@@ -75,7 +75,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     private boolean needsArtRefresh = false;
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, CharacterFile.Enums.TODO_COLOR);
+        this(cardID, cost, type, rarity, target, TheAberrant.Enums.ABERRANT_COLOUR);
     }
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {

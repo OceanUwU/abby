@@ -12,6 +12,7 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.OrbStrings;
@@ -26,6 +27,7 @@ import code.cards.AbstractEasyCard;
 import code.cards.cardvars.AbstractEasyDynamicVariable;
 import code.cards.cardvars.SecondDamage;
 import code.cards.cardvars.SecondMagicNumber;
+import code.characters.TheAberrant;
 import code.potions.AbstractEasyPotion;
 import code.relics.AbstractEasyRelic;
 import code.util.ProAudio;
@@ -33,7 +35,7 @@ import java.nio.charset.StandardCharsets;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 @SpireInitializer
-public class ModFile implements
+public class AbbyMod implements
         EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
@@ -41,13 +43,13 @@ public class ModFile implements
         EditCharactersSubscriber,
         AddAudioSubscriber {
 
-    public static final String modID = "todomod"; //TODO: Change this.
+    public static final String modID = "oceanabby";
 
     public static String makeID(String idText) {
         return modID + ":" + idText;
     }
 
-    public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
+    public static Color characterColor = CardHelper.getColor(200.0f, 200.0f, 220.0f);
 
     public static final String SHOULDER1 = makeCharacterPath("mainChar/shoulder.png");
     public static final String SHOULDER2 = makeCharacterPath("mainChar/shoulder2.png");
@@ -77,10 +79,10 @@ public class ModFile implements
         return "eng";
     }
 
-    public ModFile() {
+    public AbbyMod() {
         BaseMod.subscribe(this);
 
-        BaseMod.addColor(CharacterFile.Enums.TODO_COLOR, characterColor, characterColor, characterColor,
+        BaseMod.addColor(TheAberrant.Enums.ABERRANT_COLOUR, characterColor, characterColor, characterColor,
                 characterColor, characterColor, characterColor, characterColor,
                 ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
                 ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
@@ -113,13 +115,13 @@ public class ModFile implements
     }
 
     public static void initialize() {
-        ModFile thismod = new ModFile();
+        AbbyMod thismod = new AbbyMod();
     }
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new CharacterFile(CharacterFile.characterStrings.NAMES[1], CharacterFile.Enums.THE_TODO),
-            CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, CharacterFile.Enums.THE_TODO);
+        BaseMod.addCharacter(new TheAberrant(TheAberrant.characterStrings.NAMES[1], TheAberrant.Enums.THE_ABERRANT),
+            CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheAberrant.Enums.THE_ABERRANT);
         
         new AutoAdd(modID)
             .packageFilter(AbstractEasyPotion.class)

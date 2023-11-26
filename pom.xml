@@ -3,11 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>UnimportantInfo</groupId>
 
-    <artifactId>TheTodo</artifactId>
+    <artifactId>oceanabby</artifactId>
     <version>0.0.1</version>
-    <name>The Todo</name>
-    <description>TODO: Change this description</description>
-    <!-- Change the above for mod information. -->
+    <name>Aberrant (The)</name>
+    <description>Revival of an old unfinished character mod originally started in 2019</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,11 +15,8 @@
         <SlayTheSpire.version>12-22-2020</SlayTheSpire.version>
         <ModTheSpire.version>3.18.2</ModTheSpire.version>
 
-        <!-- CHANGE THIS TO MATCH YOUR MODID FIELD IN THE MAIN TodoMod CLASS FILE -->
-        <ModID>todomod</ModID>
-        <!-- CHANGE THIS TO MATCH YOUR MODID FIELD IN THE MAIN TodoMod CLASS FILE -->
+        <ModID>${project.artifactId}</ModID>
 
-        <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path>C:/Program Files (x86)/Steam/steamapps/</Steam.path>
 
     </properties>

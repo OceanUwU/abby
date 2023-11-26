@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import code.ModFile;
+import code.AbbyMod;
 import code.util.TexLoader;
 
 public abstract class AbstractEasyPower extends AbstractPower {
@@ -28,8 +28,8 @@ public abstract class AbstractEasyPower extends AbstractPower {
         this.amount = amount;
         this.type = powerType;
 
-        Texture normalTexture = TexLoader.getTexture(ModFile.modID + "Resources/images/powers/" + ID.replaceAll(ModFile.modID + ":", "") + "32.png");
-        Texture hiDefImage = TexLoader.getTexture(ModFile.modID + "Resources/images/powers/" + ID.replaceAll(ModFile.modID + ":", "") + "84.png");
+        Texture normalTexture = TexLoader.getTexture(AbbyMod.modID + "Resources/images/powers/" + ID.replaceAll(AbbyMod.modID + ":", "") + "32.png");
+        Texture hiDefImage = TexLoader.getTexture(AbbyMod.modID + "Resources/images/powers/" + ID.replaceAll(AbbyMod.modID + ":", "") + "84.png");
         if (hiDefImage != null) {
             region128 = new TextureAtlas.AtlasRegion(hiDefImage, 0, 0, hiDefImage.getWidth(), hiDefImage.getHeight());
             if (normalTexture != null)

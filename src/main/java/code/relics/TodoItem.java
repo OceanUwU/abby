@@ -1,13 +1,13 @@
 package code.relics;
 
-import code.CharacterFile;
+import static code.AbbyMod.makeID;
 
-import static code.ModFile.makeID;
+import code.characters.TheAberrant;
 
 public class TodoItem extends AbstractEasyRelic {
     public static final String ID = makeID("TodoItem");
 
     public TodoItem() {
-        super(ID, RelicTier.STARTER, LandingSound.FLAT, CharacterFile.Enums.TODO_COLOR);
+        super(ID, RelicTier.STARTER, LandingSound.FLAT, TheAberrant.Enums.ABERRANT_COLOUR);
     }
 }
