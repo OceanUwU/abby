@@ -1,9 +1,72 @@
 {
-  "${ModID}:TodoItem": {
-    "NAME": "Todo Item",
+  "${ModID}:MutationCatalyst": {
+    "NAME": "Mutation Catalyst",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      "Has no effect."
+      ""
+    ]
+  },
+  "${ModID}:PaperDragyn": {
+    "NAME": "Paper Dragyn",
+    "FLAVOR": "You've never seen a creature like this before...",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${ModID}:MeatBun": {
+    "NAME": "Meat Bun",
+    "FLAVOR": "A reward for good behavior. Contains scraps of previous test subjects",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${ModID}:SneckoSpine": {
+    "NAME": "Snecko Spine",
+    "FLAVOR": "For some reason, it still sways around hypnotically.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${ModID}:TheSymbiont": {
+    "NAME": "The Symbiont",
+    "FLAVOR": "Despite its hideous appearance, it is nothing but a well-needed friend.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${ModID}:LabNotes": {
+    "NAME": "Lab Notes",
+    "FLAVOR": "You recognize this handwriting.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${ModID}:EmergencyGuide": {
+    "NAME": "Emergency Guide",
+    "FLAVOR": "It's from the lab you escaped from. Describes protocol in the event of a containment breach",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${ModID}:EldritchHieroglyphs": {
+    "NAME": "Eldritch Hieroglyphs",
+    "FLAVOR": "Depicts the wrath of Neow as her child was stolen from her.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${ModID}:ToxicSludge": {
+    "NAME": "Toxic Sludge",
+    "FLAVOR": "A waste disposal container from the city's clandestine laboratories. It's stinky.",
+    "DESCRIPTIONS": [
+      ""
+    ]
+  },
+  "${ModID}:PerfectedCatalyst": {
+    "NAME": "Perfected Catalyst",
+    "FLAVOR": "Our research has only just begun...",
+    "DESCRIPTIONS": [
+      ""
     ]
   }
 }

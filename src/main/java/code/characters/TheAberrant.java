@@ -20,7 +20,7 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import code.cards.Defend;
 import code.cards.Strike;
-import code.relics.TodoItem;
+import code.relics.MutationCatalyst;
 
 import java.util.ArrayList;
 
@@ -69,7 +69,7 @@ public class TheAberrant extends CustomPlayer {
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(TodoItem.ID);
+        retVal.add(MutationCatalyst.ID);
         return retVal;
     }
 
