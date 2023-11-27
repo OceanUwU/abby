@@ -8,6 +8,6 @@ public class SneckoSpine extends AbstractEasyRelic {
     public static final String ID = makeID("SneckoSpine");
 
     public SneckoSpine() {
-        super(ID, RelicTier.UNCOMMON, LandingSound.HEAVY, TheAberrant.Enums.ABERRANT_COLOUR);
+        super(ID, RelicTier.SPECIAL, LandingSound.HEAVY, TheAberrant.Enums.ABERRANT_COLOUR);
     }
 }

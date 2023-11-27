@@ -13,9 +13,9 @@
       ""
     ]
   },
-  "${ModID}:MeatBun": {
+  "${ModID}:Meatbun": {
     "NAME": "Meat Bun",
-    "FLAVOR": "A reward for good behavior. Contains scraps of previous test subjects",
+    "FLAVOR": "A reward for good behavior. Contains scraps of previous test subjects.",
     "DESCRIPTIONS": [
       ""
     ]

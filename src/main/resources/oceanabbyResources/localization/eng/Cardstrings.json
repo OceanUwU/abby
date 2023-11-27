@@ -7,57 +7,328 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
-  "${ModID}:ExampleTwoAmountPowerCard": {
-    "NAME": "Two Amount Power",
-    "DESCRIPTION": "At the start of your turn, gain !M! Strength and !${ModID}:m2! Dexterity."
+  "${ModID}:Abomination": {
+    "NAME": "Abomination",
+    "DESCRIPTION": ""
   },
-  "${ModID}:InlinePowerDemo": {
-    "NAME": "Inline Power",
-    "DESCRIPTION": "Strikes deal !M! more damage. NL At the end of your turn, gain !M! Block.",
-    "EXTENDED_DESCRIPTION": [
-      "Strike+, Block+",
-      "#yStrikes deal #b",
-      " additional damage. At the end of your turn, gain #b",
-      " #yBlock."
-    ]
+  "${ModID}:AcidSpit": {
+    "NAME": "Acid Spit",
+    "DESCRIPTION": ""
   },
-  "${ModID}:SelectCardsPlusCardMods": {
-    "NAME": "Cool Card Stuff",
-    "DESCRIPTION": "Choose from 1 of 3 cost 0 cards from any class. NL Add it into your hand. NL It gains Ethereal and Exhaust.",
-    "EXTENDED_DESCRIPTION": [
-      "Choose a card to add into your hand with Ethereal and Exhaust."
-    ]
+  "${ModID}:Adaptation": {
+    "NAME": "Adaptation",
+    "DESCRIPTION": ""
   },
-  "${ModID}:EasyXCostDemo": {
-    "NAME": "Easy X Cost",
-    "DESCRIPTION": "{@@}Deal !D! damage X{!M!|>0=+!M!} times. NL Gain X{!M!|>0=+!M!} Strength. NL Exhaust."
+  "${ModID}:Anger": {
+    "NAME": "Anger",
+    "DESCRIPTION": ""
   },
-  "${ModID}:EasyModalChoiceDemo": {
-    "NAME": "Easy Modal Choice",
-    "DESCRIPTION": "Choose one: Draw !M! cards or gain !${ModID}:m2! Strength.",
-    "EXTENDED_DESCRIPTION": [
-      "Draw",
-      "Draw ",
-      " cards.",
-      "Strength",
-      "Gain ",
-      " Strength."
-    ]
+  "${ModID}:Bile": {
+    "NAME": "Bile",
+    "DESCRIPTION": ""
   },
-  "${ModID}:DrawAndShiv": {
-    "NAME": "Draw and Shiv",
-    "DESCRIPTION": "Draw 1 card. NL Add 1 *Shiv into your hand."
+  "${ModID}:Bite": {
+    "NAME": "Bite",
+    "DESCRIPTION": ""
   },
-  "${ModID}:TwoTypesOfDamage": {
-    "NAME": "Two Damage Values",
-    "DESCRIPTION": "Deal !D! damage. NL If you're Vulnerable, deal !${ModID}:sd! damage instead."
+  "${ModID}:BlackHole": {
+    "NAME": "Black Hole",
+    "DESCRIPTION": ""
   },
-  "${ModID}:StartupBlockCard": {
-    "NAME": "Startup And AOE",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Startup: Gain !M! Block."
+  "${ModID}:BodyHorror": {
+    "NAME": "Body Horror",
+    "DESCRIPTION": ""
   },
-  "${ModID}:MultiCardPreviewAndDrawCallback": {
-    "NAME": "Previews and Callbacks",
-    "DESCRIPTION": "{@@}Shuffle *Smite{!Upgrades!|>0=+} and *Safety{!Upgrades!|>0=+} into your draw pile. NL Draw 1 card. NL If it's Colorless, deal !D! damage to ALL enemies."
+  "${ModID}:BurnVictim": {
+    "NAME": "Burn Victim",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Burrow": {
+    "NAME": "Burrow",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Changeling": {
+    "NAME": "Changeling",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:ChemicalWarfare": {
+    "NAME": "Chemical Warfare",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Chomp": {
+    "NAME": "Chomp",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Claw": {
+    "NAME": "Claw",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:CosmicHorror": {
+    "NAME": "Cosmic Horror",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Devolution": {
+    "NAME": "Devolution",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Deformation": {
+    "NAME": "Deformation",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Delirium": {
+    "NAME": "Delirium",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:EasyPrey": {
+    "NAME": "Easy Prey",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:ESP": {
+    "NAME": "ESP",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:EvolvedStrike": {
+    "NAME": "Evolved Strike",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:ExperimentalTreatment": {
+    "NAME": "Experimental Treatment",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:ExplosivePustules": {
+    "NAME": "Explosive Pustules",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:FightOrFlight": {
+    "NAME": "Fight or Flight",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Flatten": {
+    "NAME": "Flatten",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:FleshHeap": {
+    "NAME": "Flesh Heap",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:FluidCycle": {
+    "NAME": "Fluid Cycle",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:ForcedEvolution": {
+    "NAME": "Forced Evolution",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:GetOut": {
+    "NAME": "Get Out",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:GiganticGrowth": {
+    "NAME": "Gigantic Growth",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:HalfRemembered": {
+    "NAME": "Half Remembered",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:HarbingerForm": {
+    "NAME": "Harbinger Form",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:HardShell": {
+    "NAME": "Hard Shell",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Headhunt": {
+    "NAME": "Headhunt",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Hostility": {
+    "NAME": "Hostility",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Humanity": {
+    "NAME": "Humanity",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Isolation": {
+    "NAME": "Isolation",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:ItFollows": {
+    "NAME": "It Follows",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:JacobsLadder": {
+    "NAME": "Jacob's Ladder",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:LastDitch": {
+    "NAME": "Last Ditch",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Lurk": {
+    "NAME": "Lurk",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Marrow": {
+    "NAME": "Marrow",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:MeatShield": {
+    "NAME": "Meat Shield",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:MetalCrusher": {
+    "NAME": "Metal Crusher",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Mimicry": {
+    "NAME": "Mimicry",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Mutate": {
+    "NAME": "Mutate",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:NeowsEmbrace": {
+    "NAME": "Neow's Embrace",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:NoMercy": {
+    "NAME": "No Mercy",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:OneForAll": {
+    "NAME": "One For All",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:OnTheFly": {
+    "NAME": "On The Fly",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Overpower": {
+    "NAME": "Overpower",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Phantasmagoria": {
+    "NAME": "Phantasmagoria",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:PileOn": {
+    "NAME": "Pile On",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Pounce": {
+    "NAME": "Pounce",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Psionics": {
+    "NAME": "Psionics",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Pustule": {
+    "NAME": "Pustule",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Radiance": {
+    "NAME": "Radiance",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:RadioactiveBeam": {
+    "NAME": "Radioactive Beam",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:RampantGrowth": {
+    "NAME": "Rampant Growth",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Razorspine": {
+    "NAME": "Razor Spine",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Regrowth": {
+    "NAME": "Regrowth",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Robotization": {
+    "NAME": "Robotization",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:SalivaSlick": {
+    "NAME": "Saliva Slick",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:ShackleDrag": {
+    "NAME": "Shackle Drag",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Spew": {
+    "NAME": "Spew",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:SplayYourGuts": {
+    "NAME": "Splay Your Guts",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Splice": {
+    "NAME": "Splice",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Stalker": {
+    "NAME": "Stalk",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:StemCells": {
+    "NAME": "Stem Cells",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:StrangeScience": {
+    "NAME": "Strange Science",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:SurpriseAttack": {
+    "NAME": "Surprise Attack",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:SurvivalOfTheFittest": {
+    "NAME": "Survival of The Fittest",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:SuspiciousCure": {
+    "NAME": "Suspicious Cure",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:TendonSlash": {
+    "NAME": "Tendon Slash",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Tendrils": {
+    "NAME": "Tendrils",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:TheSpiral": {
+    "NAME": "The Spiral",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:Thrash": {
+    "NAME": "Thrash",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:ToTheLimit": {
+    "NAME": "To The Limit",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:ToxicGlands": {
+    "NAME": "Toxic Glands",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:WasteDump": {
+    "NAME": "Waste Dump",
+    "DESCRIPTION": ""
+  },
+  "${ModID}:WrithingTentacles": {
+    "NAME": "Writhing Tentacles",
+    "DESCRIPTION": ""
   }
 }

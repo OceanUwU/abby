@@ -174,7 +174,6 @@ public class TheAberrant extends CustomPlayer {
     }
 
     public static class Enums {
-        //TODO: Change these.
         @SpireEnum
         public static AbstractPlayer.PlayerClass THE_ABERRANT;
         @SpireEnum(name = "OCEAN_ABERRANT_COLOUR")

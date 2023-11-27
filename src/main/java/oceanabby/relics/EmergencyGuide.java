@@ -8,6 +8,6 @@ public class EmergencyGuide extends AbstractEasyRelic {
     public static final String ID = makeID("EmergencyGuide");
 
     public EmergencyGuide() {
-        super(ID, RelicTier.UNCOMMON, LandingSound.FLAT, TheAberrant.Enums.ABERRANT_COLOUR);
+        super(ID, RelicTier.SPECIAL, LandingSound.FLAT, TheAberrant.Enums.ABERRANT_COLOUR);
     }
 }

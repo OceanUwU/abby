@@ -8,6 +8,6 @@ public class PaperDragyn extends AbstractEasyRelic {
     public static final String ID = makeID("PaperDragyn");
 
     public PaperDragyn() {
-        super(ID, RelicTier.UNCOMMON, LandingSound.FLAT, TheAberrant.Enums.ABERRANT_COLOUR);
+        super(ID, RelicTier.SPECIAL, LandingSound.FLAT, TheAberrant.Enums.ABERRANT_COLOUR);
     }
 }
