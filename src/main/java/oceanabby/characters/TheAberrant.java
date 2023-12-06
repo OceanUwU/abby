@@ -3,8 +3,15 @@ package oceanabby.characters;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -21,7 +28,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import oceanabby.cards.Defend;
 import oceanabby.cards.Strike;
 import oceanabby.relics.MutationCatalyst;
-
+import oceanabby.util.TexLoader;
 import java.util.ArrayList;
 
 import static oceanabby.AbbyMod.*;
@@ -33,10 +40,77 @@ public class TheAberrant extends CustomPlayer {
     public static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
+    private static final float ORB_IMG_SCALE = 1.15F * Settings.scale;
 
+    private static class AbbyEnergyBubble {
+        public static final Texture IMG = TexLoader.getTexture(makeCharacterPath("mainChar/orb/bubble.png"));
+        public static final Texture IMG_DARK = TexLoader.getTexture(makeCharacterPath("mainChar/orb/bubbled.png"));
+        public static final int SIZE = IMG.getWidth();
+        public static final float HALFSIZE = (float)SIZE / 2f;
+
+        private float time = MathUtils.random(0f, 100f);
+        private float startX = MathUtils.random(-32f, 160f);
+        private float xSway = MathUtils.random(15f, 35f);
+        private float swayTime = MathUtils.random(0.8f, 1.8f) * (float)Math.PI;
+        private float ySpeed = MathUtils.random(30f, 60f);
+        public float scale = MathUtils.random(0.5f, 1f);
+        public float x, y;
+
+        public void update(float delta) {
+            time += delta;
+            x = startX + (float)Math.sin(time * swayTime) * xSway;
+            y = (time * ySpeed) % 196f - 32f;
+        }
+    }
 
     public TheAberrant(String name, PlayerClass setClass) {
-        super(name, setClass, new CustomEnergyOrb(orbTextures, makeCharacterPath("mainChar/orb/vfx.png"), null), new SpriterAnimation(makeCharacterPath("mainChar/static.scml")));
+        super(name, setClass, new CustomEnergyOrb(orbTextures, makeCharacterPath("mainChar/orb/vfx.png"), new float[] {40f, 60f, 80f, 40f, 0f}) {
+            private FrameBuffer fbo = new FrameBuffer(Pixmap.Format.RGBA8888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false, false);
+            private Texture mask = TexLoader.getTexture(makeCharacterPath("mainChar/orb/mask.png"));
+            private ArrayList<AbbyEnergyBubble> bubbles = new ArrayList<>();
+
+            @Override
+            public void updateOrb(int energyCount) {
+                super.updateOrb(energyCount);
+                float delta = Gdx.graphics.getDeltaTime() * (energyCount == 0 ? 0.25f : 1f);
+                if (bubbles.size() == 0)
+                    for (int i = 0; i < 16; i++)
+                        bubbles.add(new AbbyEnergyBubble());
+                for (AbbyEnergyBubble bubble : bubbles)
+                    bubble.update(delta);
+            }
+
+            @Override
+            public void renderOrb(SpriteBatch sb, boolean enabled, float current_x, float current_y) {
+                sb.end();
+                fbo.begin();
+                Gdx.gl.glClearColor(0, 0, 0, 0);
+                Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+                Gdx.gl.glColorMask(true, true, true, true);
+                sb.begin();
+                sb.setColor(Color.WHITE);
+                sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+                if (enabled)
+                    for(int i = 0; i < energyLayers.length; ++i)
+                        sb.draw(energyLayers[i], current_x - 64f, current_y - 64f, 64.0F, 64.0F, 128.0F, 128.0F, ORB_IMG_SCALE, ORB_IMG_SCALE, angles[i], 0, 0, 128, 128, false, false);
+                else
+                    for(int i = 0; i < noEnergyLayers.length; ++i)
+                        sb.draw(noEnergyLayers[i], current_x - 64.0F, current_y - 64.0F, 64.0F, 64.0F, 128.0F, 128.0F, ORB_IMG_SCALE, ORB_IMG_SCALE, angles[i], 0, 0, 128, 128, false, false);
+                for (AbbyEnergyBubble b : bubbles)
+                    sb.draw(enabled ? AbbyEnergyBubble.IMG : AbbyEnergyBubble.IMG_DARK, current_x - 64f + b.x, current_y - 64f + b.y, AbbyEnergyBubble.HALFSIZE, AbbyEnergyBubble.HALFSIZE, AbbyEnergyBubble.SIZE, AbbyEnergyBubble.SIZE, ORB_IMG_SCALE * b.scale, ORB_IMG_SCALE * b.scale, 0, 0, 0, AbbyEnergyBubble.SIZE, AbbyEnergyBubble.SIZE, false, false);
+                sb.setBlendFunction(0, GL20.GL_SRC_ALPHA);
+                sb.setColor(Color.WHITE);
+                sb.draw(mask, current_x - 256, current_y - 256, 256, 256, 512, 512, ORB_IMG_SCALE, ORB_IMG_SCALE, 0, 0, 0, 512, 512, false, false);
+                sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+                sb.end();
+                fbo.end();
+                sb.begin();
+                TextureRegion drawTex = new TextureRegion(fbo.getColorBufferTexture());
+                drawTex.flip(false, true);
+                sb.draw(drawTex, -Settings.VERT_LETTERBOX_AMT, -Settings.HORIZ_LETTERBOX_AMT);
+                sb.draw(baseLayer, current_x - 64.0F, current_y - 64.0F, 64.0F, 64.0F, 128.0F, 128.0F, ORB_IMG_SCALE, ORB_IMG_SCALE, 0, 0, 0, 128, 128, false, false);
+            }
+        }, new SpriterAnimation(makeCharacterPath("mainChar/static.scml")));
         initializeClass(makeCharacterPath("mainChar/abby.png"),
                 SHOULDER1,
                 SHOULDER2,
@@ -85,7 +159,7 @@ public class TheAberrant extends CustomPlayer {
             makeCharacterPath("mainChar/orb/layer2.png"),
             makeCharacterPath("mainChar/orb/layer3.png"),
             makeCharacterPath("mainChar/orb/layer4.png"),
-            makeCharacterPath("mainChar/orb/layer4.png"),
+            makeCharacterPath("mainChar/orb/layer5.png"),
             makeCharacterPath("mainChar/orb/layer6.png"),
             makeCharacterPath("mainChar/orb/layer1d.png"),
             makeCharacterPath("mainChar/orb/layer2d.png"),
