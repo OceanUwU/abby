@@ -1,3 +1,7 @@
 {
-    
+    "${ModID}:Mutations": {
+        "TEXT_DICT": {
+            "${ModID}:Conjoined": "Duplicate|Plays twice."
+        }
+    }
 }
