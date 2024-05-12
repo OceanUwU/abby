@@ -329,6 +329,6 @@
   },
   "${ModID}:WrithingTentacles": {
     "NAME": "Writhing Tentacles",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Mutate a random card in your hand."
   }
 }

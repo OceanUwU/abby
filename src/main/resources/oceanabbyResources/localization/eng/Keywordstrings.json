@@ -24,5 +24,14 @@
       "throbbing"
     ],
     "DESCRIPTION": "Triggered upon #yAdapt and at the start of your turn."
+  },
+  {
+    "PROPER_NAME": "Mutate",
+    "NAMES": [
+      "mutate",
+      "mutation",
+      "mutations"
+    ],
+    "DESCRIPTION": "Add a random positive small effect to a card."
   }
 ]

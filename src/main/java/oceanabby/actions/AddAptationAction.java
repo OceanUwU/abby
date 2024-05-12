@@ -15,8 +15,9 @@ public class AddAptationAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        adaptation.counter = turns;
-        Adaptations.addAptation((AbstractAdaptation)adaptation.makeStatEquivalentCopy());
+        AbstractAdaptation a = (AbstractAdaptation)adaptation.makeStatEquivalentCopy();
+        a.counter = turns;
+        Adaptations.addAptation(a);
         isDone = true;
     }
 }

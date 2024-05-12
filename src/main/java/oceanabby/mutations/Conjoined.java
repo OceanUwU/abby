@@ -8,7 +8,7 @@ import oceanabby.util.Wiz;
 
 public class Conjoined extends AbstractMutation {
     public Conjoined() {
-        super("Duplicate", true, 1);
+        super("Conjoined", true, 1);
     }
 
     public boolean canMutate(AbstractCard c) {

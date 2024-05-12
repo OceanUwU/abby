@@ -22,7 +22,7 @@ public abstract class AbstractMutation extends AbstractCardModifier {
         this.id = makeID(id);
         this.after = after;
         this.rarity = rarity;
-        strings = allStrings.get(this.id).split("|");
+        strings = allStrings.get(this.id).split("\\|");
         name = strings[0];
     }
 

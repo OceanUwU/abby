@@ -19,8 +19,10 @@ public class Mutations {
     public static AbstractGameAction action(AbstractCard c) {
         return actionify(() -> {
             AbstractMutation mutation = rollMutation(c);
-            if (mutation != null)
+            if (mutation != null) {
                 CardModifierManager.addModifier(c, mutation);
+                c.superFlash();
+            }
         });
     }
 
