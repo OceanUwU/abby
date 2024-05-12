@@ -1,20 +1,21 @@
 package oceanabby.cards;
 
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.badlogic.gdx.graphics.Color;
 
 import static oceanabby.AbbyMod.makeID;
-import static oceanabby.util.Wiz.*;
 
-public class HardShell extends AbstractEasyCard {
+public class HardShell extends AbstractAdaptation {
     public final static String ID = makeID("HardShell");
 
     public HardShell() {
-        super(ID, -1, CardType.POWER, CardRarity.SPECIAL, CardTarget.NONE);
-        
+        super(ID);
+        setBlock(7, +4);
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        
+    @Override
+    public void onThrob() {
+        block = baseBlock;
+        blckTop();
+        pulse(Color.CYAN, Color.SKY);
     }
 }

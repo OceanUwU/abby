@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -23,6 +24,7 @@ import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import oceanabby.cards.AbstractAdaptation;
 import oceanabby.cards.AbstractEasyCard;
 import oceanabby.cards.cardvars.AbstractEasyDynamicVariable;
 import oceanabby.cards.cardvars.SecondDamage;
@@ -31,6 +33,7 @@ import oceanabby.characters.TheAberrant;
 import oceanabby.potions.AbstractEasyPotion;
 import oceanabby.relics.AbstractEasyRelic;
 import oceanabby.util.ProAudio;
+import org.clapper.util.classutil.NotClassFilter;
 import java.nio.charset.StandardCharsets;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
@@ -136,17 +139,17 @@ public class AbbyMod implements
     @Override
     public void receiveEditRelics() {
         new AutoAdd(modID)
-                .packageFilter(AbstractEasyRelic.class)
-                .any(AbstractEasyRelic.class, (info, relic) -> {
-                    if (relic.color == null) {
-                        BaseMod.addRelic(relic, RelicType.SHARED);
-                    } else {
-                        BaseMod.addRelicToCustomPool(relic, relic.color);
-                    }
-                    if (!info.seen) {
-                        UnlockTracker.markRelicAsSeen(relic.relicId);
-                    }
-                });
+            .packageFilter(AbstractEasyRelic.class)
+            .any(AbstractEasyRelic.class, (info, relic) -> {
+                if (relic.color == null) {
+                    BaseMod.addRelic(relic, RelicType.SHARED);
+                } else {
+                    BaseMod.addRelicToCustomPool(relic, relic.color);
+                }
+                if (!info.seen) {
+                    UnlockTracker.markRelicAsSeen(relic.relicId);
+                }
+            });
     }
 
     @Override
@@ -156,9 +159,15 @@ public class AbbyMod implements
             .any(DynamicVariable.class, (info, var) -> 
                 BaseMod.addDynamicVariable(var));
         new AutoAdd(modID)
-                .packageFilter(AbstractEasyCard.class)
-                .setDefaultSeen(true)
-                .cards();
+            .packageFilter(AbstractEasyCard.class)
+            .setDefaultSeen(true)
+            .any(AbstractCard.class, (info, card) -> {
+                if (card instanceof AbstractAdaptation)
+                    return;
+                BaseMod.addCard(card);
+                if (info.seen)
+                   UnlockTracker.unlockCard(card.cardID);
+             });
     }
 
     @Override

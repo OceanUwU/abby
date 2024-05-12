@@ -6,5 +6,23 @@
       "todos"
     ],
     "DESCRIPTION": "TODO: Make your own epic keywords"
+  },
+  {
+    "PROPER_NAME": "Adaptation",
+    "NAMES": [
+      "adapt",
+      "adaptation",
+      "adaptations"
+    ],
+    "DESCRIPTION": "Adaptations modify you for X turns."
+  },
+  {
+    "PROPER_NAME": "Throb",
+    "NAMES": [
+      "throb",
+      "throbs",
+      "throbbing"
+    ],
+    "DESCRIPTION": "Triggered upon #yAdapt and at the start of your turn."
   }
 ]

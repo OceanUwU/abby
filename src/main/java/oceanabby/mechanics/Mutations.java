@@ -1,4 +1,4 @@
-package oceanabby.helpers;
+package oceanabby.mechanics;
 
 import basemod.AutoAdd;
 import basemod.helpers.CardModifierManager;
@@ -13,7 +13,7 @@ import oceanabby.mutations.AbstractMutation;
 import static oceanabby.AbbyMod.modID;
 import static oceanabby.util.Wiz.*;
 
-public class MutateHelper {
+public class Mutations {
     private static ArrayList<AbstractMutation> mutations;
 
     public static AbstractGameAction action(AbstractCard c) {

@@ -137,7 +137,7 @@
   },
   "${ModID}:HardShell": {
     "NAME": "Hard Shell",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "${ModID}:Adaptation. NL ${ModID}:Throb: Gain !B! Block."
   },
   "${ModID}:Headhunt": {
     "NAME": "Headhunt",
@@ -309,7 +309,7 @@
   },
   "${ModID}:TheSpiral": {
     "NAME": "The Spiral",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "${ModID}:Adapt !M!: *Hard *Shell."
   },
   "${ModID}:Thrash": {
     "NAME": "Thrash",

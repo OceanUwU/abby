@@ -16,14 +16,13 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.function.Consumer;
+import oceanabby.actions.AddAptationAction;
 import oceanabby.characters.TheAberrant;
 import oceanabby.util.CardArtRoller;
 
 import static oceanabby.AbbyMod.makeImagePath;
 import static oceanabby.AbbyMod.modID;
-import static oceanabby.util.Wiz.actionify;
-import static oceanabby.util.Wiz.atb;
-import static oceanabby.util.Wiz.att;
+import static oceanabby.util.Wiz.*;
 
 public abstract class AbstractEasyCard extends CustomCard {
 
@@ -95,6 +94,14 @@ public abstract class AbstractEasyCard extends CustomCard {
             } else
                 needsArtRefresh = true;
         }
+    }
+
+    @Override public void initializeDescription() {
+        super.initializeDescription();
+        if (cardsToPreview != null)
+            for (String keyword : cardsToPreview.keywords)
+                if (!keywords.contains(keyword))
+                    keywords.add(keyword);
     }
 
     @Override
@@ -473,6 +480,11 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     protected void altBlckTop() {
         att(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, secondBlock));
+    }
+
+    protected void addAptation() {
+        if (cardsToPreview instanceof AbstractAdaptation)
+            atb(new AddAptationAction((AbstractAdaptation)cardsToPreview, magicNumber));
     }
 
     public String cardArtCopy() {
