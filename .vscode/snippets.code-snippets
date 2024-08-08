@@ -1,8 +1,8 @@
 {
-	"Card": {
-		"scope": "java",
-		"isFileTemplate": true,
-		"body": [
+    "Card": {
+        "scope": "java",
+        "isFileTemplate": true,
+        "body": [
 "package oceanabby.cards;",
 "",
 "import com.megacrit.cardcrawl.characters.AbstractPlayer;",
@@ -27,35 +27,37 @@
 "    \"NAME\": \"${TM_FILENAME_BASE/(.*)/$1/}\",",
 "    \"DESCRIPTION\": \"\"",
 "  }"
-		]
-	},
-	"Damage": {
-		"scope": "java",
-		"body": ["dmg(m, AbstractGameAction.AttackEffect.${1|BLUNT_LIGHT,BLUNT_HEAVY,SLASH_DIAGONAL,SMASH,SLASH_HEAVY,SLASH_HORIZONTAL,SLASH_VERTICAL,NONE,FIRE,POISON,SHIELD,LIGHTNING|});"]
-	},
-	"Mutation": {
-		"scope": "java",
-		"isFileTemplate": true,
-		"body": [
+        ]
+    },
+    "Damage": {
+        "scope": "java",
+        "body": ["dmg(m, AbstractGameAction.AttackEffect.${1|BLUNT_LIGHT,BLUNT_HEAVY,SLASH_DIAGONAL,SMASH,SLASH_HEAVY,SLASH_HORIZONTAL,SLASH_VERTICAL,NONE,FIRE,POISON,SHIELD,LIGHTNING|});"]
+    },
+    "Mutation": {
+        "scope": "java",
+        "isFileTemplate": true,
+        "body": [
 "package oceanabby.mutations;",
 "",
 "import com.megacrit.cardcrawl.actions.utility.UseCardAction;",
 "import com.megacrit.cardcrawl.cards.AbstractCard;",
 "import com.megacrit.cardcrawl.core.AbstractCreature;",
 "",
+"import static oceanabby.util.Wiz.*;",
+"",
 "public class $TM_FILENAME_BASE extends AbstractMutation {",
-"	public $TM_FILENAME_BASE() {",
-"		super("$TM_FILENAME_BASE", ${1|true|false}, $2);",
-"	}",
+"    public $TM_FILENAME_BASE() {",
+"        super(\"$TM_FILENAME_BASE\", ${1|true,false|}, $2);",
+"    }",
 "    ",
-"	public boolean canMutate(AbstractCard c) {",
-"		return $0;",
-"	}",
+"    public boolean canMutate(AbstractCard c) {",
+"        return $0;",
+"    }",
 "    ",
-"	public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {",
+"    public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {",
 "        ",
-"	}",
+"    }",
 "}"
-		]
-	}
+        ]
+    }
 }

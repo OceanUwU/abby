@@ -1,7 +1,8 @@
 {
     "${ModID}:Mutations": {
         "TEXT_DICT": {
-            "${ModID}:Conjoined": "Duplicate|Plays twice."
+            "${ModID}:Conjoined": "Conjoined|Plays twice.",
+            "${ModID}:Spinning": "Spinning|Grants !P! #yBlock.|block"
         }
     }
 }

@@ -10,7 +10,7 @@ public class Pustule extends AbstractEasyCard {
     public final static String ID = makeID("Pustule");
 
     public Pustule() {
-        super(ID, -1, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.NONE);
+        super(ID, -1, CardType.POWER, CardRarity.SPECIAL, CardTarget.NONE);
         
     }
 

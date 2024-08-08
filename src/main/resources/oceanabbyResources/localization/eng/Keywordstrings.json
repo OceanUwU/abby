@@ -33,5 +33,13 @@
       "mutations"
     ],
     "DESCRIPTION": "Add a random positive small effect to a card."
+  },
+  {
+    "PROPER_NAME": "Scab",
+    "NAMES": [
+      "scab",
+      "scabs"
+    ],
+    "DESCRIPTION": "Mutation is removed after the card is played."
   }
 ]

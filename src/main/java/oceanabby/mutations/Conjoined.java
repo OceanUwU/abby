@@ -4,7 +4,8 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.DuplicationPower;
-import oceanabby.util.Wiz;
+
+import static oceanabby.util.Wiz.*;
 
 public class Conjoined extends AbstractMutation {
     public Conjoined() {
@@ -16,6 +17,6 @@ public class Conjoined extends AbstractMutation {
     }
 
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        new DuplicationPower(Wiz.adp(), 1).onUseCard(card, action);
+        new DuplicationPower(adp(), 1).onUseCard(card, action);
     }
 }
