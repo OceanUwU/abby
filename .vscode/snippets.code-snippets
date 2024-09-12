@@ -59,5 +59,39 @@
 "    }",
 "}"
         ]
+    },
+    "Power": {
+        "scope": "java",
+        "isFileTemplate": true,
+        "body": [
+"package oceanabby.powers;",
+"",
+"import com.megacrit.cardcrawl.core.AbstractCreature;",
+"import com.megacrit.cardcrawl.core.CardCrawlGame;",
+"import com.megacrit.cardcrawl.localization.PowerStrings;",
+"",
+"import static oceanabby.AbbyMod.makeID;",
+"",
+"public class $TM_FILENAME_BASE extends AbstractAbbyPower {",
+"    public static final String POWER_ID = makeID(\"$TM_FILENAME_BASE\");",
+"    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);",
+"",
+"    public $TM_FILENAME_BASE(AbstractCreature owner, int amount) {",
+"        super(POWER_ID, powerStrings.NAME, PowerType.${1|BUFF,DEBUFF|}, ${2|true,false|}, owner, amount);",
+"    }",
+"",
+"    public void updateDescription() {",
+"        description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[1];",
+"    }",
+"},",
+"  \"${ModID${ModID}}:$TM_FILENAME_BASE\": {",
+"    \"NAME\": \"$TM_FILENAME_BASE\",",
+"    \"DESCRIPTIONS\": [",
+"      \"You have #b\",",
+"      \" $TM_FILENAME_BASE.\"",
+"    ]",
+"  }"
+            
+        ]
     }
 }

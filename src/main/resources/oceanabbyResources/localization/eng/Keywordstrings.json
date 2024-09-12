@@ -41,5 +41,12 @@
       "scabs"
     ],
     "DESCRIPTION": "Mutation is removed after the card is played."
+  },
+  {
+    "PROPER_NAME": "Acid",
+    "NAMES": [
+      "acid"
+    ],
+    "DESCRIPTION": "Creatures with Acid lose HP equal to their Acid at the start of their turn, then lose half their Acid."
   }
 ]

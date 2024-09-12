@@ -6,5 +6,12 @@
       " #yStrength and #b",
       " #yDexterity."
     ]
+  },
+  "${ModID}:Acid": {
+    "NAME": "Acid",
+    "DESCRIPTIONS": [
+      "Enemy loses #b",
+      " HP at the start of their turn, then half their Acid."
+    ]
   }
 }

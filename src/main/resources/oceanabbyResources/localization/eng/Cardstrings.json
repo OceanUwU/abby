@@ -257,7 +257,7 @@
   },
   "${ModID}:SalivaSlick": {
     "NAME": "Saliva Slick",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Apply !${ModID}:m2! Weak. NL Apply !M! ${ModID}:Acid."
   },
   "${ModID}:ShackleDrag": {
     "NAME": "Shackle Drag",

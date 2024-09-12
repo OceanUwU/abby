@@ -17,7 +17,7 @@
 
         <ModID>${project.artifactId}</ModID>
 
-        <Steam.path>/home/ocean/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/</Steam.path>
+        <Steam.path>${user.home}/.local/share/Steam/steamapps/</Steam.path>
 
     </properties>
 
