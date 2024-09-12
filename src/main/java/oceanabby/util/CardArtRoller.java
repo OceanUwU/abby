@@ -1,6 +1,5 @@
 package oceanabby.util;
 
-import basemod.BaseMod;
 import basemod.patches.whatmod.WhatMod;
 import oceanabby.AbbyMod;
 import com.badlogic.gdx.graphics.Color;

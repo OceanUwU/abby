@@ -48,5 +48,12 @@
       "acid"
     ],
     "DESCRIPTION": "Creatures with Acid lose HP equal to their Acid at the start of their turn, then lose half their Acid."
+  },
+  {
+    "PROPER_NAME": "Haunted",
+    "NAMES": [
+      "haunted"
+    ],
+    "DESCRIPTION": "If a haunted card is in your hand at the end of turn, it is removed from your deck and you lose X HP."
   }
 ]

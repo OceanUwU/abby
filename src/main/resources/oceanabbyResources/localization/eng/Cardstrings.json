@@ -1,4 +1,15 @@
 {
+  "${ModID}:Card": {
+    "NAME": "",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "${ModID}:Haunted !${ModID}:h!. NL ",
+      " NL Exhaust.",
+      "Ethereal. NL",
+      "Retain. NL",
+      "Innate. NL"
+    ]
+  },
   "${ModID}:Strike": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
@@ -213,7 +224,7 @@
   },
   "${ModID}:Phantasmagoria": {
     "NAME": "Phantasmagoria",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage."
   },
   "${ModID}:PileOn": {
     "NAME": "Pile On",

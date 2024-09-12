@@ -113,7 +113,7 @@ public class Wiz {
     }
 
     public static void att(AbstractGameAction... actions) {
-        for (int i = actions.length; i >= 0; i--)
+        for (int i = actions.length - 1; i >= 0; i--)
             AbstractDungeon.actionManager.addToTop(actions[i]);
     }
 

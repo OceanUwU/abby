@@ -4,10 +4,14 @@ import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PurgeField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -20,12 +24,13 @@ import oceanabby.actions.AddAptationAction;
 import oceanabby.characters.TheAberrant;
 import oceanabby.util.CardArtRoller;
 
+import static oceanabby.AbbyMod.makeID;
 import static oceanabby.AbbyMod.makeImagePath;
 import static oceanabby.AbbyMod.modID;
 import static oceanabby.util.Wiz.*;
 
 public abstract class AbstractEasyCard extends CustomCard {
-
+    protected static String[] sharedStrings = null;
     protected final CardStrings cardStrings;
 
     public int secondMagic;
@@ -48,6 +53,11 @@ public abstract class AbstractEasyCard extends CustomCard {
     public boolean upgradedSecondBlock;
     public boolean isSecondBlockModified;
 
+    public int haunted = -1;
+    public int baseHaunted = -1;
+    public boolean upgradedHaunted;
+    public boolean isHauntedModified;
+
     private boolean upgradesDamage = false;
     private int damageUpgrade;
     private boolean upgradesBlock = false;
@@ -62,6 +72,8 @@ public abstract class AbstractEasyCard extends CustomCard {
     private int secondDamageUpgrade;
     private boolean upgradesSecondBlock = false;
     private int secondBlockUpgrade;
+    private boolean upgradesHaunted = false;
+    private int hauntedUpgrade;
     private boolean upgradesCost = false;
     private int costUpgrade;
     private boolean upgradesExhaust = false;
@@ -74,6 +86,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     private boolean upgradedRetain;
 
     private boolean needsArtRefresh = false;
+    private boolean needsDescRefresh = true;
 
     public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, TheAberrant.Enums.ABERRANT_COLOUR);
@@ -83,6 +96,8 @@ public abstract class AbstractEasyCard extends CustomCard {
         super(cardID, "", getCardTextureString(cardID.replace(modID + ":", ""), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
+        if (sharedStrings == null)
+            sharedStrings = CardCrawlGame.languagePack.getCardStrings(makeID("Card")).EXTENDED_DESCRIPTION;
         rawDescription = cardStrings.DESCRIPTION;
         name = originalName = cardStrings.NAME;
         initializeTitle();
@@ -97,6 +112,19 @@ public abstract class AbstractEasyCard extends CustomCard {
     }
 
     @Override public void initializeDescription() {
+        if (cardStrings != null) {
+            rawDescription = cardStrings.DESCRIPTION;
+            if (haunted >= 0)
+                rawDescription = sharedStrings[0] + rawDescription;
+            if (isEthereal)
+                rawDescription = sharedStrings[2] + rawDescription;
+            if (isInnate)
+                rawDescription = sharedStrings[4] + rawDescription;
+            if (selfRetain)
+                rawDescription = sharedStrings[3] + rawDescription;
+            if (exhaust)
+                rawDescription += sharedStrings[1];
+        }
         super.initializeDescription();
         if (cardsToPreview != null)
             for (String keyword : cardsToPreview.keywords)
@@ -201,6 +229,8 @@ public abstract class AbstractEasyCard extends CustomCard {
         isSecondDamageModified = false;
         secondBlock = baseSecondBlock;
         isSecondBlockModified = false;
+        haunted = baseHaunted;
+        isHauntedModified = false;
     }
 
     public void displayUpgrades() {
@@ -247,10 +277,17 @@ public abstract class AbstractEasyCard extends CustomCard {
         upgradedSecondBlock = true;
     }
 
+    protected void upgradeHaunted(int amount) {
+        baseHaunted += amount;
+        haunted = baseHaunted;
+        upgradedHaunted = true;
+    }
+
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
             upp();
+            initializeDescription();
         }
     }
 
@@ -344,6 +381,16 @@ public abstract class AbstractEasyCard extends CustomCard {
         isEthereal = exhausts;
     }
 
+    protected void setHaunted(int haunted, int up) {
+        setHaunted(haunted);
+        upgradesHaunted = true;
+        hauntedUpgrade = up;
+    }
+
+    protected void setHaunted(int haunted) {
+        baseHaunted = this.haunted = haunted;
+    }
+
     protected void setInnate(boolean innate, boolean innateWhenUpgraded) {
         setInnate(innate);
         upgradesInnate = true;
@@ -390,6 +437,8 @@ public abstract class AbstractEasyCard extends CustomCard {
             exhaust = upgradedExhaust;
         if (upgradesEthereal)
             isEthereal = upgradedEthereal;
+        if (upgradesHaunted)
+            upgradeHaunted(hauntedUpgrade);
         if (upgradesInnate)
             isInnate = upgradedInnate;
         if (upgradesRetain)
@@ -398,6 +447,10 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     public void update() {
         super.update();
+        if (needsDescRefresh) {
+            initializeDescription();
+            needsDescRefresh = false;
+        }
         if (needsArtRefresh)
             CardArtRoller.computeCard(this);
     }
@@ -409,6 +462,21 @@ public abstract class AbstractEasyCard extends CustomCard {
         c.baseSecondMagic = c.secondMagic = baseSecondMagic;
         c.baseThirdMagic = c.thirdMagic = baseThirdMagic;
         return c;
+    }
+
+    @Override
+    public void triggerOnEndOfPlayerTurn() {
+        super.triggerOnEndOfPlayerTurn();
+        if (haunted >= 0)
+            att(actionify(() -> PurgeField.purge.set(this, true)),
+                new ExhaustSpecificCardAction(this, adp().hand),
+                actionify(() -> {
+                    adp().exhaustPile.removeCard(this);
+                    AbstractCard c = StSLib.getMasterDeckEquivalent(this);
+                    if (c != null)
+                        AbstractDungeon.player.masterDeck.removeCard(c);
+                }),
+                new LoseHPAction(adp(), adp(), haunted));
     }
 
     // These shortcuts are specifically for cards. All other shortcuts that aren't specifically for cards can go in Wiz.

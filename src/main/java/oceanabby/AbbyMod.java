@@ -27,8 +27,6 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import oceanabby.cards.AbstractAdaptation;
 import oceanabby.cards.AbstractEasyCard;
 import oceanabby.cards.cardvars.AbstractEasyDynamicVariable;
-import oceanabby.cards.cardvars.SecondDamage;
-import oceanabby.cards.cardvars.SecondMagicNumber;
 import oceanabby.characters.TheAberrant;
 import oceanabby.potions.AbstractEasyPotion;
 import oceanabby.relics.AbstractEasyRelic;
