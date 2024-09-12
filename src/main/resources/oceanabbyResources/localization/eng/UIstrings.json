@@ -2,7 +2,8 @@
     "${ModID}:Mutations": {
         "TEXT_DICT": {
             "${ModID}:Conjoined": "Conjoined|Plays twice.",
-            "${ModID}:Spinning": "Spinning|Grants !P! #yBlock.|block"
+            "${ModID}:Spinning": "Spinning|Grants !P! #yBlock.|block",
+            "${ModID}:Bulky": "Bulky|Grants !P! #yStrength. #yScabs.|strength,${ModID}:scabs"
         }
     }
 }

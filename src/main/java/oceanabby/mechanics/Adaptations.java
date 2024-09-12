@@ -44,6 +44,7 @@ public class Adaptations {
     }
 
     public static void addAptation(AbstractAdaptation a) {
+        a.drawScale = 0.001f;
         adaptations.add(a);
         a.onThrob();
     }

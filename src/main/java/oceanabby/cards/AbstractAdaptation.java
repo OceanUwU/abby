@@ -35,7 +35,6 @@ public abstract class AbstractAdaptation extends AbstractEasyCard {
     public AbstractAdaptation(final String cardID) {
         super(cardID, -2, CardType.POWER, CardRarity.SPECIAL, CardTarget.NONE);
         targetDrawScale = unhoveredScale;
-        drawScale = 0f;
     }
 
     @Override

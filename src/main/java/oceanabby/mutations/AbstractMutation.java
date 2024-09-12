@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import static oceanabby.AbbyMod.makeID;
+import static oceanabby.util.Wiz.actB;
 
 public abstract class AbstractMutation extends AbstractCardModifier {
     private static final Map<String, String> allStrings = CardCrawlGame.languagePack.getUIString(makeID("Mutations")).TEXT_DICT;
@@ -63,8 +64,8 @@ public abstract class AbstractMutation extends AbstractCardModifier {
         }
     }
 
-    protected void scab() {
-        addToBot(null);
+    protected void scab(AbstractCard from) {
+        actB(() -> CardModifierManager.removeSpecificModifier(from, this, true));
     }
 
     @SpirePatch(clz=AbstractCard.class, method="initializeDescription")
