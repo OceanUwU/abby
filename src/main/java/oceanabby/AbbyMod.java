@@ -5,6 +5,7 @@ import basemod.BaseMod;
 import basemod.abstracts.DynamicVariable;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DynamicTextBlocks;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
@@ -28,6 +29,7 @@ import oceanabby.cards.AbstractAdaptation;
 import oceanabby.cards.AbstractAbbyCard;
 import oceanabby.cards.cardvars.AbstractEasyDynamicVariable;
 import oceanabby.characters.TheAberrant;
+import oceanabby.mechanics.Evo;
 import oceanabby.potions.AbstractAbbyPotion;
 import oceanabby.relics.AbstractAbbyRelic;
 import oceanabby.util.ProAudio;
@@ -166,6 +168,7 @@ public class AbbyMod implements
                 if (info.seen)
                    UnlockTracker.unlockCard(card.cardID);
              });
+        DynamicTextBlocks.registerCustomCheck(makeID("EVO"), c -> Evo.Field.evod.get(c) ? 1 : 0);
     }
 
     @Override

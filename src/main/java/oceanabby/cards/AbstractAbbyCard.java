@@ -58,6 +58,8 @@ public abstract class AbstractAbbyCard extends CustomCard {
     public boolean upgradedHaunted;
     public boolean isHauntedModified;
 
+    public boolean evod = false;
+
     private boolean upgradesDamage = false;
     private int damageUpgrade;
     private boolean upgradesBlock = false;
@@ -113,7 +115,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
 
     @Override public void initializeDescription() {
         if (cardStrings != null) {
-            rawDescription = cardStrings.DESCRIPTION;
+            rawDescription = "{@@}" + cardStrings.DESCRIPTION;
             if (haunted >= 0)
                 rawDescription = sharedStrings[0] + rawDescription;
             if (isEthereal)
@@ -298,6 +300,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setDamage(base);
         upgradesDamage = true;
         damageUpgrade = up;
+        if (upgraded) upgradeDamage(damageUpgrade);
     }
 
     protected void setDamage(int base) {
@@ -308,6 +311,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setBlock(base);
         upgradesBlock = true;
         blockUpgrade = up;
+        if (upgraded) upgradeBlock(blockUpgrade);
     }
 
     protected void setBlock(int base) {
@@ -318,6 +322,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setMagic(base);
         upgradesMagic = true;
         magicUpgrade = up;
+        if (upgraded) upgradeMagicNumber(magicUpgrade);
     }
 
     protected void setMagic(int base) {
@@ -328,6 +333,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setSecondMagic(base);
         upgradesSecondMagic = true;
         secondMagicUpgrade = up;
+        if (upgraded) upgradeSecondMagic(secondMagicUpgrade);
     }
 
     protected void setSecondMagic(int base) {
@@ -338,6 +344,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setThirdMagic(base);
         upgradesThirdMagic = true;
         thirdMagicUpgrade = up;
+        if (upgraded) upgradeThirdMagic(thirdMagicUpgrade);
     }
 
     protected void setThirdMagic(int base) {
@@ -348,6 +355,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setSecondDamage(base);
         upgradesSecondDamage = true;
         secondDamageUpgrade = up;
+        if (upgraded) upgradeSecondDamage(secondDamageUpgrade);
     }
 
     protected void setSecondDamage(int base) {
@@ -358,6 +366,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setSecondDamage(base);
         upgradesSecondBlock = true;
         secondBlockUpgrade = up;
+        if (upgraded) upgradeSecondBlock(secondBlockUpgrade);
     }
 
     protected void setSecondBlock(int base) {
@@ -368,6 +377,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setExhaust(exhausts);
         upgradesExhaust = true;
         upgradedExhaust = exhaustsWhenUpgraded;
+        if (upgraded) setExhaust(exhaustsWhenUpgraded);
     }
 
     protected void setExhaust(boolean exhausts) {
@@ -378,6 +388,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setEthereal(ethereal);
         upgradesEthereal = true;
         upgradedEthereal = etherealWhenUpgraded;
+        if (upgraded) setEthereal(etherealWhenUpgraded);
     }
 
     protected void setEthereal(boolean exhausts) {
@@ -388,6 +399,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setHaunted(haunted);
         upgradesHaunted = true;
         hauntedUpgrade = up;
+        if (upgraded) upgradeHaunted(hauntedUpgrade);
     }
 
     protected void setHaunted(int haunted) {
@@ -398,6 +410,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setInnate(innate);
         upgradesInnate = true;
         upgradedInnate = innateWhenUpgraded;
+        if (upgraded) setInnate(innateWhenUpgraded);
     }
 
     protected void setInnate(boolean innate) {
@@ -408,6 +421,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setRetain(retains);
         upgradesRetain = true;
         upgradedRetain = retainsWhenUpgraded;
+        if (upgraded) setRetain(retainsWhenUpgraded);
     }
 
     protected void setRetain(boolean retains) {
@@ -417,6 +431,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
     protected void setUpgradedCost(int newCost) {
         upgradesCost = true;
         costUpgrade = newCost;
+        if (upgraded) upgradeBaseCost(costUpgrade);
     }
 
     public void upp() {

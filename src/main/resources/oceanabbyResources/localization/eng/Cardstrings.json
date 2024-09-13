@@ -10,9 +10,16 @@
       "Innate. NL"
     ]
   },
+  "${ModID}:Evo": {
+    "NAME": "",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      " NL Draw 1 card."
+    ]
+  },
   "${ModID}:Strike": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|1= NL Gain !B! Block.}"
   },
   "${ModID}:Defend": {
     "NAME": "Defend",
@@ -128,7 +135,7 @@
   },
   "${ModID}:ForcedEvolution": {
     "NAME": "Forced Evolution",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Draw !M! cards. NL {!${ModID}:EVO!|1= Upgrade and} ${ModID}:Evo them."
   },
   "${ModID}:GetOut": {
     "NAME": "Get Out",

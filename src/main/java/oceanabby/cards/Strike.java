@@ -19,5 +19,14 @@ public class Strike extends AbstractAbbyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
+        if (evod) blck();
+    }
+
+    public void evo() {
+        setBlock(3);
+    }
+
+    public void devo() {
+        setBlock(-1);
     }
 }

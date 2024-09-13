@@ -55,5 +55,19 @@
       "haunted"
     ],
     "DESCRIPTION": "If a haunted card is in your hand at the end of turn, it is removed from your deck and you lose X HP."
+  },
+  {
+    "PROPER_NAME": "Evo",
+    "NAMES": [
+      "evo"
+    ],
+    "DESCRIPTION": "An extra upgrade to a card. Each card has a unique Evo."
+  },
+  {
+    "PROPER_NAME": "Devo",
+    "NAMES": [
+      "devo"
+    ],
+    "DESCRIPTION": "Remove a card's #yEvo."
   }
 ]
