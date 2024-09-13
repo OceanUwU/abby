@@ -8,7 +8,7 @@ import oceanabby.mechanics.Mutations;
 import static oceanabby.AbbyMod.makeID;
 import static oceanabby.util.Wiz.*;
 
-public class WrithingTentacles extends AbstractEasyCard {
+public class WrithingTentacles extends AbstractAbbyCard {
     public final static String ID = makeID("WrithingTentacles");
 
     public WrithingTentacles() {

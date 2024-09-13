@@ -4,7 +4,7 @@ import static oceanabby.AbbyMod.makeID;
 
 import oceanabby.characters.TheAberrant;
 
-public class EldritchHieroglyphs extends AbstractEasyRelic {
+public class EldritchHieroglyphs extends AbstractAbbyRelic {
     public static final String ID = makeID("EldritchHieroglyphs");
 
     public EldritchHieroglyphs() {

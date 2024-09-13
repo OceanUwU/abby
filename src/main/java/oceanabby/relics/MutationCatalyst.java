@@ -4,7 +4,7 @@ import static oceanabby.AbbyMod.makeID;
 
 import oceanabby.characters.TheAberrant;
 
-public class MutationCatalyst extends AbstractEasyRelic {
+public class MutationCatalyst extends AbstractAbbyRelic {
     public static final String ID = makeID("MutationCatalyst");
 
     public MutationCatalyst() {

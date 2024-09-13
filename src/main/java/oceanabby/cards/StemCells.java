@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static oceanabby.AbbyMod.makeID;
 import static oceanabby.util.Wiz.*;
 
-public class StemCells extends AbstractEasyCard {
+public class StemCells extends AbstractAbbyCard {
     public final static String ID = makeID("StemCells");
 
     public StemCells() {

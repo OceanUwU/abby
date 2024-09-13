@@ -21,7 +21,7 @@ import oceanabby.mechanics.Adaptations;
 
 import static oceanabby.util.Wiz.*;
 
-public abstract class AbstractAdaptation extends AbstractEasyCard {
+public abstract class AbstractAdaptation extends AbstractAbbyCard {
     private static final float unhoveredScale = 0.2f;
     private static final float hoveredScale = 0.75f;
     public float fontScale = 0.7f;

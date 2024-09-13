@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static oceanabby.AbbyMod.makeID;
 
-public class Strike extends AbstractEasyCard {
+public class Strike extends AbstractAbbyCard {
     public final static String ID = makeID("Strike");
     // intellij stuff attack, enemy, basic, 6, 3,  , , , 
 

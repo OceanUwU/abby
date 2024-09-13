@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static oceanabby.AbbyMod.makeID;
 import static oceanabby.util.Wiz.*;
 
-public class ESP extends AbstractEasyCard {
+public class ESP extends AbstractAbbyCard {
     public final static String ID = makeID("ESP");
 
     public ESP() {

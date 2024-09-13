@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import oceanabby.characters.TheAberrant;
 import org.apache.commons.codec.binary.StringUtils;
 
-public class PerfectedCatalyst extends AbstractEasyRelic {
+public class PerfectedCatalyst extends AbstractAbbyRelic {
     public static final String ID = makeID("PerfectedCatalyst");
 
     public PerfectedCatalyst() {

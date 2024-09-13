@@ -8,7 +8,7 @@ import oceanabby.powers.Acid;
 import static oceanabby.AbbyMod.makeID;
 import static oceanabby.util.Wiz.*;
 
-public class SalivaSlick extends AbstractEasyCard {
+public class SalivaSlick extends AbstractAbbyCard {
     public final static String ID = makeID("SalivaSlick");
 
     public SalivaSlick() {

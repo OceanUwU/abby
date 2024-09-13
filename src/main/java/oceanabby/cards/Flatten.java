@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static oceanabby.AbbyMod.makeID;
 import static oceanabby.util.Wiz.*;
 
-public class Flatten extends AbstractEasyCard {
+public class Flatten extends AbstractAbbyCard {
     public final static String ID = makeID("Flatten");
 
     public Flatten() {

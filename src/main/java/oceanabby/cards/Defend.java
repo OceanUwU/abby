@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static oceanabby.AbbyMod.makeID;
 
-public class Defend extends AbstractEasyCard {
+public class Defend extends AbstractAbbyCard {
     public final static String ID = makeID("Defend");
     // intellij stuff skill, self, basic, , ,  5, 3, , 
 

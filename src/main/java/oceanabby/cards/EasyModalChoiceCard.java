@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static oceanabby.AbbyMod.makeID;
 
 @AutoAdd.Ignore
-public class EasyModalChoiceCard extends AbstractEasyCard {
+public class EasyModalChoiceCard extends AbstractAbbyCard {
 
     private Runnable onUseOrChosen;
     private String passedName;

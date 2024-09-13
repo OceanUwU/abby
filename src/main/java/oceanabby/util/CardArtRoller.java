@@ -22,7 +22,7 @@ import com.megacrit.cardcrawl.cards.red.Defend_Red;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.random.Random;
-import oceanabby.cards.AbstractEasyCard;
+import oceanabby.cards.AbstractAbbyCard;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -184,7 +184,7 @@ public class CardArtRoller {
             CardLibrary.LibraryType.CURSE
     };
 
-    public static void computeCard(AbstractEasyCard c) {
+    public static void computeCard(AbstractAbbyCard c) {
         c.portrait = doneCards.computeIfAbsent(c.cardID, key -> {
             ReskinInfo r = infos.computeIfAbsent(key, key2 -> {
                 Random rng = new Random((long) c.cardID.hashCode());

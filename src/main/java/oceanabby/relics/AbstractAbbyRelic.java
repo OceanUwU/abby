@@ -8,14 +8,14 @@ import oceanabby.util.TexLoader;
 import static oceanabby.AbbyMod.makeRelicPath;
 import static oceanabby.AbbyMod.modID;
 
-public abstract class AbstractEasyRelic extends CustomRelic {
+public abstract class AbstractAbbyRelic extends CustomRelic {
     public AbstractCard.CardColor color;
 
-    public AbstractEasyRelic(String setId, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx) {
+    public AbstractAbbyRelic(String setId, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx) {
         this(setId, tier, sfx, null);
     }
 
-    public AbstractEasyRelic(String setId, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx, AbstractCard.CardColor color) {
+    public AbstractAbbyRelic(String setId, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound sfx, AbstractCard.CardColor color) {
         super(setId, TexLoader.getTexture(makeRelicPath(setId.replace(modID + ":", "") + ".png")), tier, sfx);
         outlineImg = TexLoader.getTexture(makeRelicPath(setId.replace(modID + ":", "") + "Outline.png"));
         this.color = color;

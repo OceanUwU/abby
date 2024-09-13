@@ -16,7 +16,8 @@ import com.megacrit.cardcrawl.helpers.controller.CInputActionSet;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
-import oceanabby.cards.AbstractEasyCard;
+import oceanabby.cards.AbstractAbbyCard;
+import oceanabby.mechanics.Evo;
 
 import static oceanabby.AbbyMod.makeID;
 
@@ -46,8 +47,7 @@ public class ViewEvoButtonPatch {
                 if (copy[0] == null)
                     copy[0] = ((AbstractCard)ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card")).makeStatEquivalentCopy();
                 AbstractCard card = ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card");
-                card.baseBlock += 10;
-                card.block = card.baseBlock;
+                Evo.evo(card);
             }
         }
     }
@@ -56,7 +56,7 @@ public class ViewEvoButtonPatch {
     public static class UpdatePatch {
         public static void Postfix(SingleCardViewPopup __instance) {
             AbstractCard card = ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card");
-            if (card instanceof AbstractEasyCard) {
+            if (card instanceof AbstractAbbyCard) {
                 hb.update();
                 if (hb.hovered && InputHelper.justClickedLeft)
                     hb.clickStarted = true; 
@@ -73,7 +73,7 @@ public class ViewEvoButtonPatch {
     public static class RenderPatch {
         public static void Prefix(SingleCardViewPopup __instance, SpriteBatch sb) {
             AbstractCard card = ReflectionHacks.getPrivate(__instance, SingleCardViewPopup.class, "card");
-            if (card instanceof AbstractEasyCard) {
+            if (card instanceof AbstractAbbyCard) {
                 sb.setColor(Color.WHITE);
                 sb.draw(ImageMaster.CHECKBOX, hb.cX - 80.0F * Settings.scale - 32.0F, hb.cY - 32.0F, 32.0F, 32.0F, 64.0F, 64.0F, Settings.scale, Settings.scale, 0.0F, 0, 0, 64, 64, false, false);
                 FontHelper.renderFont(sb, FontHelper.cardTitleFont, uiStrings.TEXT[0], hb.cX - 45.0F * Settings.scale, hb.cY + 10.0F * Settings.scale, hb.hovered ? Settings.BLUE_TEXT_COLOR : Settings.GOLD_COLOR);

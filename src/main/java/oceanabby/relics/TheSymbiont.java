@@ -4,7 +4,7 @@ import static oceanabby.AbbyMod.makeID;
 
 import oceanabby.characters.TheAberrant;
 
-public class TheSymbiont extends AbstractEasyRelic {
+public class TheSymbiont extends AbstractAbbyRelic {
     public static final String ID = makeID("TheSymbiont");
 
     public TheSymbiont() {

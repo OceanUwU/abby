@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import static oceanabby.AbbyMod.makeID;
 import static oceanabby.util.Wiz.*;
 
-public class DemoPotion extends AbstractEasyPotion {
+public class DemoPotion extends AbstractAbbyPotion {
     public static String ID = makeID("DemoPotion");
 
     public DemoPotion() {

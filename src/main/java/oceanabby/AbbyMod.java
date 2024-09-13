@@ -25,11 +25,11 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import oceanabby.cards.AbstractAdaptation;
-import oceanabby.cards.AbstractEasyCard;
+import oceanabby.cards.AbstractAbbyCard;
 import oceanabby.cards.cardvars.AbstractEasyDynamicVariable;
 import oceanabby.characters.TheAberrant;
-import oceanabby.potions.AbstractEasyPotion;
-import oceanabby.relics.AbstractEasyRelic;
+import oceanabby.potions.AbstractAbbyPotion;
+import oceanabby.relics.AbstractAbbyRelic;
 import oceanabby.util.ProAudio;
 import org.clapper.util.classutil.NotClassFilter;
 import java.nio.charset.StandardCharsets;
@@ -125,8 +125,8 @@ public class AbbyMod implements
             CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheAberrant.Enums.THE_ABERRANT);
         
         new AutoAdd(modID)
-            .packageFilter(AbstractEasyPotion.class)
-            .any(AbstractEasyPotion.class, (info, potion) -> {
+            .packageFilter(AbstractAbbyPotion.class)
+            .any(AbstractAbbyPotion.class, (info, potion) -> {
                 if (potion.pool == null)
                     BaseMod.addPotion(potion.getClass(), potion.liquidColor, potion.hybridColor, potion.spotsColor, potion.ID);
                 else
@@ -137,8 +137,8 @@ public class AbbyMod implements
     @Override
     public void receiveEditRelics() {
         new AutoAdd(modID)
-            .packageFilter(AbstractEasyRelic.class)
-            .any(AbstractEasyRelic.class, (info, relic) -> {
+            .packageFilter(AbstractAbbyRelic.class)
+            .any(AbstractAbbyRelic.class, (info, relic) -> {
                 if (relic.color == null) {
                     BaseMod.addRelic(relic, RelicType.SHARED);
                 } else {
@@ -157,7 +157,7 @@ public class AbbyMod implements
             .any(DynamicVariable.class, (info, var) -> 
                 BaseMod.addDynamicVariable(var));
         new AutoAdd(modID)
-            .packageFilter(AbstractEasyCard.class)
+            .packageFilter(AbstractAbbyCard.class)
             .setDefaultSeen(true)
             .any(AbstractCard.class, (info, card) -> {
                 if (card instanceof AbstractAdaptation)

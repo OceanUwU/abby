@@ -29,7 +29,7 @@ import static oceanabby.AbbyMod.makeImagePath;
 import static oceanabby.AbbyMod.modID;
 import static oceanabby.util.Wiz.*;
 
-public abstract class AbstractEasyCard extends CustomCard {
+public abstract class AbstractAbbyCard extends CustomCard {
     protected static String[] sharedStrings = null;
     protected final CardStrings cardStrings;
 
@@ -88,11 +88,11 @@ public abstract class AbstractEasyCard extends CustomCard {
     private boolean needsArtRefresh = false;
     private boolean needsDescRefresh = true;
 
-    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
+    public AbstractAbbyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
         this(cardID, cost, type, rarity, target, TheAberrant.Enums.ABERRANT_COLOUR);
     }
 
-    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
+    public AbstractAbbyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
         super(cardID, "", getCardTextureString(cardID.replace(modID + ":", ""), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
@@ -291,6 +291,9 @@ public abstract class AbstractEasyCard extends CustomCard {
         }
     }
 
+    public void evo() {}
+    public void devo() {}
+
     protected void setDamage(int base, int up) {
         setDamage(base);
         upgradesDamage = true;
@@ -456,7 +459,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     }
 
     public AbstractCard makeStatEquivalentCopy() {
-        AbstractEasyCard c = (AbstractEasyCard)super.makeStatEquivalentCopy();
+        AbstractAbbyCard c = (AbstractAbbyCard)super.makeStatEquivalentCopy();
         c.baseSecondDamage = c.secondDamage = baseSecondDamage;
         c.baseSecondBlock = c.secondBlock = baseSecondBlock;
         c.baseSecondMagic = c.secondMagic = baseSecondMagic;

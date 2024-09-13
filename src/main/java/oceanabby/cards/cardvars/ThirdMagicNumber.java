@@ -1,6 +1,6 @@
 package oceanabby.cards.cardvars;
 
-import oceanabby.cards.AbstractEasyCard;
+import oceanabby.cards.AbstractAbbyCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import static oceanabby.AbbyMod.makeID;
@@ -14,38 +14,38 @@ public class ThirdMagicNumber extends AbstractEasyDynamicVariable {
 
     @Override
     public boolean isModified(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).isThirdMagicModified;
+        if (card instanceof AbstractAbbyCard) {
+            return ((AbstractAbbyCard) card).isThirdMagicModified;
         }
         return false;
     }
 
     @Override
     public int value(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).thirdMagic;
+        if (card instanceof AbstractAbbyCard) {
+            return ((AbstractAbbyCard) card).thirdMagic;
         }
         return -1;
     }
 
     public void setIsModified(AbstractCard card, boolean v) {
-        if (card instanceof AbstractEasyCard) {
-            ((AbstractEasyCard) card).isThirdMagicModified = v;
+        if (card instanceof AbstractAbbyCard) {
+            ((AbstractAbbyCard) card).isThirdMagicModified = v;
         }
     }
 
     @Override
     public int baseValue(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).baseThirdMagic;
+        if (card instanceof AbstractAbbyCard) {
+            return ((AbstractAbbyCard) card).baseThirdMagic;
         }
         return -1;
     }
 
     @Override
     public boolean upgraded(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).upgradedThirdMagic;
+        if (card instanceof AbstractAbbyCard) {
+            return ((AbstractAbbyCard) card).upgradedThirdMagic;
         }
         return false;
     }
