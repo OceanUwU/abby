@@ -38,7 +38,7 @@
     "NAME": "Lab Notes",
     "FLAVOR": "You recognize this handwriting.",
     "DESCRIPTIONS": [
-      ""
+      "Upon pickup, #y${ModID}:Evo 2 random cards."
     ]
   },
   "${ModID}:EmergencyGuide": {

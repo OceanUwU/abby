@@ -14,12 +14,15 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
+import java.util.ArrayList;
 import oceanabby.cards.AbstractAbbyCard;
 import oceanabby.util.TexLoader;
 
 import static oceanabby.AbbyMod.makeID;
 import static oceanabby.AbbyMod.makeImagePath;
 import static oceanabby.util.Wiz.*;
+
+import basemod.abstracts.CustomSavable;
 
 public class Evo {
     protected static String[] sharedStrings = null;
@@ -64,6 +67,29 @@ public class Evo {
         public static SpireField<Boolean> evod = new SpireField<>(() -> false);
     }
 
+    public static CustomSavable<ArrayList<Boolean>> evoSavable = new CustomSavable<ArrayList<Boolean>>() {
+        public void onLoad(ArrayList<Boolean> allEvod) {
+            if (allEvod == null) return;
+            int i = 0;
+            System.out.println(allEvod);
+            for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+                System.out.println(i);
+                System.out.println(allEvod.get(i));
+                if (i > allEvod.size())
+                    return;
+                if (allEvod.get(i++))
+                    evo(c);
+            }
+        }
+
+        public ArrayList<Boolean> onSave() {
+            ArrayList<Boolean> allEvod = new ArrayList<>();
+            for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
+                allEvod.add(Field.evod.get(c));
+            return allEvod;
+        }
+    };
+
     @SpirePatch(clz=AbstractCard.class, method="renderCard")
     public static class RenderIcon {
         public static void Prefix(AbstractCard __instance) {
@@ -97,6 +123,15 @@ public class Evo {
         public static void Insert(AbstractPlayer __instance, AbstractCard c) {
             if (Field.evod.get(c) && !(c instanceof AbstractAbbyCard))
                 atb(new DrawCardAction(1));
+        }
+    }
+
+    @SpirePatch(clz=AbstractCard.class, method="makeStatEquivalentCopy")
+    public static class CopyEvo {
+        @SpireInsertPatch(rloc=2, localvars = { "card" })
+        public static void Insert(AbstractCard __instance, AbstractCard card) {
+            if (Field.evod.get(__instance))
+                evo(card);
         }
     }
 }

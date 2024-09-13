@@ -44,7 +44,8 @@ public class AbbyMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
-        AddAudioSubscriber {
+        AddAudioSubscriber,
+        PostInitializeSubscriber {
 
     public static final String modID = "oceanabby";
 
@@ -168,7 +169,7 @@ public class AbbyMod implements
                 if (info.seen)
                    UnlockTracker.unlockCard(card.cardID);
              });
-        DynamicTextBlocks.registerCustomCheck(makeID("EVO"), c -> Evo.Field.evod.get(c) ? 1 : 0);
+        DynamicTextBlocks.registerCustomCheck(makeID("EVO"), c -> Evo.Field.evod.get(c) ? (c.upgraded ? 2 : 1) : (c.upgraded ? -1 : 0));
     }
 
     @Override
@@ -200,5 +201,10 @@ public class AbbyMod implements
                 BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
+    }
+
+    @Override
+    public void receivePostInitialize() {
+        BaseMod.addSaveField(makeID("evod"), Evo.evoSavable);
     }
 }
