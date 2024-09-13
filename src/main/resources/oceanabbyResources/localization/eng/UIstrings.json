@@ -5,5 +5,10 @@
             "${ModID}:Spinning": "Spinning|Grants !P! #yBlock.|block",
             "${ModID}:Bulky": "Bulky|Grants !P! #yStrength. #yScabs.|strength,${ModID}:scabs"
         }
+    },
+    "${ModID}:ViewEvoButton": {
+        "TEXT": [
+            "View Evo"
+        ]
     }
 }
