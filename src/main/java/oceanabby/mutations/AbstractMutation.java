@@ -3,17 +3,26 @@ package oceanabby.mutations;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import basemod.helpers.TooltipInfo;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.mod.stslib.patches.ExtraIconsPatch.ExtraIconsField;
+import com.evacipated.cardcrawl.mod.stslib.util.extraicons.ExtraIcons;
+import com.evacipated.cardcrawl.mod.stslib.util.extraicons.IconPayload;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import oceanabby.mechanics.Mutations;
+import oceanabby.util.TexLoader;
 
 import static oceanabby.AbbyMod.makeID;
+import static oceanabby.AbbyMod.makeImagePath;
 import static oceanabby.util.Wiz.actB;
 
 public abstract class AbstractMutation extends AbstractCardModifier {
+    private static Texture icon = TexLoader.getTexture(makeImagePath("ui/mutation.png"));
     private static final Map<String, String> allStrings = CardCrawlGame.languagePack.getUIString(makeID("Mutations")).TEXT_DICT;
     public String id;
     protected String[] strings;
@@ -39,6 +48,21 @@ public abstract class AbstractMutation extends AbstractCardModifier {
 
     protected int getPower() {
         return -1;
+    }
+
+    @Override
+    public void onRender(AbstractCard c, SpriteBatch sb) {
+        ArrayList<IconPayload> icons = ExtraIconsField.extraIcons.get(c);
+        if (icons.stream().anyMatch(i -> i.getTexture() == icon))
+            return;
+        long numMods = CardModifierManager.modifiers(c).stream().filter(m -> m instanceof AbstractMutation).count();
+        icons.add(new IconPayload(ExtraIcons.icon(icon).text(numMods > 1 ? String.valueOf(numMods) : null)));
+        System.out.println(ExtraIconsField.extraIcons.get(c).get(0).getText());
+    }
+
+    @Override
+    public void onSingleCardViewRender(AbstractCard c, SpriteBatch sb) {
+        onRender(c, sb);
     }
 
     @Override
