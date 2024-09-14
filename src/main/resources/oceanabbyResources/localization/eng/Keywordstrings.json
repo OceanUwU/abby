@@ -30,7 +30,9 @@
     "NAMES": [
       "mutate",
       "mutation",
-      "mutations"
+      "mutations",
+      "mutated",
+      "mutates"
     ],
     "DESCRIPTION": "Add a random positive small effect to a card."
   },

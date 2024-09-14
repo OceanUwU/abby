@@ -3,7 +3,24 @@
         "TEXT_DICT": {
             "${ModID}:Conjoined": "Conjoined|Plays twice.",
             "${ModID}:Spinning": "Spinning|Grants #b!P! #yBlock.|block",
-            "${ModID}:Bulky": "Bulky|Grants #b!P! #yStrength. #yScabs.|strength,${ModID}:scabs"
+            "${ModID}:Bulky": "Bulky|Grants #b!P! #yStrength. #yScabs.|strength,${ModID}:scabs",
+            "${ModID}:Relaxed": "Relaxed|Makes a random card in your hand cost #b0 this combat.",
+            "${ModID}:Grafted": "Grafted|Shuffles a copy of this card without #yGrafted into your draw pile.",
+            "${ModID}:Oozing": "Oozy|Makes a random enemy lose #b!P! HP.",
+            "${ModID}:Deft": "Deft|Grants #b!P! #yDexterity. #yScabs.|dexterity,${ModID}:scabs",
+            "${ModID}:Edible": "Edible|Grants [E] .|energy",
+            "${ModID}:Neurotic": "Neurotic|Allows you to choose #b1 of #b!P! #yMutated cards of any colour to add to your hand. #yScabs.|${ModID}:mutated,${ModID}:scabs",
+            "${ModID}:Toxic": "Toxic|Applies #b!P! #yAcid to a random enemy.|${ModID}:acid",
+            "${ModID}:Retain": "Retain|Not discarded at the end of your turn.",
+            "${ModID}:Horrific": "Horrific|Applies #b!P! #yWeak to ALL enemies.|weak",
+            "${ModID}:Grotesque": "Grotesque|Applies #b!P! #yVulnerable to ALL enemies.|vulnerable",
+            "${ModID}:Tumorous": "Tumorous|#yMutates this card.|${ModID}:mutates",
+            "${ModID}:Swift": "Swift|Draws #b!P! card.",
+            "${ModID}:Contagious": "Contagious|Grants #b!P! Vigor and this mutation moves to another card.|vigor",
+            "${ModID}:Scarred": "Scarred|Grants #b!P! #yPlated #yArmor. Scabs|${ModID}:scabs",
+            "${ModID}:Accelerating": "Accelerating|#yEvos a random card in your hand.|${ModID}:evo",
+            "${ModID}:Disarming": "Disarming|Makes the enemy lose #b!P! #yStrength. #yScabs.|strength,${ModID}:scabs",
+            "${ModID}:Foreseeing": "Foreseeing|#yScries #b!P!.|scry"
         }
     },
     "${ModID}:ViewEvoButton": {

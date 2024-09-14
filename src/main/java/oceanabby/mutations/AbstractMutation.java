@@ -56,7 +56,6 @@ public abstract class AbstractMutation extends AbstractCardModifier {
             return;
         long numMods = CardModifierManager.modifiers(c).stream().filter(m -> m instanceof AbstractMutation).count();
         icons.add(new IconPayload(ExtraIcons.icon(icon).text(numMods > 1 ? String.valueOf(numMods) : null)));
-        System.out.println(ExtraIconsField.extraIcons.get(c).get(0).getText());
     }
 
     @Override
@@ -100,5 +99,10 @@ public abstract class AbstractMutation extends AbstractCardModifier {
                         if (!__instance.keywords.contains(keyword))
                             __instance.keywords.add(keyword);
         }
+    }
+
+    @Override
+    public String identifier(AbstractCard card) {
+       return id;
     }
 }

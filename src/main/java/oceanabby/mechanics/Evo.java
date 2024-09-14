@@ -32,6 +32,10 @@ public class Evo {
     protected static String[] sharedStrings = null;
     private static Texture icon = TexLoader.getTexture(makeImagePath("ui/evo.png"));
 
+    public static boolean shouldEvo(AbstractCard c) {
+        return c.cost > -2;
+    }
+
     public static void evo(AbstractCard c) {
         if (sharedStrings == null)
             sharedStrings = CardCrawlGame.languagePack.getCardStrings(makeID("Evo")).EXTENDED_DESCRIPTION;
@@ -185,10 +189,7 @@ public class Evo {
         public void onLoad(ArrayList<Boolean> allEvod) {
             if (allEvod == null) return;
             int i = 0;
-            System.out.println(allEvod);
             for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-                System.out.println(i);
-                System.out.println(allEvod.get(i));
                 if (i > allEvod.size())
                     return;
                 if (allEvod.get(i++))
