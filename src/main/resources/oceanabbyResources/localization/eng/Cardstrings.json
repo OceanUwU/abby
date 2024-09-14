@@ -107,7 +107,7 @@
   },
   "${ModID}:EvolvedStrike": {
     "NAME": "Evolved Strike",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. NL {!Upgrades!|>0=Upgrade and }${ModID}:Evo a card in your hand for the rest of combat."
   },
   "${ModID}:ExperimentalTreatment": {
     "NAME": "Experimental Treatment",

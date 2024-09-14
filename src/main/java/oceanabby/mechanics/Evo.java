@@ -12,9 +12,13 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
+import com.megacrit.cardcrawl.screens.select.HandCardSelectScreen;
 import java.util.ArrayList;
+import java.util.function.Predicate;
 import oceanabby.cards.AbstractAbbyCard;
 import oceanabby.util.TexLoader;
 
@@ -60,6 +64,116 @@ public class Evo {
     public static AbstractGameAction action(AbstractCard c) {
         ((AbstractAbbyCard)c).evod = false;
         return actionify(() -> evo(c));
+    }
+
+    public static class SelectCardInHandToEvo extends AbstractGameAction {
+        private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("SelectCardInHandToEvo"));
+        public static boolean evoing = false;
+        public static boolean upgrading = false;
+
+        private boolean upgrade;
+        private Predicate<AbstractCard> available;
+        private ArrayList<AbstractCard> cannotUpgrade = new ArrayList<>();
+
+        public SelectCardInHandToEvo(boolean upgrade, Predicate<AbstractCard> available) {
+            this.upgrade = upgrade;
+            this.available = available;
+            actionType = ActionType.CARD_MANIPULATION;
+            duration = Settings.ACTION_DUR_FAST;
+        }
+
+        @Override
+        public void update() {
+            if (duration == Settings.ACTION_DUR_FAST) {
+                for (AbstractCard c : adp().hand.group)
+                    if (!available.test(c))
+                        cannotUpgrade.add(c); 
+                if (cannotUpgrade.size() == adp().hand.group.size()) {
+                    isDone = true;
+                    return;
+                } 
+                if (adp().hand.group.size() - cannotUpgrade.size() == 1)
+                    for (AbstractCard c : adp().hand.group) {
+                        evo(c);
+                        c.superFlash();
+                        if (upgrade && c.canUpgrade())
+                            c.upgrade();
+                        c.applyPowers();
+                        isDone = true;
+                        return;
+                    }
+                adp().hand.group.removeAll(cannotUpgrade);
+                if (adp().hand.group.size() > 1) {
+                    AbstractDungeon.handCardSelectScreen.open(uiStrings.TEXT[upgrade ? 1 : 0], 1, false, false, false, true);
+                    evoing = true;
+                    upgrading = true;
+                    tickDuration();
+                    return;
+                } 
+                if (adp().hand.group.size() == 1) {
+                    adp().hand.getTopCard().upgrade();
+                    adp().hand.getTopCard().superFlash();
+                    returnCards();
+                    isDone = true;
+                } 
+              } 
+              if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
+                    for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
+                        evo(c);
+                        c.superFlash();
+                        if (upgrade && c.canUpgrade())
+                            c.upgrade();
+                        c.applyPowers();
+                        adp().hand.addToTop(c);
+                    } 
+                    returnCards();
+                    AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
+                    AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
+                    isDone = true;
+              } 
+              tickDuration();
+        }
+  
+        private void returnCards() {
+            for (AbstractCard c : cannotUpgrade)
+                adp().hand.addToTop(c); 
+            adp().hand.refreshHandLayout();
+        }
+
+        @SpirePatch(clz=HandCardSelectScreen.class, method="prep")
+        public static class Reset {
+            public static void Postfix() {
+                evoing = false;
+                upgrading = false;
+            }
+        }
+
+        private static void evoIt(HandCardSelectScreen __instance) {
+            if (evoing) {
+                __instance.upgradePreviewCard = __instance.selectedCards.group.get(0).makeStatEquivalentCopy();
+                evo(__instance.upgradePreviewCard);
+                if (upgrading) {
+                    __instance.upgradePreviewCard.upgrade();
+                    __instance.upgradePreviewCard.displayUpgrades();
+                }
+            }
+        }
+
+        @SpirePatch(clz=HandCardSelectScreen.class, method="selectHoveredCard")
+        public static class EvoIt {
+            @SpireInsertPatch(rloc=26)
+            public static void Insert(HandCardSelectScreen __instance) {
+                evoIt(__instance);
+            }
+        }
+
+        @SpirePatch(clz=HandCardSelectScreen.class, method="updateMessage")
+        public static class EvoIt2 {
+            @SpireInsertPatch(rloc=31)
+            public static void Insert(HandCardSelectScreen __instance) {
+                evoIt(__instance);
+            }
+        }
     }
 
     @SpirePatch(clz=AbstractCard.class, method=SpirePatch.CLASS)

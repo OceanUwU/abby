@@ -10,5 +10,11 @@
         "TEXT": [
             "View Evo"
         ]
+    },
+    "${ModID}:SelectCardInHandToEvo": {
+        "TEXT": [
+            "Evo",
+            "Evo and Upgrade"
+        ]
     }
 }
