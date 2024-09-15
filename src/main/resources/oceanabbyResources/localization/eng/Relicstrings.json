@@ -3,35 +3,39 @@
     "NAME": "Mutation Catalyst",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      ""
+      "Card rewards are #y${ModID}:Mutated until you add #b",
+      " #y${ModID}:Mutated card to your deck.",
+      " #y${ModID}:Mutated cards to your deck."
     ]
   },
   "${ModID}:PaperDragyn": {
     "NAME": "Paper Dragyn",
     "FLAVOR": "You've never seen a creature like this before...",
     "DESCRIPTIONS": [
-      ""
+      "Upon pickup, obtain #gPaper #gKrane and #rPaper #rPhrog."
     ]
   },
   "${ModID}:Meatbun": {
     "NAME": "Meat Bun",
     "FLAVOR": "A reward for good behavior. Contains scraps of previous test subjects.",
     "DESCRIPTIONS": [
-      ""
+      "Whenever you enter a ? room containing a combat, heal #b",
+      " HP."
     ]
   },
   "${ModID}:SneckoSpine": {
     "NAME": "Snecko Spine",
     "FLAVOR": "For some reason, it still sways around hypnotically.",
     "DESCRIPTIONS": [
-      ""
+      "Your first Attack each combat apples #y${ModID}:Acid equal to damage dealt."
     ]
   },
   "${ModID}:TheSymbiont": {
     "NAME": "The Symbiont",
     "FLAVOR": "Despite its hideous appearance, it is nothing but a well-needed friend.",
     "DESCRIPTIONS": [
-      ""
+      "Eats the next #b",
+      " relics you obtain. At the start of your turn, if this relic is not hungry, gain [E] ."
     ]
   },
   "${ModID}:LabNotes": {
@@ -45,14 +49,17 @@
     "NAME": "Emergency Guide",
     "FLAVOR": "It's from the lab you escaped from. Describes protocol in the event of a containment breach",
     "DESCRIPTIONS": [
-      ""
+      "At the start of each combat, shuffle #b",
+      " #yMarrows+ which grant [E] into your draw pile."
     ]
   },
   "${ModID}:EldritchHieroglyphs": {
     "NAME": "Eldritch Hieroglyphs",
     "FLAVOR": "Depicts the wrath of Neow as her child was stolen from her.",
     "DESCRIPTIONS": [
-      ""
+      "Whenever you shuffle your draw pile, #y${ModID}:Mutate the top card",
+      "Whenever you shuffle your draw pile, #y${ModID}:Mutate the top #b",
+      " cards"
     ]
   },
   "${ModID}:ToxicSludge": {
@@ -66,7 +73,7 @@
     "NAME": "Perfected Catalyst",
     "FLAVOR": "Our research has only just begun...",
     "DESCRIPTIONS": [
-      "Replaces #pMutation #pCatalyst."
+      "Replaces #pMutation #pCatalyst. Upon pickup, remove all #y${ModID}:Mutations from cards in your deck. Whenever you #ySmith a card, #y${ModID}:Evo it too."
     ]
   }
 }

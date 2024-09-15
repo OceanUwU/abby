@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import oceanabby.mechanics.Mutations;
 import oceanabby.util.TexLoader;
 
 import static oceanabby.AbbyMod.makeID;
@@ -54,7 +55,7 @@ public abstract class AbstractMutation extends AbstractCardModifier {
         ArrayList<IconPayload> icons = ExtraIconsField.extraIcons.get(c);
         if (icons.stream().anyMatch(i -> i.getTexture() == icon))
             return;
-        long numMods = CardModifierManager.modifiers(c).stream().filter(m -> m instanceof AbstractMutation).count();
+        long numMods = Mutations.countMutations(c);
         icons.add(new IconPayload(ExtraIcons.icon(icon).text(numMods > 1 ? String.valueOf(numMods) : null)));
     }
 
