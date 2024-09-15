@@ -17,6 +17,6 @@ public class Horrific extends AbstractMutation {
     }
     
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        forAllMonstersLiving(m -> applyToEnemy(m, new WeakPower(target, getPower(), false)));
+        forAllMonstersLiving(m -> applyToEnemy(m, new WeakPower(m, getPower(), false)));
     }
 }

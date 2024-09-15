@@ -1,6 +1,7 @@
 package oceanabby.cards;
 
 import basemod.abstracts.CustomCard;
+import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
@@ -122,7 +123,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
                 rawDescription = sharedStrings[2] + rawDescription;
             if (isInnate)
                 rawDescription = sharedStrings[4] + rawDescription;
-            if (selfRetain)
+            if (selfRetain && !CardModifierManager.hasModifier(this, makeID("Retain")))
                 rawDescription = sharedStrings[3] + rawDescription;
             if (exhaust)
                 rawDescription += sharedStrings[1];

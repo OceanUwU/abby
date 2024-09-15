@@ -17,6 +17,6 @@ public class Grotesque extends AbstractMutation {
     }
     
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        forAllMonstersLiving(m -> applyToEnemy(m, new VulnerablePower(target, getPower(), false)));
+        forAllMonstersLiving(m -> applyToEnemy(m, new VulnerablePower(m, getPower(), false)));
     }
 }

@@ -11,6 +11,7 @@ import com.evacipated.cardcrawl.mod.stslib.util.extraicons.IconPayload;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +38,8 @@ public abstract class AbstractMutation extends AbstractCardModifier {
         this.rarity = rarity;
         strings = allStrings.get(this.id).split("\\|");
         name = strings[0];
-        description = strings[1].replace("!P!", String.valueOf(getPower()));
+        if (strings.length > 1)
+            description = strings[1].replace("!P!", String.valueOf(getPower()));
         if (strings.length > 2)
             keywords = strings[2].split(",");
     }
@@ -67,14 +69,14 @@ public abstract class AbstractMutation extends AbstractCardModifier {
     @Override
     public List<TooltipInfo> additionalTooltips(AbstractCard card) {
         List<TooltipInfo> tips = new ArrayList<>();
-        if (strings[1].length() > 0)
+        if (strings.length > 1 && strings[1].length() > 0)
             tips.add(new TooltipInfo(name, description));
         return tips;
     }
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard c) {
-        String keyword = "*" + name + ".";
+        String keyword = "*" + name + LocalizedStrings.PERIOD;
         return (after ? "" : keyword + " ") + rawDescription + (after ? " " + keyword : "");
     }
 
