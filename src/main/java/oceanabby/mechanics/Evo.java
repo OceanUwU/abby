@@ -67,7 +67,11 @@ public class Evo {
 
     public static AbstractGameAction action(AbstractCard c) {
         ((AbstractAbbyCard)c).evod = false;
-        return actionify(() -> evo(c));
+        return actionify(() -> {
+            if (shouldEvo(c) && !Field.evod.get(c))
+                c.superFlash();
+            evo(c);
+        });
     }
 
     public static class SelectCardInHandToEvo extends AbstractGameAction {

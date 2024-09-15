@@ -16,7 +16,7 @@
             "${ModID}:Grotesque": "Grotesque|Applies #b!P! #yVulnerable to ALL enemies.|vulnerable",
             "${ModID}:Tumorous": "Tumorous|#yMutates this card.|${ModID}:mutates",
             "${ModID}:Swift": "Swift|Draws #b!P! card.",
-            "${ModID}:Contagious": "Contagious|Grants #b!P! Vigor and this mutation moves to another card.|vigor",
+            "${ModID}:Contagious": "Contagious|Grants #b!P! #yVigor and this mutation moves to another card.|vigor",
             "${ModID}:Scarred": "Scarred|Grants #b!P! #yPlated #yArmor. Scabs|${ModID}:scabs",
             "${ModID}:Accelerating": "Accelerating|#yEvos a random card in your hand.|${ModID}:evo",
             "${ModID}:Disarming": "Disarming|Makes the enemy lose #b!P! #yStrength. #yScabs.|strength,${ModID}:scabs",

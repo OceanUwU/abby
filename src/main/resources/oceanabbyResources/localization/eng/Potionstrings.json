@@ -5,5 +5,28 @@
             "Gain #b",
             " #yStrength."
         ]
+    },
+    "${ModID}:PrimordialSoup": {
+        "NAME": "Primordial Soup",
+        "DESCRIPTIONS": [
+            "Choose #b1 of #b3 random #yMutated cards to add to your hand.",
+            "Choose #b1 of #b3 random #yMutated and add #b",
+            " copies to your hand."
+        ]
+    },
+    "${ModID}:RadioactiveSpider": {
+        "NAME": "Radioactive Spider",
+        "DESCRIPTIONS": [
+            "#yEvo your hand."
+        ]
+    },
+    "${ModID}:GhostInNoJar": {
+        "NAME": "Ghost In No Jar",
+        "DESCRIPTIONS": [
+            "Give any number of cards in your hand #yHaunted #b",
+            ".",
+            "give Haunted ",
+            "."
+        ]
     }
 }
