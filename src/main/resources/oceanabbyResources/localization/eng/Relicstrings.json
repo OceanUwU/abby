@@ -27,7 +27,7 @@
     "NAME": "Snecko Spine",
     "FLAVOR": "For some reason, it still sways around hypnotically.",
     "DESCRIPTIONS": [
-      "Your first Attack each combat apples #y${ModID}:Acid equal to damage dealt."
+      "Your first Attack each combat apples #y${ModID}:Acid equal to unblocked damage dealt."
     ]
   },
   "${ModID}:TheSymbiont": {

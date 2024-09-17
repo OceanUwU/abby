@@ -6,7 +6,7 @@ import oceanabby.characters.TheAberrant;
 
 public class TheSymbiont extends AbstractAbbyRelic {
     public static final String ID = makeID("TheSymbiont");
-    private static int POWER = 6;
+    private static int POWER = 3;
 
     public TheSymbiont() {
         super(ID, RelicTier.SPECIAL, LandingSound.FLAT, TheAberrant.Enums.ABERRANT_COLOUR);
