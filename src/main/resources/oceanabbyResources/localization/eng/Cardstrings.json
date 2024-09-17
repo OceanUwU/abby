@@ -191,7 +191,15 @@
   },
   "${ModID}:Marrow": {
     "NAME": "Marrow",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${ModID}:ChargedMarrow": {
+    "NAME": "Charged Marrow",
+    "DESCRIPTION": "Deal !D! damage. NL Gain{!M!|repeat= [E]}."
+  },
+  "${ModID}:ShiningMarrow": {
+    "NAME": "Shiny Marrow",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card{!M!|>1=s}."
   },
   "${ModID}:MeatShield": {
     "NAME": "Meat Shield",

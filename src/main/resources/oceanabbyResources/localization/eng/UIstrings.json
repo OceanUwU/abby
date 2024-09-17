@@ -8,7 +8,7 @@
             "${ModID}:Grafted": "Grafted|Shuffles a copy of this card without #yGrafted into your draw pile.",
             "${ModID}:Oozing": "Oozy|Makes a random enemy lose #b!P! HP.",
             "${ModID}:Deft": "Deft|Grants #b!P! #yDexterity. #yScabs.|dexterity,${ModID}:scabs",
-            "${ModID}:Edible": "Edible|Grants [E] .|energy",
+            "${ModID}:Edible": "Edible|Grants [E] .",
             "${ModID}:Neurotic": "Neurotic|Allows you to choose #b1 of #b!P! #yMutated cards of any colour to add to your hand. #yScabs.|${ModID}:mutated,${ModID}:scabs",
             "${ModID}:Toxic": "Toxic|Applies #b!P! #yAcid to a random enemy.|${ModID}:acid",
             "${ModID}:Retain": "Retain",
