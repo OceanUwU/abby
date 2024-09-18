@@ -21,6 +21,7 @@ public class Anger extends AbstractAbbyCard {
         setDamage(9, +3);
         setMagic(3, +1);
         setSecondMagic(2);
+        setExhaust(true);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
