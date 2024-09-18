@@ -5,9 +5,10 @@
     "EXTENDED_DESCRIPTION": [
       "${ModID}:Haunted !${ModID}:h!. NL ",
       " NL Exhaust.",
-      "Ethereal. NL",
-      "Retain. NL",
-      "Innate. NL"
+      "Ethereal. NL ",
+      "Retain. NL ",
+      "Innate. NL ",
+      "${ModID}:Adaptation. NL "
     ]
   },
   "${ModID}:Evo": {
@@ -23,338 +24,512 @@
   },
   "${ModID}:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block."
+    "DESCRIPTION": "Gain !B! Block.{!${ModID}:EVO!|>0= NL A random enemy loses !M! HP.}"
   },
   "${ModID}:Abomination": {
     "NAME": "Abomination",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. Shuffle !M! ${ModID}:Evo'd{!Upgrades!|>0= and ${ModID}:Mutated} *Marrow{!M!|>1=s}{!${ModID}:EVO!|>0=+} into your draw pile."
   },
   "${ModID}:AcidSpit": {
-    "NAME": "Acid Spit",
-    "DESCRIPTION": ""
+    "NAME": "Venomous",
+    "DESCRIPTION": "Whenever you apply ${ModID}:Acid, apply !M! more{!${ModID}:EVO!|>0= and gain !${ModID}:m2! Block}.",
+    "EXTENDED_DESCRIPTION": [
+      "Venomous",
+      "Whenever you apply #yAcid, apply #b",
+      " more.",
+      "Venom Suck",
+      "Whenever you apply #yAcid, gain #b",
+      " #yBlock."
+    ]
   },
   "${ModID}:Adaptation": {
-    "NAME": "Adaptation",
-    "DESCRIPTION": ""
+    "NAME": "Mitosis",
+    "DESCRIPTION": "${ModID}:Evo your hand.{!${ModID}:EVO!|>0= NL Gain Block equal to the number of cards ${ModID}:Evo'd.}{!B!|>-1=(!B!)}{!M!|1= NL Discard !M! card at random.|>1= NL Discard !M! cards at random.}"
   },
   "${ModID}:Anger": {
-    "NAME": "Anger",
-    "DESCRIPTION": ""
+    "NAME": "Batter",
+    "DESCRIPTION": "Deal !D! damage. NL Remove all ${ModID}:Mutations from a card to{!${ModID}:EVO!|>0= apply !${ModID}:m2! Weak and} make the enemy lose !M! Strength.",
+    "EXTENDED_DESCRIPTION": [
+      "remove Mutations from"
+    ]
   },
   "${ModID}:Bile": {
-    "NAME": "Bile",
-    "DESCRIPTION": ""
+    "NAME": "Corrosive Spit",
+    "DESCRIPTION": "Deal !D! damage. If the enemy has {!${ModID}:EVO!|>0=a debuff|@=${ModID}:Acid}, apply !M! ${ModID}:Acid"
   },
   "${ModID}:Bite": {
-    "NAME": "Bite",
-    "DESCRIPTION": ""
+    "NAME": "Snake Snap",
+    "DESCRIPTION": "Deal !D! damage and apply !M! ${ModID}:Acid{!${ModID}:EVO!|>0= and !${ModID}:m2! Vulnerable} to ALL enemies."
   },
   "${ModID}:BlackHole": {
-    "NAME": "Black Hole",
-    "DESCRIPTION": ""
+    "NAME": "Instability",
+    "DESCRIPTION": "Gain !B! Block X times. If you lose HP this turn, lose !M! HP.",
+    "EXTENDED_DESCRIPTION": [
+      "Unstable",
+      "If you lose HP this turn, lose #b",
+      " HP."
+    ]
   },
   "${ModID}:BodyHorror": {
     "NAME": "Body Horror",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "At the start of your turn, gain !M! Block for each of your ${ModID}:Adaptations.{!${ModID}:EVO!|>0= NL Your current ${ModID}:Adaptations last !${ModID}:m2! more turn.}",
+    "EXTENDED_DESCRIPTION": [
+      "Body Horror",
+      "At the start of your turn, gain #b",
+      " #yBlock for each of your #yAdaptations."
+    ]
   },
   "${ModID}:BurnVictim": {
     "NAME": "Burn Victim",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage to ALL enemies !M! times. Apply !${ModID}:m2! Vulnerable to them. NL Shuffle !${ModID}:m3! *Burns into your draw pile."
   },
   "${ModID}:Burrow": {
     "NAME": "Burrow",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you are attacked this turn, gain !M! temporary Strength{!${ModID}:EVO!|>0= and Dexterity}.",
+    "EXTENDED_DESCRIPTION": [
+      "Burrowed",
+      "Whenever you are attacked this turn, gain #b",
+      " temporary #yStrength.",
+      "Burrowed Deeper",
+      "Whenever you are attacked this turn, gain #b",
+      " temporary Dexterity."
+    ]
   },
   "${ModID}:Changeling": {
     "NAME": "Changeling",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "${ModID}:Mutate !M!{!Upgrades!|0= random} card{!M!|>1=s}.{!${ModID}:EVO!|>0= NL Reduce {!M!|1=its cost|@=their costs} by !${ModID}:m2! this turn.}",
+    "EXTENDED_DESCRIPTION": [
+      "mutate"
+    ]
   },
   "${ModID}:ChemicalWarfare": {
     "NAME": "Chemical Warfare",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block. {!${ModID}:EVO!|>0=Potions|@=The next potion} you use this turn is used {!M!|1=once|2=twice|3=thrice|@=!M! times}.",
+    "EXTENDED_DESCRIPTION": [
+      "Chemical Power",
+      "The next potion you use this turn is used #b",
+      " additional time",
+      " additional times.",
+      "Chemical Superpower",
+      "Potions you use this turn are used #b"
+    ]
   },
   "${ModID}:Chomp": {
     "NAME": "Chomp",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage for each unupgraded{!${ModID}:EVO!|>0= or ${ModID}:un-Evo'd} card in your hand.{!M!|1= NL (Hits !M! time.)|>-1= NL (Hits !M! times.)}"
   },
   "${ModID}:Claw": {
-    "NAME": "Claw",
-    "DESCRIPTION": ""
+    "NAME": "Gro-Claw",
+    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL Increase the damage of ALL ${ModID}:Evo'd Attacks by !M!.}"
   },
   "${ModID}:CosmicHorror": {
     "NAME": "Cosmic Horror",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Future ${ModID}:Adaptations last !M! additional turn{!M!|>1=s}.{!${ModID}:EVO!|>0= NL Whenever an ${ModID}:Adaptation ends, gain{!${ModID}:m2!|repeat= [E]}.}",
+    "EXTENDED_DESCRIPTION": [
+      "Cosmic Horror",
+      "Future #yAdaptations last #b",
+      " additional turn.",
+      " additional turns.",
+      "Cosmic Abomination",
+      "Whenever an #yAdaptation ends, gain "
+    ]
   },
   "${ModID}:Devolution": {
     "NAME": "Devolution",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Lose !${ModID}:m2! Strength. NL {!${ModID}:m3!|1=Next turn|@=In !${ModID}:m3! turns}, gain !M! Strength.",
+    "EXTENDED_DESCRIPTION": [
+      "Delayed Evolution",
+      "Next turn, gain #b",
+      "In #b",
+      " turns, gain #b",
+      " #yStrength."
+    ]
   },
   "${ModID}:Deformation": {
-    "NAME": "Deformation",
-    "DESCRIPTION": ""
+    "NAME": "Deform",
+    "DESCRIPTION": "{!Upgrades!|0=At|@=Now and at} the start of your turn, add 1 *Splice{!${ModID}:EVO!|>0=+} into your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "Deformation",
+      "At the start of your turn, add #b",
+      " #ySplice into your hand",
+      " #ySplice+ into your hand"
+    ]
   },
   "${ModID}:Delirium": {
     "NAME": "Delirium",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Draw !M! card{!M!|>1=s}. NL Randomise their costs.{!${ModID}:EVO!|>0= NL Gain [E] [E]. NL ${ModID}:Devo.}"
   },
   "${ModID}:EasyPrey": {
     "NAME": "Easy Prey",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "If the enemy has less than !M! HP, deal !D! damage. NL Otherwise, deal !${ModID}:d2! damage."
   },
   "${ModID}:ESP": {
     "NAME": "ESP",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "${ModID}:Evo'd cards deal !M! additional damage and grant !M! additional Block.{!${ModID}:EVO!|>0= NL ${ModID}:Evo your hand.}",
+    "EXTENDED_DESCRIPTION": [
+      "ESP",
+      "#yEvo'd cards deal #b",
+      " additional damage and grant #b",
+      " additional #yBlock."
+    ]
   },
   "${ModID}:EvolvedStrike": {
     "NAME": "Evolved Strike",
     "DESCRIPTION": "Deal !D! damage. NL {!Upgrades!|>0=Upgrade and }${ModID}:Evo a card in your hand for the rest of combat."
   },
   "${ModID}:ExperimentalTreatment": {
-    "NAME": "Experimental Treatment",
-    "DESCRIPTION": ""
+    "NAME": "Experiment",
+    "DESCRIPTION": "Add !M! random card{!M!|>1=s} into your hand. NL {!M!|1=It costs|@=They cost} 0 this turn."
   },
   "${ModID}:ExplosivePustules": {
     "NAME": "Explosive Pustules",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "{!Upgrades!|0=At|@=Now and at} the start of your turn, ${ModID}:Adapt !M!: *Pustule.",
+    "EXTENDED_DESCRIPTION": [
+      "Pustules Galore",
+      "At the start of your turn, #yAdapt #b",
+      ": #yPustule."
+    ]
   },
   "${ModID}:FightOrFlight": {
     "NAME": "Fight or Flight",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Adapt !M!: *Wings."
   },
   "${ModID}:Flatten": {
     "NAME": "Flatten",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage.{!${ModID}:EVO!|>0= NL Upgrade this card.} NL Can be upgraded any number of times."
   },
   "${ModID}:FleshHeap": {
     "NAME": "Flesh Heap",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block. NL Enemies cannot create cards {!M!|1=this turn|@=for !M! turns}.",
+    "EXTENDED_DESCRIPTION": [
+      "Incapacitated",
+      "Cannot create cards this turn.",
+      "Cannot create cards for #b",
+      " turns."
+    ]
   },
   "${ModID}:FluidCycle": {
     "NAME": "Fluid Cycle",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "The next {!M!|1=time|@=!M! times} you apply ${ModID}:Acid, gain Block equal to the amount applied.",
+    "EXTENDED_DESCRIPTION": [
+      "Fluid Cycle",
+      "The next #b",
+      " time you apply #yAcid, gain #yBlock equal to the amount applied.",
+      " times you apply #yAcid, gain #yBlock equal to the amount applied."
+    ]
   },
   "${ModID}:ForcedEvolution": {
     "NAME": "Forced Evolution",
-    "DESCRIPTION": "Draw !M! cards. NL {!${ModID}:EVO!|>0= Upgrade and} ${ModID}:Evo them."
+    "DESCRIPTION": "Draw !M! cards. NL {!${ModID}:EVO!|>0=Upgrade and }${ModID}:Evo them."
   },
   "${ModID}:GetOut": {
     "NAME": "Get Out",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Your next {!${ModID}:m2!|1=Attack deals|@=!${ModID}:m2! Attacks deal} no damage.",
+    "EXTENDED_DESCRIPTION": [
+      "Exhausted",
+      "Your next #b",
+      " Attack deals no damage",
+      " Attacks deal no damage"
+    ]
   },
   "${ModID}:GiganticGrowth": {
     "NAME": "Gigantic Growth",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Mutate !M! random card{!M!|>0=s} in your draw pile.{!${ModID}:EVO!|>0= NL Add one of them into your hand at random.}"
   },
   "${ModID}:HalfRemembered": {
-    "NAME": "Half Remembered",
-    "DESCRIPTION": ""
+    "NAME": "Remembrance",
+    "DESCRIPTION": "Whenever you play an ${ModID}:Evo'd card, ${ModID}:Devo it,{!${ModID}:EVO!|>0= gain !${ModID}:m3! Block,} draw !M! card{!M!|>1=s} and gain [E].",
+    "EXTENDED_DESCRIPTION": [
+      "Remembrance",
+      "Whenever you play an #yEvo'd card, #yDevo it.",
+      "Remembrance: Draw",
+      "Whenever you play an #yEvo'd card, draw #b",
+      "card.",
+      "cards.",
+      "Remembrance: Energy",
+      "Whenever you play an #yEvo'd card, gain ",
+      "Remembrance: Block",
+      "Whenever you play an #yEvo'd card, gain #b",
+      " #yBlock."
+    ]
   },
   "${ModID}:HarbingerForm": {
     "NAME": "Harbinger Form",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Whenever you play a ${ModID}:Mutated card, ${ModID}:Mutate it{!Upgrades!|>0= and shuffle it into your draw pile}.{!${ModID}:EVO!|>0= NL ${ModID}:Mutate your hand.}",
+    "EXTENDED_DESCRIPTION": [
+      "Harbinger Form",
+      "Whenever you play a #yMutated card, #yMutate it #b",
+      " time.",
+      " times.",
+      "Harbingering",
+      "Whenever you play a #yMutated card, shuffle it into your draw pile."
+    ]
   },
   "${ModID}:HardShell": {
     "NAME": "Hard Shell",
-    "DESCRIPTION": "${ModID}:Adaptation. NL ${ModID}:Throb: Gain !B! Block."
+    "DESCRIPTION": "${ModID}:Throb: Gain !B! Block."
   },
   "${ModID}:Headhunt": {
     "NAME": "Headhunt",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL If this kills an enemy, deal !${ModID}:d2! damage to ALL enemies."
   },
   "${ModID}:Hostility": {
     "NAME": "Hostility",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Whenever you take unblocked damage, deal !M! damage {!${ModID}:EVO!|>0=to ALL enemies.|@=back}.",
+    "EXTENDED_DESCRIPTION": [
+      "Hostility",
+      "Hostility EVO",
+      "Whenever you take unblocked damage, deal #b",
+      " damage back.",
+      " damage to ALL enemies."
+    ]
   },
   "${ModID}:Humanity": {
     "NAME": "Humanity",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Shuffle !M! *Shiny *Marrow{!M!|>1=s} into your draw pile.{!${ModID}:EVO!|>0= NL Add !${ModID}:m2! of them into your hand.}"
   },
   "${ModID}:Isolation": {
-    "NAME": "Isolation",
-    "DESCRIPTION": ""
+    "NAME": "Alter",
+    "DESCRIPTION": "Gain{!M!|repeat= [E]}.{!${ModID}:EVO!|>0= NL Draw !${ModID}:m3! cards. NL ${ModID}:Devo.} NL {!${ModID}:m2!|1=Next turn|@=For !${ModID}:m2! turns}, draw 1 less card."
   },
   "${ModID}:ItFollows": {
-    "NAME": "It Follows",
-    "DESCRIPTION": ""
+    "NAME": "Spread",
+    "DESCRIPTION": "Discard !M! card{!M!|>1=s} from your draw pile. ${ModID}:Mutate{!${ModID}:EVO!|-1= and ${ModID}:Evo|1= and Upgrade|2=, ${ModID}:Evo, and Upgrade} them."
   },
   "${ModID}:JacobsLadder": {
     "NAME": "Jacob's Ladder",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "{!${ModID}:EVO!|>0=Gain !${ModID}:b2! Block. NL }Gain !B! Block for each Attack played this turn."
   },
   "${ModID}:LastDitch": {
-    "NAME": "Last Ditch",
-    "DESCRIPTION": ""
+    "NAME": "Press On",
+    "DESCRIPTION": "Deal !D! damage. Your next ${ModID}:Adaptation lasts !M! additional turn{!M!|>1=s}.",
+    "EXTENDED_DESCRIPTION": [
+      "Pressing On",
+      "Your next adaptation lasts #b",
+      " additional turn.",
+      " additional turns."
+    ]
   },
   "${ModID}:Lurk": {
     "NAME": "Lurk",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block. Scry !M!."
   },
   "${ModID}:Marrow": {
     "NAME": "Marrow",
-    "DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!| NL Gain !B! Block.}"
   },
   "${ModID}:ChargedMarrow": {
     "NAME": "Charged Marrow",
-    "DESCRIPTION": "Deal !D! damage. NL Gain{!M!|repeat= [E]}."
+    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!| NL Gain !B! Block.} NL Gain{!M!|repeat= [E]}."
   },
   "${ModID}:ShiningMarrow": {
     "NAME": "Shiny Marrow",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card{!M!|>1=s}."
+    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!| NL Gain !B! Block.} NL Draw !M! card{!M!|>1=s}."
   },
   "${ModID}:MeatShield": {
     "NAME": "Meat Shield",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !B! Block.{!${ModID}:EVO!|>0= NL Increase this card's block by !M! this combat.}"
   },
   "${ModID}:MetalCrusher": {
     "NAME": "Metal Crusher",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Adapt !M!: *Razorspine.{!${ModID}:EVO!|>0= Increase that ${ModID}:Adaptations's damage by !${ModID}:m2!}"
   },
   "${ModID}:Mimicry": {
     "NAME": "Mimicry",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Choose a random red, blue, or green{!${ModID}:EVO!|>0= Upgraded} card to add into your hand. NL It costs 0 this turn."
   },
   "${ModID}:Mutate": {
-    "NAME": "Mutate",
-    "DESCRIPTION": ""
+    "NAME": "Embrace Defects",
+    "DESCRIPTION": "Upgrade{!Upgrades!|>0= and ${ModID}:Evo} your current ${ModID}:Adaptations.{!${ModID}:EVO!|>0= NL They last !M! additional turn.}"
   },
   "${ModID}:NeowsEmbrace": {
     "NAME": "Neow's Embrace",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "ALL enemies lose !M! Strength{!${ModID}:EVO!|>0= and !${ModID}:m2! HP} until after their next attack.",
+    "EXTENDED_DESCRIPTION": [
+      "Embraced",
+      "Deals #b",
+      " less damage until after its next Attack."
+    ]
   },
   "${ModID}:NoMercy": {
     "NAME": "No Mercy",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. NL At the start of your {!M!|1=next turn|@=!M! next turns}, add !${ModID}:m2!{!${ModID}:EVO!|>0= ${ModID}:Evo'd} *Marrow{!${ModID}:m2!|>1=s} into your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "Merciless",
+      "At the start of your next #b",
+      " turn, add #b",
+      " turns, add #b",
+      " #yMarrow",
+      " #yMarrows",
+      " #yEvo'd #yMarrow",
+      " #yEvo'd #yMarrows",
+      " into your hand."
+    ]
   },
   "${ModID}:OneForAll": {
-    "NAME": "One For All",
-    "DESCRIPTION": ""
+    "NAME": "Acidtouch",
+    "DESCRIPTION": "Deal !D! damage{!M!|1=|2= twice|@= !M! times}. NL Apply ${ModID}:Acid equal to unblocked damage dealt."
   },
   "${ModID}:OnTheFly": {
-    "NAME": "On The Fly",
-    "DESCRIPTION": ""
+    "NAME": "Wings",
+    "DESCRIPTION": "Take !M!% less damage from Attacks.{!${ModID}:EVO!|>0= NL When ${ModID}:Evo'd, gain !${ModID}:m2! Artifact.}"
   },
   "${ModID}:Overpower": {
     "NAME": "Overpower",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. NL If you have more HP than {!${ModID}:EVO!|>0=any|@=the} enemy, gain !B! Block."
   },
   "${ModID}:Phantasmagoria": {
     "NAME": "Phantasmagoria",
-    "DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL The Enemy loses !M! Strength this turn.}"
   },
   "${ModID}:PileOn": {
     "NAME": "Pile On",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Add !M! ${ModID}:Evo'd *Marrow{!M!>1=s} into your hand. NL Shuffle !${ModID}:m2! *Dazed into your draw pile."
   },
   "${ModID}:Pounce": {
     "NAME": "Pounce",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card{!M!|>1=s}. NL ${ModID}:Evo {!M!|1=it|2=one and discard the other|@=one and discard the others}."
   },
   "${ModID}:Psionics": {
     "NAME": "Psionics",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "${ModID}:Devo {!${ModID}:EVO!|>0=this card|@=a card in your hand} to deal !D! damage !M! times."
   },
   "${ModID}:Pustule": {
     "NAME": "Pustule",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "{!${ModID}:EVO!|>0=Attacks deal !${ModID}:m2! additional damage. NL }${ModID}:Throb: Deal !M! damage to ALL enemies."
   },
   "${ModID}:Radiance": {
     "NAME": "Radiance",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Playing *Marrows increases the damage of *Marrows by !M!.",
+    "EXTENDED_DESCRIPTION": [
+      "Radiant",
+      "Whenever you play a #yMarrow, increase the damage of #yMarrows by #b",
+      "."
+    ]
   },
   "${ModID}:RadioactiveBeam": {
     "NAME": "Radioactive Beam",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "${ModID}:Adapt !M!: *Toxic *Glands. NL Deal !D! damage.{!${ModID}:EVO!|>0= NL Apply !${ModID}:m2! ${ModID}:Acid.}"
   },
   "${ModID}:RampantGrowth": {
     "NAME": "Rampant Growth",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "${ModID}:Mutate ALL your cards."
   },
   "${ModID}:Razorspine": {
-    "NAME": "Razor Spine",
-    "DESCRIPTION": ""
+    "NAME": "Razorspine",
+    "DESCRIPTION": "Whenever you are attacked,{!${ModID}:EVO!|>0= deal !${ModID}:m2! damage back then} deal !M! damage to ALL enemies."
   },
   "${ModID}:Regrowth": {
     "NAME": "Regrowth",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Raise your Max HP by !M!."
   },
   "${ModID}:Robotization": {
     "NAME": "Robotization",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "{!${ModID}:EVO!|>0=Lightning deals !M! additional damage. NL }${ModID}:Throb: Channel !M! Lightning."
   },
   "${ModID}:SalivaSlick": {
     "NAME": "Saliva Slick",
-    "DESCRIPTION": "Apply !${ModID}:m2! Weak. NL Apply !M! ${ModID}:Acid."
+    "DESCRIPTION": "Apply !${ModID}:m2! Weak.{!${ModID}:EVO!|>0= NL Apply !${ModID}:m2! Vulnerable.} NL Apply !M! ${ModID}:Acid."
   },
   "${ModID}:ShackleDrag": {
     "NAME": "Shackle Drag",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Apply !M! Weak.{!${ModID}:EVO!|>0= NL ALL enemies lose !${ModID}:m3! Strength this turn.} NL Shuffle !${ModID}:m2! ${ModID}:Evo'd *Dark *Shackles into your draw pile."
   },
   "${ModID}:Spew": {
     "NAME": "Spew",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Apply !M! ${ModID}:Acid.{!${ModID}:EVO!|>0= NL When the enemy loses all ${ModID}:Acid, apply !${ModID}:m2! ${ModID}:Acid.}",
+    "EXTENDED_DESCRIPTION": [
+      "Nauseous",
+      "When it loses all #yAcid, gains #b",
+      " more."
+    ]
   },
   "${ModID}:SplayYourGuts": {
-    "NAME": "Splay Your Guts",
-    "DESCRIPTION": ""
+    "NAME": "Splay Guts",
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle !M! *Marrow{!M!|>1=s}{!Upgrades!|>0=+} into your draw pile{!${ModID}:EVO!|>0= and discard pile}."
   },
   "${ModID}:Splice": {
     "NAME": "Splice",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Lose !${ModID}:m2! Dexterity. NL Gain !M! Strength.{!${ModID}:EVO!|>0= Add a *Splice into your hand.}"
   },
   "${ModID}:Stalker": {
     "NAME": "Stalk",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage. When ${ModID}:Evo'd or ${ModID}:Mutated, increase this card's damage by !M! this combat."
   },
   "${ModID}:StemCells": {
     "NAME": "Stem Cells",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "{!Upgrades!|0=At|@=Now and at} the start of your turn, ${ModID}:Mutate and ${ModID}:Evo !M! card{!M!|>0=s}.",
+    "EXTENDED_DESCRIPTION": [
+      "Stem Cells",
+      "At the start of your turn, #yMutate #b",
+      "At the start of your turn, #yMutate and #yEvo #b",
+      " card.",
+      " cards."
+    ]
   },
   "${ModID}:StrangeScience": {
-    "NAME": "Strange Science",
-    "DESCRIPTION": ""
+    "NAME": "Rewire",
+    "DESCRIPTION": "Gain !${ModID}:m2! Orb slot{!M!|>1=s}.{!${ModID}:EVO!|>0= NL Channel !${ModID}:m3! Frost.} NL ${ModID}:Adapt !M!: *Cybernetics."
   },
   "${ModID}:SurpriseAttack": {
     "NAME": "Surprise Attack",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage{!${ModID}:m2!|1=|2= twice|@= !${ModID}:m2! times}. NL Put !M! card{!M!|>1=s} from your discard pile into your hand and ${ModID}:Mutate {!M!|1=it|@=them},"
   },
   "${ModID}:SurvivalOfTheFittest": {
-    "NAME": "Survival of The Fittest",
-    "DESCRIPTION": ""
+    "NAME": "Lick Clean",
+    "DESCRIPTION": "Whenever an enemy loses HP, gain{!${ModID}:EVO!|>0= !${ModID}:m2! Block and gain} Vigor equal to !M!% of HP lost.",
+    "EXTENDED_DESCRIPTION": [
+      "Lick Clean",
+      "Whenever an enemy loses HP, gain #yVigor equal to #b",
+      "% of HP lost.",
+      "Eat the Bones",
+      "Whenever an enemy loses HP, gain #b",
+      " #yBlock."
+    ]
   },
   "${ModID}:SuspiciousCure": {
     "NAME": "Suspicious Cure",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Enemy loses HP equal to{!M!|1=|2= double|3= triple|4= quadruple|5= quintuple|6= sextuple|:= !M! times} their ${ModID}:Acid, then loses ALL ${ModID}:Acid."
   },
   "${ModID}:TendonSlash": {
     "NAME": "Tendon Slash",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "{!${ModID}:EVO!|>0=Give the enemy !M! Block. NL }Deal !D! damage until the enemy has no Block. NL Gain !B! Block for each hit."
   },
   "${ModID}:Tendrils": {
     "NAME": "Tendrils",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL Gain Block equal to !${ModID}:m2!% of damage dealt.} NL Permanently increase this card's damage by !M!."
   },
   "${ModID}:TheSpiral": {
     "NAME": "The Spiral",
-    "DESCRIPTION": "${ModID}:Adapt !M!: *Hard *Shell."
+    "DESCRIPTION": "{!${ModID}:EVO!|>0=Gain !${ModID}:m2! *Plated *Armor. NL }${ModID}:Adapt !M!: *Hard *Shell."
   },
   "${ModID}:Thrash": {
     "NAME": "Thrash",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "{!${ModID}:EVO!|>0=Decrease the counter of your leftmost ${ModID}:Adaptation by !${ModID}:m2!|@=Remove your leftmost ${ModID}:Adaptation} to deal !D! damage."
   },
   "${ModID}:ToTheLimit": {
     "NAME": "To The Limit",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Gain !M! temporary Strength{!${ModID}:EVO!|>0= and !${ModID}:m2! Dexterity}. NL If you lose any HP this turn, die.",
+    "EXTENDED_DESCRIPTION": [
+      "At The Limit",
+      "If you lose HP this turn, die."
+    ]
   },
   "${ModID}:ToxicGlands": {
     "NAME": "Toxic Glands",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Attacks apply ${ModID}:Acid equal to !M!% of unblocked damage dealt."
   },
   "${ModID}:WasteDump": {
     "NAME": "Waste Dump",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "At the start of your turn, apply !M! Acid to ALL enemies.",
+    "EXTENDED_DESCRIPTION": [
+      "Waste Dump",
+      "At the start of your turn, apply #b",
+      " #yAcid to ALL enemies."
+    ]
   },
   "${ModID}:WrithingTentacles": {
     "NAME": "Writhing Tentacles",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Mutate a random card in your hand."
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Mutate !M! random card{!M!|>1=s} in your hand."
   }
 }

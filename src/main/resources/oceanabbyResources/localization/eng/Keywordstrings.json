@@ -61,7 +61,11 @@
   {
     "PROPER_NAME": "Evo",
     "NAMES": [
-      "evo"
+      "evo",
+      "evod",
+      "evo'd",
+      "unevod",
+      "un-evo'd"
     ],
     "DESCRIPTION": "An extra upgrade to a card. Each card has a unique Evo."
   },

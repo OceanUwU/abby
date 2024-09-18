@@ -7,8 +7,10 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import java.util.ArrayList;
 import oceanabby.cards.AbstractAdaptation;
+import oceanabby.powers.AbstractAbbyPower;
 
 import static oceanabby.util.Wiz.*;
 
@@ -35,6 +37,10 @@ public class Adaptations {
                 if (--a.counter <= 0) {
                     CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                     group.addToTop(a);
+                    a.onEnd();
+                    for (AbstractPower p : adp().powers)
+                        if (p instanceof AbstractAbbyPower)
+                            ((AbstractAbbyPower)p).onAdaptationEnd(a);
                     att(new ExhaustSpecificCardAction(a, group));
                     actT(() -> adaptations.remove(a));
                 };
@@ -46,6 +52,9 @@ public class Adaptations {
     public static void addAptation(AbstractAdaptation a) {
         a.drawScale = 0.001f;
         adaptations.add(a);
+        for (AbstractPower p : adp().powers)
+            if (p instanceof AbstractAbbyPower)
+                ((AbstractAbbyPower)p).onAdapt(a);
         a.onThrob();
     }
 

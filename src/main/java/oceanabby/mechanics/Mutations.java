@@ -46,7 +46,7 @@ public class Mutations {
 
     private static AbstractMutation rollMutation(AbstractCard c) {
         initialize();
-        List<AbstractMutation> availableMutations = mutations.stream().filter(m -> m.canMutate(c) && !CardModifierManager.hasModifier(c, m.identifier(c))).collect(Collectors.toList());
+        List<AbstractMutation> availableMutations = mutations.stream().filter(m -> canMutateWith(c, m)).collect(Collectors.toList());
         if (availableMutations.size() == 0)
             return null;
         int roll = AbstractDungeon.cardRandomRng.random(0, availableMutations.stream().mapToInt(a -> a.rarity).sum());

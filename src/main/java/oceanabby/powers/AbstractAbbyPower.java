@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import oceanabby.AbbyMod;
+import oceanabby.cards.AbstractAdaptation;
 import oceanabby.util.TexLoader;
 
 public abstract class AbstractAbbyPower extends AbstractPower {
@@ -41,6 +42,14 @@ public abstract class AbstractAbbyPower extends AbstractPower {
 
         updateDescription();
     }
+
+    @Override
+    public void updateDescription() {
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+    }
+
+    public void onAdapt(AbstractAdaptation adaptation) {}
+    public void onAdaptationEnd(AbstractAdaptation adaptation) {}
 
     public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
         super.renderAmount(sb, x, y, c);

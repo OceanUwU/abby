@@ -4,8 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
+import com.evacipated.cardcrawl.modthespire.lib.ByRef;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -47,7 +52,25 @@ public abstract class AbstractAdaptation extends AbstractAbbyCard {
         return c;
     }
 
+    @Override
+    protected String baseDesc() {
+        return sharedStrings[5] + super.baseDesc();
+    }
+
     public void onThrob() {}
+    public void onEnd() {}
+
+    public float atDamageReceive(float damage, DamageInfo.DamageType damageType) {
+        return damage;
+    }
+
+    public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
+        return damage;
+    }
+
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        return damageAmount;
+    }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new AddAptationAction((AbstractAdaptation)makeStatEquivalentCopy(), 1));
@@ -147,5 +170,32 @@ public abstract class AbstractAdaptation extends AbstractAbbyCard {
         }
         
         public void dispose() {}
+    }
+
+    @SpirePatch(clz=DamageInfo.class, method="applyPowers")
+    public static class AtDamageReceivePatch {
+        @SpireInsertPatch(rloc=34, localvars={"tmp"})
+        public static void Insert(DamageInfo __instance, AbstractCreature owner, AbstractCreature target, @ByRef float[] tmp) {
+            for (AbstractAdaptation adaptation : Adaptations.adaptations)
+                tmp[0] = adaptation.atDamageReceive(tmp[0], __instance.type);
+        }
+    }
+
+    @SpirePatch(clz=AbstractPlayer.class, method="damage")
+    public static class OnAttackedPatch {
+        @SpireInsertPatch(rloc=47, localvars={"damageAmount"})
+        public static void Insert(AbstractPlayer __instance, DamageInfo info, @ByRef int[] damageAmount) {
+            for (AbstractAdaptation adaptation : Adaptations.adaptations)
+                damageAmount[0] = adaptation.onAttacked(info, damageAmount[0]);
+        }
+    }
+
+    @SpirePatch(clz=AbstractCard.class, method="damage")
+    public static class AtDamageGivePatch {
+        @SpireInsertPatch(rloc=23, localvars={"tmp"})
+        public static void Insert(AbstractCard __instance, @ByRef float[] tmp) {
+            for (AbstractAdaptation adaptation : Adaptations.adaptations)
+                tmp[0] = adaptation.atDamageGive(tmp[0], __instance.damageTypeForTurn, __instance);
+        }
     }
 }

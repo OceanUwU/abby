@@ -14,6 +14,7 @@ public class EvolvedStrike extends AbstractAbbyCard {
     public EvolvedStrike() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         setDamage(6);
+        tags.add(CardTags.STRIKE);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

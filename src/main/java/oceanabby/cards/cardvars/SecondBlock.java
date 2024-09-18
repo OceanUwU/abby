@@ -8,7 +8,7 @@ import static oceanabby.AbbyMod.makeID;
 public class SecondBlock extends AbstractEasyDynamicVariable {
     @Override
     public String key() {
-        return makeID("sb");
+        return makeID("b2");
     }
 
     @Override

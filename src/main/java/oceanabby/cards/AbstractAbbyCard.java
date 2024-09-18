@@ -34,6 +34,8 @@ public abstract class AbstractAbbyCard extends CustomCard {
     protected static String[] sharedStrings = null;
     protected final CardStrings cardStrings;
 
+    protected String[] exDesc;
+
     public int secondMagic;
     public int baseSecondMagic;
     public boolean upgradedSecondMagic;
@@ -103,6 +105,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
             sharedStrings = CardCrawlGame.languagePack.getCardStrings(makeID("Card")).EXTENDED_DESCRIPTION;
         rawDescription = cardStrings.DESCRIPTION;
         name = originalName = cardStrings.NAME;
+        exDesc = cardStrings.EXTENDED_DESCRIPTION;
         initializeTitle();
         initializeDescription();
 
@@ -114,9 +117,13 @@ public abstract class AbstractAbbyCard extends CustomCard {
         }
     }
 
+    protected String baseDesc() {
+        return cardStrings.DESCRIPTION;
+    }
+
     @Override public void initializeDescription() {
         if (cardStrings != null) {
-            rawDescription = "{@@}" + cardStrings.DESCRIPTION;
+            rawDescription = "{@@}" + baseDesc();
             if (haunted >= 0)
                 rawDescription = sharedStrings[0] + rawDescription;
             if (isEthereal)

@@ -9,7 +9,7 @@ public class SecondDamage extends AbstractEasyDynamicVariable {
 
     @Override
     public String key() {
-        return makeID("sd");
+        return makeID("d2");
     }
 
     @Override

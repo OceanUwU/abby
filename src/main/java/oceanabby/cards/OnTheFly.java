@@ -1,20 +1,27 @@
 package oceanabby.cards;
 
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 
 import static oceanabby.AbbyMod.makeID;
 import static oceanabby.util.Wiz.*;
 
-public class OnTheFly extends AbstractAbbyCard {
+public class OnTheFly extends AbstractAdaptation {
     public final static String ID = makeID("OnTheFly");
 
     public OnTheFly() {
-        super(ID, -1, CardType.POWER, CardRarity.SPECIAL, CardTarget.NONE);
-        
+        super(ID);
+        setMagic(50, +10);
+        setSecondMagic(1);
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        
+    @Override
+    public float atDamageReceive(float damage, DamageInfo.DamageType damageType) {
+        return damage * (1f - ((float)magicNumber / 100f));
+    }
+
+    @Override
+    public void evo() {
+        applyToSelf(new ArtifactPower(adp(), secondMagic));
     }
 }
