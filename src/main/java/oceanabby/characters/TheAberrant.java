@@ -2,6 +2,7 @@ package oceanabby.characters;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
+import basemod.animations.SpineAnimation;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -13,9 +14,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.math.MathUtils;
+import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -41,6 +44,8 @@ public class TheAberrant extends CustomPlayer {
     static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
     private static final float ORB_IMG_SCALE = 1.15F * Settings.scale;
+    public static final float SIZE_SCALE = 0.8f;
+    public static final Float ANIMATION_SPEED = 1.0F;
 
     private static class AbbyEnergyBubble {
         public static final Texture IMG = TexLoader.getTexture(makeCharacterPath("mainChar/orb/bubble.png"));
@@ -110,16 +115,32 @@ public class TheAberrant extends CustomPlayer {
                 sb.draw(drawTex, -Settings.VERT_LETTERBOX_AMT, -Settings.HORIZ_LETTERBOX_AMT);
                 sb.draw(baseLayer, current_x - 64.0F, current_y - 64.0F, 64.0F, 64.0F, 128.0F, 128.0F, ORB_IMG_SCALE, ORB_IMG_SCALE, 0, 0, 0, 128, 128, false, false);
             }
-        }, new SpriterAnimation(makeCharacterPath("mainChar/static.scml")));
+        }, new SpineAnimation(
+                makeCharacterPath("mainChar/abby.atlas"), makeCharacterPath("mainChar/abby.json"), 1f / SIZE_SCALE));
         initializeClass(makeCharacterPath("mainChar/abby.png"),
                 SHOULDER1,
                 SHOULDER2,
                 CORPSE,
-                getLoadout(), 0f, 0f, 410.0F, 290.0F, new EnergyManager(3));
+                getLoadout(), 0f, -30f, 410.0F, 290.0F, new EnergyManager(3));
 
 
+        loadAnimation(makeCharacterPath("mainChar/abby.atlas"), makeCharacterPath("mainChar/abby.json"), 1f / SIZE_SCALE);
+        AnimationState.TrackEntry e = state.setAnimation(0, "idle", true);
+        stateData.setMix("hit", "idle", 0.5F);
+        e.setTimeScale(ANIMATION_SPEED);
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 240.0F * Settings.scale);
+    }
+
+    public void damage(DamageInfo info) {
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output - currentBlock > 0) {
+            AnimationState.TrackEntry e = state.setAnimation(0, "hit", false);
+            AnimationState.TrackEntry e2 = state.addAnimation(0, "idle", true, 0.0F);
+            e.setTimeScale(ANIMATION_SPEED);
+            e2.setTimeScale(ANIMATION_SPEED);
+        }
+
+        super.damage(info);
     }
 
     @Override
