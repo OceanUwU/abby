@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import com.megacrit.cardcrawl.screens.select.HandCardSelectScreen;
 import java.util.ArrayList;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 import oceanabby.cards.AbstractAbbyCard;
 import oceanabby.util.TexLoader;
@@ -81,6 +82,7 @@ public class Evo {
 
         private boolean upgrade;
         private Predicate<AbstractCard> available;
+        private Consumer<ArrayList<AbstractCard>> callback;
         private ArrayList<AbstractCard> cannotUpgrade = new ArrayList<>();
 
         public SelectCardInHandToEvo(boolean upgrade, Predicate<AbstractCard> available) {
@@ -88,6 +90,11 @@ public class Evo {
             this.available = available;
             actionType = ActionType.CARD_MANIPULATION;
             duration = Settings.ACTION_DUR_FAST;
+        }
+
+        public SelectCardInHandToEvo(boolean upgrade, Predicate<AbstractCard> available, Consumer<ArrayList<AbstractCard>> callback) {
+            this(upgrade, available);
+            this.callback = callback;
         }
 
         @Override
@@ -137,6 +144,7 @@ public class Evo {
                     returnCards();
                     AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
                     AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
+                    callback.accept(AbstractDungeon.handCardSelectScreen.selectedCards.group);
                     isDone = true;
               } 
               tickDuration();

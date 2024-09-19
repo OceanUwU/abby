@@ -393,11 +393,14 @@
   },
   "${ModID}:PileOn": {
     "NAME": "Pile On",
-    "DESCRIPTION": "Add !M! ${ModID}:Evo'd *Marrow{!M!>1=s} into your hand. NL Shuffle !${ModID}:m2! *Dazed into your draw pile."
+    "DESCRIPTION": "Add !M! ${ModID}:Evo'd *Marrow{!M!>1=s} into your hand.{!${ModID}:EVO!|>0= NL They deal !${ModID}:m3! additional damage.} NL Shuffle !${ModID}:m2! *Dazed into your draw pile."
   },
   "${ModID}:Pounce": {
     "NAME": "Pounce",
-    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card{!M!|>1=s}. NL ${ModID}:Evo {!M!|1=it|2=one and discard the other|@=one and discard the others}."
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card{!M!|>1=s}. NL ${ModID}:Evo {!M!|1=it|2=1 and discard the other|@=one and discard the others}.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage. NL Draw !M! card{!M!|>1=s}. NL ${ModID}:Evo 1."
+    ]
   },
   "${ModID}:Psionics": {
     "NAME": "Psionics",
