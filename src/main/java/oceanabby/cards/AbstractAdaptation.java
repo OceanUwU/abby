@@ -38,7 +38,7 @@ public abstract class AbstractAdaptation extends AbstractAbbyCard {
     private BobEffect bobEffect = new BobEffect(2f * Settings.scale, 0.75f);
 
     public AbstractAdaptation(final String cardID) {
-        super(cardID, -2, CardType.POWER, CardRarity.SPECIAL, CardTarget.NONE);
+        super(cardID, -2, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
         targetDrawScale = unhoveredScale;
     }
 

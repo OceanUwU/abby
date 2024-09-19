@@ -11,7 +11,7 @@ public class StemCells extends AbstractAbbyCard {
 
     public StemCells() {
         super(ID, -1, CardType.POWER, CardRarity.SPECIAL, CardTarget.NONE);
-        
+        setMagic(1);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -21,5 +21,17 @@ public class Marrow extends AbstractAbbyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
+        if (evod)
+            blck();
+    }
+
+    @Override
+    public void evo() {
+        setBlock(3);
+    }
+
+    @Override
+    public void devo() {
+        setBlock(-1);
     }
 }

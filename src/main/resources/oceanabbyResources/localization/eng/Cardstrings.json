@@ -404,7 +404,10 @@
   },
   "${ModID}:Psionics": {
     "NAME": "Psionics",
-    "DESCRIPTION": "${ModID}:Devo {!${ModID}:EVO!|>0=this card|@=a card in your hand} to deal !D! damage !M! times."
+    "DESCRIPTION": "${ModID}:Devo {!${ModID}:EVO!|>0=this card|@=a card in your hand} to deal !D! damage !M! times.",
+    "EXTENDED_DESCRIPTION": [
+      "Devo"
+    ]
   },
   "${ModID}:Pustule": {
     "NAME": "Pustule",
@@ -416,7 +419,10 @@
     "EXTENDED_DESCRIPTION": [
       "Radiant",
       "Whenever you play a #yMarrow, increase the damage of #yMarrows by #b",
-      "."
+      ".",
+      "Bones",
+      "#yMarrows deal #b",
+      " additional damage."
     ]
   },
   "${ModID}:RadioactiveBeam": {
@@ -436,12 +442,12 @@
     "DESCRIPTION": "Raise your Max HP by !M!."
   },
   "${ModID}:Robotization": {
-    "NAME": "Robotization",
-    "DESCRIPTION": "{!${ModID}:EVO!|>0=Lightning deals !M! additional damage. NL }${ModID}:Throb: Channel !M! Lightning."
+    "NAME": "Cybernetics",
+    "DESCRIPTION": "{!${ModID}:EVO!|>0=Lightning deals !${ModID}:m2! additional damage. NL }${ModID}:Throb: Channel !M! Lightning."
   },
   "${ModID}:SalivaSlick": {
     "NAME": "Saliva Slick",
-    "DESCRIPTION": "Apply !${ModID}:m2! Weak.{!${ModID}:EVO!|>0= NL Apply !${ModID}:m2! Vulnerable.} NL Apply !M! ${ModID}:Acid."
+    "DESCRIPTION": "Apply !${ModID}:m2! Weak.{!${ModID}:EVO!|>0= NL Apply !${ModID}:m3! Vulnerable.} NL Apply !M! ${ModID}:Acid."
   },
   "${ModID}:ShackleDrag": {
     "NAME": "Shackle Drag",
@@ -462,7 +468,7 @@
   },
   "${ModID}:Splice": {
     "NAME": "Splice",
-    "DESCRIPTION": "Lose !${ModID}:m2! Dexterity. NL Gain !M! Strength.{!${ModID}:EVO!|>0= Add a *Splice into your hand.}"
+    "DESCRIPTION": "Lose !${ModID}:m2! Dexterity. NL Gain !M! Strength.{!${ModID}:EVO!|1= Add a *Splice into your hand.|2= Add a *Splice+ into your hand.}"
   },
   "${ModID}:Stalker": {
     "NAME": "Stalk",
@@ -476,7 +482,9 @@
       "At the start of your turn, #yMutate #b",
       "At the start of your turn, #yMutate and #yEvo #b",
       " card.",
-      " cards."
+      " cards.",
+      "Mutate",
+      "Mutate and Evo"
     ]
   },
   "${ModID}:StrangeScience": {

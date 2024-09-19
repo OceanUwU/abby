@@ -10,11 +10,24 @@ public class Regrowth extends AbstractAbbyCard {
     public final static String ID = makeID("Regrowth");
 
     public Regrowth() {
-        super(ID, -1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE);
-        
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        setHaunted(12);
+        setMagic(5, +3);
+        setExhaust(true);
+        tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        
+        actB(() -> p.increaseMaxHp(magicNumber, false));
+    }
+
+    @Override
+    public void evo() {
+        upgradeHaunted(-11);
+    }
+
+    @Override
+    public void devo() {
+        upgradeHaunted(11);
     }
 }

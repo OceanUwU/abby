@@ -34,19 +34,22 @@ public class Adaptations {
     private static void throb() {
         for (AbstractAdaptation a : adaptations)
             actB(() -> {
-                if (--a.counter <= 0) {
-                    CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-                    group.addToTop(a);
-                    a.onEnd();
-                    for (AbstractPower p : adp().powers)
-                        if (p instanceof AbstractAbbyPower)
-                            ((AbstractAbbyPower)p).onAdaptationEnd(a);
-                    att(new ExhaustSpecificCardAction(a, group));
-                    actT(() -> adaptations.remove(a));
-                };
+                if (--a.counter <= 0)
+                    remove(a);
                 a.fontScale *= 2f;
                 a.onThrob();
             });
+    }
+
+    public static void remove(AbstractAdaptation a) {
+        CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        group.addToTop(a);
+        a.onEnd();
+        for (AbstractPower p : adp().powers)
+            if (p instanceof AbstractAbbyPower)
+                ((AbstractAbbyPower)p).onAdaptationEnd(a);
+        att(new ExhaustSpecificCardAction(a, group));
+        actT(() -> adaptations.remove(a));
     }
 
     public static void addAptation(AbstractAdaptation a) {

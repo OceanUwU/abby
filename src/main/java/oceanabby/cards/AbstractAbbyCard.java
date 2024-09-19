@@ -24,6 +24,7 @@ import java.util.function.Consumer;
 import oceanabby.actions.AddAptationAction;
 import oceanabby.characters.TheAberrant;
 import oceanabby.mechanics.Evo;
+import oceanabby.mutations.AbstractMutation;
 import oceanabby.util.CardArtRoller;
 
 import static oceanabby.AbbyMod.makeID;
@@ -593,6 +594,8 @@ public abstract class AbstractAbbyCard extends CustomCard {
     public CardArtRoller.ReskinInfo reskinInfo(String ID) {
         return null;
     }
+
+    public void onMutate(AbstractMutation mutation) {}
 
     protected void upMagic(int x) {
         upgradeMagicNumber(x);

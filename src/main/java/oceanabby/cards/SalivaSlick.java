@@ -2,6 +2,7 @@ package oceanabby.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import oceanabby.powers.Acid;
 
@@ -15,10 +16,13 @@ public class SalivaSlick extends AbstractAbbyCard {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
         setMagic(5, +1);
         setSecondMagic(2, +1);
+        setThirdMagic(2);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToEnemy(m, new WeakPower(m, secondMagic, false));
+        if (evod)
+            applyToEnemy(m, new VulnerablePower(m, thirdMagic, false));
         applyToEnemy(m, new Acid(m, magicNumber));
     }
 }

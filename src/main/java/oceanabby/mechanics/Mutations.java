@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import oceanabby.cards.AbstractAbbyCard;
 import oceanabby.mutations.AbstractMutation;
 
 import static oceanabby.AbbyMod.modID;
@@ -22,12 +23,16 @@ public class Mutations {
         if (mutation != null) {
             CardModifierManager.addModifier(c, mutation);
             c.superFlash();
+            if (isInCombat() && c instanceof AbstractAbbyCard)
+                ((AbstractAbbyCard)c).onMutate(mutation);
         }
     }
 
     public static void mutateWith(AbstractCard c, AbstractMutation mutation) {
         if (mutation != null && !CardModifierManager.hasModifier(c, mutation.identifier(c))) {
             CardModifierManager.addModifier(c, mutation);
+            if (isInCombat() && c instanceof AbstractAbbyCard)
+                ((AbstractAbbyCard)c).onMutate(mutation);
             c.superFlash();
         }
     }
