@@ -234,11 +234,11 @@
   },
   "${ModID}:GiganticGrowth": {
     "NAME": "Gigantic Growth",
-    "DESCRIPTION": "Mutate !M! random card{!M!|>0=s} in your draw pile.{!${ModID}:EVO!|>0= NL Add one of them into your hand at random.}"
+    "DESCRIPTION": "Mutate !M! random card{!M!|>0=s} in your draw pile.{!${ModID}:EVO!|>0= NL Add {!${ModID}:m2!} of them into your hand at random.}"
   },
   "${ModID}:HalfRemembered": {
     "NAME": "Remembrance",
-    "DESCRIPTION": "Whenever you play an ${ModID}:Evo'd card, ${ModID}:Devo it,{!${ModID}:EVO!|>0= gain !${ModID}:m3! Block,} draw !M! card{!M!|>1=s} and gain [E].",
+    "DESCRIPTION": "Whenever you play an ${ModID}:Evo'd card, ${ModID}:Devo it,{!${ModID}:EVO!|>0= gain !${ModID}:m3! Block,} draw !M! card{!M!|>1=s} and gain{!${ModID}:m2!|repeat= [E]}.",
     "EXTENDED_DESCRIPTION": [
       "Remembrance",
       "Whenever you play an #yEvo'd card, #yDevo it.",
@@ -294,11 +294,17 @@
   },
   "${ModID}:ItFollows": {
     "NAME": "Spread",
-    "DESCRIPTION": "Discard !M! card{!M!|>1=s} from your draw pile. ${ModID}:Mutate{!${ModID}:EVO!|-1= and ${ModID}:Evo|1= and Upgrade|2=, ${ModID}:Evo, and Upgrade} them."
+    "DESCRIPTION": "Discard !M! card{!M!|>1=s} from your draw pile. ${ModID}:Mutate{!${ModID}:EVO!|-1= and ${ModID}:Evo|1= and Upgrade|2=, ${ModID}:Evo, and Upgrade} them.",
+    "EXTENDED_DESCRIPTION": [
+      "Mutate",
+      "Mutate and Upgrade",
+      "Mutate and Evo",
+      "Mutate, Evo, and Upgrade"
+    ]
   },
   "${ModID}:JacobsLadder": {
     "NAME": "Jacob's Ladder",
-    "DESCRIPTION": "{!${ModID}:EVO!|>0=Gain !${ModID}:b2! Block. NL }Gain !B! Block for each Attack played this turn."
+    "DESCRIPTION": "{!${ModID}:EVO!|>0=Gain !${ModID}:b2! Block. NL }Gain !B! Block for each Attack played this turn.{!M!|1= NL (!M! Attack played.)|>-1= NL (!M! Attacks played.)}"
   },
   "${ModID}:LastDitch": {
     "NAME": "Press On",
@@ -336,7 +342,7 @@
   },
   "${ModID}:Mimicry": {
     "NAME": "Mimicry",
-    "DESCRIPTION": "Choose a random red, blue, or green{!${ModID}:EVO!|>0= Upgraded} card to add into your hand. NL It costs 0 this turn."
+    "DESCRIPTION": "Choose a random red, green, or blue{!${ModID}:EVO!|>0= Upgraded} card to add into your hand. NL It costs 0 this turn."
   },
   "${ModID}:Mutate": {
     "NAME": "Embrace Defects",
@@ -346,9 +352,12 @@
     "NAME": "Neow's Embrace",
     "DESCRIPTION": "ALL enemies lose !M! Strength{!${ModID}:EVO!|>0= and !${ModID}:m2! HP} until after their next attack.",
     "EXTENDED_DESCRIPTION": [
-      "Embraced",
+      "Restrained",
       "Deals #b",
-      " less damage until after its next Attack."
+      " less damage until after its next Attack.",
+      "Embraced",
+      "Heals #b",
+      " HP after its next Attack."
     ]
   },
   "${ModID}:NoMercy": {

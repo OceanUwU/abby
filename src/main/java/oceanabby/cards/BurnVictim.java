@@ -19,6 +19,7 @@ public class BurnVictim extends AbstractAbbyCard {
         setSecondMagic(2);
         setThirdMagic(10);
         cardsToPreview = new Burn();
+        isMultiDamage = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

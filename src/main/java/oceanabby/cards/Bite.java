@@ -20,6 +20,7 @@ public class Bite extends AbstractAbbyCard {
         setDamage(8, +2);
         setMagic(6, +2);
         setSecondMagic(1);
+        isMultiDamage = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

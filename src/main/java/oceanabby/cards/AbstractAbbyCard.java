@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.function.Consumer;
 import oceanabby.actions.AddAptationAction;
 import oceanabby.characters.TheAberrant;
+import oceanabby.mechanics.Evo;
 import oceanabby.util.CardArtRoller;
 
 import static oceanabby.AbbyMod.makeID;
@@ -579,6 +580,10 @@ public abstract class AbstractAbbyCard extends CustomCard {
     protected void addAptation() {
         if (cardsToPreview instanceof AbstractAdaptation)
             atb(new AddAptationAction((AbstractAdaptation)cardsToPreview, magicNumber));
+    }
+
+    protected void queueDevo() {
+        actB(() -> Evo.devo(this));
     }
 
     public String cardArtCopy() {

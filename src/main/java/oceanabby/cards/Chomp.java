@@ -26,6 +26,7 @@ public class Chomp extends AbstractAbbyCard {
                 if (m != null)
                     vfxTop(new BiteEffect(m.hb.cX, m.hb.cY - 40.0F * Settings.scale, Settings.GOLD_COLOR.cpy()), 0.1F);
             }
+            baseMagicNumber = magicNumber = -1;
         });
     }
   
