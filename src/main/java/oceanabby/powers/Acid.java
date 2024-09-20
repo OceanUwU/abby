@@ -42,15 +42,19 @@ public class Acid extends AbstractAbbyPower implements HealthBarRenderPower {
             flashWithoutSound();
             atb(new DamageAction(owner, new DamageInfo(adp(), amount, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.POISON),
                 new ReducePowerAction(owner, owner, this, (int)Math.ceil(amount / 2d)),
-                actionify(() -> {
-                    if (!owner.hasPower(ID) && owner.hasPower(Spew.ID)) {
-                        AbstractPower po = owner.getPower(Spew.ID);
-                        po.flash();
-                        atb(new ApplyPowerAction(owner, AbstractDungeon.player, po, po.amount));
-                        atb(new RemoveSpecificPowerAction(owner, owner, po));
-                    }
-                }));
+                checkSpew());
         } 
+    }
+
+    public AbstractGameAction checkSpew() {
+        return actionify(() -> {
+            if (!owner.hasPower(ID) && owner.hasPower(Spew.ID)) {
+                AbstractPower po = owner.getPower(Spew.ID);
+                po.flash();
+                atb(new ApplyPowerAction(owner, AbstractDungeon.player, po, po.amount));
+                atb(new RemoveSpecificPowerAction(owner, owner, po));
+            }
+        });
     }
         
     public int getHealthBarAmount() { return amount; }

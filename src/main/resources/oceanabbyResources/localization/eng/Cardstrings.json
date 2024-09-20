@@ -479,6 +479,7 @@
     "DESCRIPTION": "{!Upgrades!|0=At|@=Now and at} the start of your turn, ${ModID}:Mutate and ${ModID}:Evo !M! card{!M!|>0=s}.",
     "EXTENDED_DESCRIPTION": [
       "Stem Cells",
+      "Stem Cells EVO",
       "At the start of your turn, #yMutate #b",
       "At the start of your turn, #yMutate and #yEvo #b",
       " card.",
@@ -513,11 +514,11 @@
   },
   "${ModID}:TendonSlash": {
     "NAME": "Tendon Slash",
-    "DESCRIPTION": "{!${ModID}:EVO!|>0=Give the enemy !M! Block. NL }Deal !D! damage until the enemy has no Block. NL Gain !B! Block for each hit."
+    "DESCRIPTION": "{!${ModID}:EVO!|>0=Give the enemy !${ModID}:d2! Block. NL }Gain !B! Block and deal !D! damage until the enemy has no Block."
   },
   "${ModID}:Tendrils": {
     "NAME": "Tendrils",
-    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL Gain Block equal to !${ModID}:m2!% of damage dealt.} NL Permanently increase this card's damage by !M!."
+    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL Gain Block equal to !${ModID}:m2!% of damage dealt.}{!B!|>-1= (!B!)} NL Permanently increase this card's damage by !M!."
   },
   "${ModID}:TheSpiral": {
     "NAME": "The Spiral",
@@ -529,15 +530,17 @@
   },
   "${ModID}:ToTheLimit": {
     "NAME": "To The Limit",
-    "DESCRIPTION": "Gain !M! temporary Strength{!${ModID}:EVO!|>0= and !${ModID}:m2! Dexterity}. NL If you lose any HP this turn, die.",
+    "DESCRIPTION": "Gain !M! temporary Strength{!${ModID}:EVO!|>0= and !${ModID}:m2! Dexterity}. NL {!${ModID}:m3!|1=If you lose any HP this turn|@=For !${ModID}:m3! turns, if you lose any HP}, die.",
     "EXTENDED_DESCRIPTION": [
       "At The Limit",
+      "For #b",
+      " turns, if you lose HP, die.",
       "If you lose HP this turn, die."
     ]
   },
   "${ModID}:ToxicGlands": {
     "NAME": "Toxic Glands",
-    "DESCRIPTION": "Attacks apply ${ModID}:Acid equal to !M!% of unblocked damage dealt."
+    "DESCRIPTION": "Attacks apply ${ModID}:Acid equal to !M!% of unblocked damage dealt.{!${ModID}:EVO!|>0= NL When this ${ModID}:Adaptation ends, apply !${ModID}:m2! ${ModID}:Acid to ALL enemies."
   },
   "${ModID}:WasteDump": {
     "NAME": "Waste Dump",

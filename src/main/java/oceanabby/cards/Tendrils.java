@@ -1,6 +1,10 @@
 package oceanabby.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static oceanabby.AbbyMod.makeID;
@@ -10,11 +14,44 @@ public class Tendrils extends AbstractAbbyCard {
     public final static String ID = makeID("Tendrils");
 
     public Tendrils() {
-        super(ID, -1, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.NONE);
-        
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        misc = 4;
+        setDamage(misc);
+        setMagic(2, +1);
+        setExhaust(true);
+        setSecondMagic(25);
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        baseBlock = damage * 100 / secondMagic;
+        super.applyPowers();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        
+        actB(() -> {
+            for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+                if (!c.uuid.equals(uuid))
+                    continue; 
+                c.misc += magicNumber;
+                c.applyPowers();
+                c.baseDamage = c.misc;
+                c.isDamageModified = false;
+            } 
+            for (AbstractCard c : GetAllInBattleInstances.get(uuid)) {
+                c.misc += magicNumber;
+                c.applyPowers();
+                c.baseDamage = c.misc;
+            } 
+        });
+        dmg(m, AttackEffect.SLASH_DIAGONAL);
+        if (evod)
+            blck();
+    }
+
+    @Override
+    public void onLoadedMisc() {
+        baseDamage = damage = misc;
     }
 }

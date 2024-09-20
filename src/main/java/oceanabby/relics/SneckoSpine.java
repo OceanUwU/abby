@@ -55,11 +55,11 @@ public class SneckoSpine extends AbstractAbbyRelic {
     }
 
     @SpirePatch(
-            clz = AbstractMonster.class,
-            method = "damage",
-            paramtypez = { DamageInfo.class }
+        clz = AbstractMonster.class,
+        method = "damage",
+        paramtypez = { DamageInfo.class }
     )
-    public static class MedievalHelmetPatch {
+    public static class SneckoSpinePatch {
         @SpireInsertPatch( locator = Locator.class )
         public static void Insert(AbstractMonster __instance, DamageInfo info) {
             if (AbstractDungeon.player.hasRelic(ID) && info.type == DamageInfo.DamageType.NORMAL && ((SneckoSpine)AbstractDungeon.player.getRelic(ID)).enabled && __instance.lastDamageTaken > 0)
