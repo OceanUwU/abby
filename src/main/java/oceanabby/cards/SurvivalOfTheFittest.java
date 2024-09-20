@@ -38,7 +38,7 @@ public class SurvivalOfTheFittest extends AbstractAbbyCard {
             }
         });
         if (evod)
-            applyToSelf(new LambdaPower(ID + "EVO", exDesc, exDesc[3], PowerType.BUFF, false, p, secondMagic) {
+            applyToSelf(new LambdaPower(ID + "Evo", exDesc, exDesc[3], PowerType.BUFF, false, p, secondMagic) {
                 public void updateDescription() {
                     description = strings[4] + amount + strings[5];
                 }
@@ -52,14 +52,14 @@ public class SurvivalOfTheFittest extends AbstractAbbyCard {
     )
     public static class SurvivalPatch {
         @SpireInsertPatch( locator = Locator.class )
-        public static void Insert(AbstractMonster __instance, DamageInfo info) {
-            if (__instance.lastDamageTaken > 0) {
+    public static void Insert(AbstractMonster __instance, DamageInfo info) {
+        if (__instance.lastDamageTaken > 0) {
                 if (adp().hasPower(ID)) {
                     adp().getPower(ID).flashWithoutSound();
                     applyToSelfTop(new VigorPower(adp(), __instance.lastDamageTaken * 100 / pwrAmt(adp(), ID)));
                 }
-                if (adp().hasPower(ID + "EVO")) {
-                    adp().getPower(ID + "EVO").flashWithoutSound();
+                if (adp().hasPower(ID + "Evo")) {
+                    adp().getPower(ID + "Evo").flashWithoutSound();
                     att(new GainBlockAction(adp(), pwrAmt(__instance, ID + "Evo")));
                 }
             }

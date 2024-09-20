@@ -16,7 +16,7 @@ public class RadioactiveBeam extends AbstractAbbyCard {
         setMagic(3);
         setDamage(8, +8);
         setSecondMagic(4);
-        cardsToPreview = new RadioactiveBeam();
+        cardsToPreview = new ToxicGlands();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

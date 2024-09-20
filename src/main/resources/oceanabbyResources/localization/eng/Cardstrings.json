@@ -308,7 +308,7 @@
   },
   "${ModID}:LastDitch": {
     "NAME": "Press On",
-    "DESCRIPTION": "Deal !D! damage. Your next ${ModID}:Adaptation lasts !M! additional turn{!M!|>1=s}.",
+    "DESCRIPTION": "Deal !D! damage. NL Your next ${ModID}:Adaptation lasts !M! additional turn{!M!|>1=s}.",
     "EXTENDED_DESCRIPTION": [
       "Pressing On",
       "Your next adaptation lasts #b",
@@ -322,15 +322,15 @@
   },
   "${ModID}:Marrow": {
     "NAME": "Marrow",
-    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!| NL Gain !B! Block.}"
+    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL Gain !B! Block.}"
   },
   "${ModID}:ChargedMarrow": {
     "NAME": "Charged Marrow",
-    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!| NL Gain !B! Block.} NL Gain{!M!|repeat= [E]}."
+    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL Gain !B! Block.} NL Gain{!M!|repeat= [E]}."
   },
   "${ModID}:ShiningMarrow": {
     "NAME": "Shiny Marrow",
-    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!| NL Gain !B! Block.} NL Draw !M! card{!M!|>1=s}."
+    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL Gain !B! Block.} NL Draw !M! card{!M!|>1=s}."
   },
   "${ModID}:MeatShield": {
     "NAME": "Meat Shield",
@@ -540,7 +540,7 @@
   },
   "${ModID}:ToxicGlands": {
     "NAME": "Toxic Glands",
-    "DESCRIPTION": "Attacks apply ${ModID}:Acid equal to !M!% of unblocked damage dealt.{!${ModID}:EVO!|>0= NL When this ${ModID}:Adaptation ends, apply !${ModID}:m2! ${ModID}:Acid to ALL enemies."
+    "DESCRIPTION": "Attacks apply ${ModID}:Acid equal to !M!% of unblocked damage dealt.{!${ModID}:EVO!|>0= NL When this ${ModID}:Adaptation ends, apply !${ModID}:m2! ${ModID}:Acid to ALL enemies.}"
   },
   "${ModID}:WasteDump": {
     "NAME": "Waste Dump",

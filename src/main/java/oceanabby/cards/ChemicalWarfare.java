@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
 import com.megacrit.cardcrawl.ui.panels.PotionPopUp;
 import oceanabby.powers.LambdaPower;
@@ -52,21 +51,17 @@ public class ChemicalWarfare extends AbstractAbbyCard {
     public static class OnThrow {
         @SpireInsertPatch(rloc=26)
         public static void Insert(PotionPopUp __instance) {
-            if (adp().hasPower(ID)) {
-                AbstractPower po = adp().getPower(ID);
+            if (adp().hasPower(ID) || adp().hasPower(ID + "Evo")) {
                 AbstractPotion potion = ReflectionHacks.getPrivate(__instance, PotionPopUp.class, "potion");
                 AbstractMonster m = ReflectionHacks.getPrivate(__instance, PotionPopUp.class, "hoveredMonster");
-                po.flash();
-                for (int i = 0; i < po.amount; i++)
-                    potion.use(m);
-                att(new RemoveSpecificPowerAction(adp(), adp(), po));
-            } else if (adp().hasPower(ID + "Evo")) {
-                AbstractPower po = adp().getPower(ID + "Evo");
-                AbstractPotion potion = ReflectionHacks.getPrivate(__instance, PotionPopUp.class, "potion");
-                AbstractMonster m = ReflectionHacks.getPrivate(__instance, PotionPopUp.class, "hoveredMonster");
-                po.flash();
-                for (int i = 0; i < po.amount; i++)
-                    potion.use(m);
+                if (adp().hasPower(ID))
+                    adp().getPower(ID).flash();
+                if (adp().hasPower(ID + "Evo"))
+                    adp().getPower(ID + "Evo").flash();
+                for (int i = 0; i < pwrAmt(adp(), ID) + pwrAmt(adp(), ID + "Evo"); i++)
+                    potion.use(m == null ? null : m);
+                if (adp().hasPower(ID))
+                    att(new RemoveSpecificPowerAction(adp(), adp(), ID));
             }
         }
     }
@@ -75,19 +70,16 @@ public class ChemicalWarfare extends AbstractAbbyCard {
     public static class OnDrink {
         @SpireInsertPatch(rloc=20)
         public static void Insert(PotionPopUp __instance) {
-            if (adp().hasPower(ID)) {
-                AbstractPower po = adp().getPower(ID);
+            if (adp().hasPower(ID) || adp().hasPower(ID + "Evo")) {
                 AbstractPotion potion = ReflectionHacks.getPrivate(__instance, PotionPopUp.class, "potion");
-                po.flash();
-                for (int i = 0; i < po.amount; i++)
+                if (adp().hasPower(ID))
+                    adp().getPower(ID).flash();
+                if (adp().hasPower(ID + "Evo"))
+                    adp().getPower(ID + "Evo").flash();
+                for (int i = 0; i < pwrAmt(adp(), ID) + pwrAmt(adp(), ID + "Evo"); i++)
                     potion.use(null);
-                att(new RemoveSpecificPowerAction(adp(), adp(), po));
-            } else if (adp().hasPower(ID + "Evo")) {
-                AbstractPower po = adp().getPower(ID + "Evo");
-                AbstractPotion potion = ReflectionHacks.getPrivate(__instance, PotionPopUp.class, "potion");
-                po.flash();
-                for (int i = 0; i < po.amount; i++)
-                    potion.use(null);
+                if (adp().hasPower(ID))
+                    att(new RemoveSpecificPowerAction(adp(), adp(), ID));
             }
         }
     }

@@ -24,7 +24,7 @@ public class Radiance extends AbstractAbbyCard {
             @Override public void onAfterCardPlayed(AbstractCard usedCard) {
                 if (usedCard instanceof Marrow) {
                     flash();
-                    applyToSelf(new LambdaPower(ID, strings, strings[3], PowerType.BUFF, false, adp(), amount) {
+                    applyToSelf(new LambdaPower(makeID("Bones"), strings, strings[3], PowerType.BUFF, false, adp(), amount) {
                         @Override public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
                             if (card instanceof Marrow)
                                 return damage + amount; 

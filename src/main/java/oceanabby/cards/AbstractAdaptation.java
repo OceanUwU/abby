@@ -190,7 +190,7 @@ public abstract class AbstractAdaptation extends AbstractAbbyCard {
         }
     }
 
-    @SpirePatch(clz=AbstractCard.class, method="damage")
+    @SpirePatch(clz=AbstractCard.class, method="applyPowers")
     public static class AtDamageGivePatch {
         @SpireInsertPatch(rloc=23, localvars={"tmp"})
         public static void Insert(AbstractCard __instance, @ByRef float[] tmp) {

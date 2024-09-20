@@ -27,7 +27,9 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import oceanabby.cards.Abomination;
 import oceanabby.cards.Defend;
+import oceanabby.cards.Spew;
 import oceanabby.cards.Strike;
 import oceanabby.relics.MutationCatalyst;
 import oceanabby.util.TexLoader;
@@ -152,12 +154,12 @@ public class TheAberrant extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++)
             retVal.add(Strike.ID);
-        }
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++)
             retVal.add(Defend.ID);
-        }
+        retVal.add(Abomination.ID);
+        retVal.add(Spew.ID);
         return retVal;
     }
 
@@ -220,8 +222,7 @@ public class TheAberrant extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        System.out.println("YOU NEED TO SET getStartCardForEvent() in your " + getClass().getSimpleName() + " file!");
-        return null;
+        return new Spew();
     }
 
     @Override

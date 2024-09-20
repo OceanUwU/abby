@@ -52,7 +52,7 @@ public class NeowsEmbrace extends AbstractAbbyCard {
             applyToEnemy(m, po);
             if (evod) {
                 atb(new DamageAction(mo, new DamageInfo(p, secondMagic, DamageType.HP_LOSS), AttackEffect.BLUNT_LIGHT));
-                AbstractAbbyPower po2 = new LambdaPower(ID + "HP", exDesc, exDesc[0], PowerType.BUFF, false, mo, secondMagic) {
+                AbstractAbbyPower po2 = new LambdaPower(ID + "Evo", exDesc, exDesc[0], PowerType.BUFF, false, mo, secondMagic) {
                     public void atStartOfTurn() {
                         if (owner instanceof AbstractMonster)
                             if (((AbstractMonster)owner).getIntentBaseDmg() > 0)

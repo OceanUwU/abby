@@ -40,7 +40,8 @@ public abstract class AbstractAbbyPower extends AbstractPower {
             region48 = new TextureAtlas.AtlasRegion(normalTexture, 0, 0, normalTexture.getWidth(), normalTexture.getHeight());
         }
 
-        updateDescription();
+        if (!(this instanceof LambdaPower))
+            updateDescription();
     }
 
     @Override

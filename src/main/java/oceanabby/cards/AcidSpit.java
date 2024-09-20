@@ -36,7 +36,7 @@ public class AcidSpit extends AbstractAbbyCard {
             }
         });
         if (evod)
-            applyToSelf(new LambdaPower(ID, exDesc, exDesc[3], PowerType.BUFF, false, p, magicNumber) {
+            applyToSelf(new LambdaPower(ID + "Evo", exDesc, exDesc[3], PowerType.BUFF, false, p, magicNumber) {
                 @Override public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
                     if (power instanceof Acid && source == owner) {
                         atb(new GainBlockAction(owner, amount));

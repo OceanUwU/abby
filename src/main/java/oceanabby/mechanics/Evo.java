@@ -43,7 +43,8 @@ public class Evo {
         if (Field.evod.get(c))
             return;
         Field.evod.set(c, true);
-        ExtraIconsField.extraIcons.get(c).add(new IconPayload(ExtraIcons.icon(icon))); //render in SCV
+        if (!ExtraIconsField.extraIcons.get(c).stream().anyMatch(i -> i.getTexture() == icon))
+            ExtraIconsField.extraIcons.get(c).add(new IconPayload(ExtraIcons.icon(icon))); //render in SCV
         if (c instanceof AbstractAbbyCard) {
             ((AbstractAbbyCard)c).evod = true;
             ((AbstractAbbyCard)c).evo();
@@ -220,7 +221,7 @@ public class Evo {
     @SpirePatch(clz=AbstractCard.class, method="renderCard")
     public static class RenderIcon {
         public static void Prefix(AbstractCard __instance) {
-            if (Field.evod.get(__instance))
+            if (Field.evod.get(__instance) && !ExtraIconsField.extraIcons.get(__instance).stream().anyMatch(i -> i.getTexture() == icon))
                 ExtraIconsField.extraIcons.get(__instance).add(new IconPayload(ExtraIcons.icon(icon)));
         }
     }

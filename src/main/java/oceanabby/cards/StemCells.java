@@ -32,7 +32,7 @@ public class StemCells extends AbstractAbbyCard {
                 }
             });
         else
-            applyToSelf(new LambdaPower(ID, exDesc, exDesc[1], PowerType.BUFF, false, p, magicNumber) {
+            applyToSelf(new LambdaPower(ID + "Evo", exDesc, exDesc[1], PowerType.BUFF, false, p, magicNumber) {
                 @Override public void atStartOfTurn() {
                     flash();
                     atb(new SelectCardsInHandAction(amount, strings[7], c -> Mutations.canMutate(c) || Evo.shouldEvo(c), cards -> cards.forEach(c -> {Mutations.mutate(c); Evo.evo(c);})));

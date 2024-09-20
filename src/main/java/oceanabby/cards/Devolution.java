@@ -18,7 +18,7 @@ public class Devolution extends AbstractAbbyCard {
     private static int applied = 0;
 
     public Devolution() {
-        super(ID, -1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         setMagic(10, +2);
         setSecondMagic(5);
         setThirdMagic(3);

@@ -12,7 +12,7 @@ public class Mutate extends AbstractAbbyCard {
     public final static String ID = makeID("Mutate");
 
     public Mutate() {
-        super(ID, -1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
         setMagic(1);
     }
 
