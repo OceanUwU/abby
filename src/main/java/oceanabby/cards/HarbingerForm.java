@@ -48,5 +48,7 @@ public class HarbingerForm extends AbstractAbbyCard {
                     description = strings[5];
                 }
             });
+        if (evod)
+            actB(() -> p.hand.group.forEach(c -> Mutations.mutate(c)));
     }
 }

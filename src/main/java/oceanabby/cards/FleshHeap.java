@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAndDeckAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.unique.BurnIncreaseAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -25,7 +26,7 @@ public class FleshHeap extends AbstractAbbyCard {
     public final static String ID = makeID("FleshHeap");
 
     public FleshHeap() {
-        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL);
+        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL);
         setBlock(12);
         setMagic(1, +1);
     }
@@ -48,13 +49,13 @@ public class FleshHeap extends AbstractAbbyCard {
 
     @SpirePatch(clz=GameActionManager.class, method="getNextAction")
     public static class Patch {
-        @SpireInsertPatch(rloc=210)
-        public static void Insert(GameActionManager __instance) {
-            if (adp().hasPower(ID)) {
+        @SpireInsertPatch(rloc=210, localvars={"m"})
+        public static void Insert(GameActionManager __instance, AbstractMonster m) {
+            if (m.hasPower(ID)) {
                 int numActions = __instance.actions.size();
-                __instance.actions = new ArrayList<>(__instance.actions.stream().filter(a -> !(a instanceof MakeTempCardInDiscardAction || a instanceof MakeTempCardAtBottomOfDeckAction || a instanceof MakeTempCardInDiscardAndDeckAction || a instanceof MakeTempCardInDrawPileAction || a instanceof MakeTempCardInHandAction)).collect(Collectors.toList()));
+                __instance.actions = new ArrayList<>(__instance.actions.stream().filter(a -> !(a instanceof MakeTempCardInDiscardAction || a instanceof MakeTempCardAtBottomOfDeckAction || a instanceof MakeTempCardInDiscardAndDeckAction || a instanceof MakeTempCardInDrawPileAction || a instanceof MakeTempCardInHandAction || a instanceof BurnIncreaseAction)).collect(Collectors.toList()));
                 if (__instance.actions.size() < numActions)
-                    adp().getPower(ID).flash();
+                    m.getPower(ID).flash();
             }
         }
     }

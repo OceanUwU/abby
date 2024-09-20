@@ -27,8 +27,8 @@ public class Bite extends AbstractAbbyCard {
         forAllMonstersLiving(mo -> vfx(new BiteEffect(mo.hb.cX, mo.hb.cY - 40.0F * Settings.scale, Settings.GOLD_COLOR.cpy()), 0));
         atb(new WaitAction(0.1f));
         allDmg(AttackEffect.NONE);
+        forAllMonstersLiving(mo -> applyToEnemy(mo, new Acid(mo, magicNumber)));
         if (evod)
             forAllMonstersLiving(mo -> applyToEnemy(mo, new VulnerablePower(mo, secondMagic, false)));
-        forAllMonstersLiving(mo -> applyToEnemy(mo, new Acid(mo, magicNumber)));
     }
 }

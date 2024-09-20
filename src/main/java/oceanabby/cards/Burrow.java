@@ -29,8 +29,8 @@ public class Burrow extends AbstractAbbyCard {
             @Override public int onAttacked(DamageInfo info, int damageAmount) {
                 if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner) {
                     flash();
-                    applyToSelfTop(new LoseStrengthPower(p, magicNumber));
-                    applyToSelfTop(new StrengthPower(p, magicNumber));
+                    applyToSelfTop(new LoseStrengthPower(p, amount));
+                    applyToSelfTop(new StrengthPower(p, amount));
                 } 
                 return damageAmount;
             }
@@ -48,8 +48,8 @@ public class Burrow extends AbstractAbbyCard {
                 @Override public int onAttacked(DamageInfo info, int damageAmount) {
                     if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner) {
                         flash();
-                        applyToSelfTop(new LoseDexterityPower(p, magicNumber));
-                        applyToSelfTop(new DexterityPower(p, magicNumber));
+                        applyToSelfTop(new LoseDexterityPower(p, amount));
+                        applyToSelfTop(new DexterityPower(p, amount));
                     } 
                     return damageAmount;
                 }

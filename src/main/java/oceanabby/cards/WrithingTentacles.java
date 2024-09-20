@@ -18,6 +18,7 @@ public class WrithingTentacles extends AbstractAbbyCard {
     public WrithingTentacles() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         setDamage(6, +3);
+        setMagic(1);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

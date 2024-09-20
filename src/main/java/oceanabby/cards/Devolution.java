@@ -30,7 +30,7 @@ public class Devolution extends AbstractAbbyCard {
             @Override public void atStartOfTurn() {
                 if (this.amount2 <= 1) {
                     flash();
-                    applyToSelf(new StrengthPower(owner, amount2));
+                    applyToSelf(new StrengthPower(owner, amount));
                     atb(new RemoveSpecificPowerAction(owner, owner, this));
                 } else {
                     actT(() -> {

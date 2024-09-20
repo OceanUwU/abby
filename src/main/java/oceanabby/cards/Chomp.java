@@ -22,7 +22,7 @@ public class Chomp extends AbstractAbbyCard {
         applyPowers();
         actB(() -> {
             for (int i = 0; i < magicNumber; i++) {
-                dmgTop(m, AttackEffect.SLASH_VERTICAL);
+                dmgTop(m, AttackEffect.NONE);
                 if (m != null)
                     vfxTop(new BiteEffect(m.hb.cX, m.hb.cY - 40.0F * Settings.scale, Settings.GOLD_COLOR.cpy()), 0.1F);
             }
@@ -31,8 +31,7 @@ public class Chomp extends AbstractAbbyCard {
     }
   
     @Override public void applyPowers() {
-        if (evod)
-            baseMagicNumber = magicNumber = (int)adp().hand.group.stream().filter(c -> c != this && (!c.upgraded || (evod && !Evo.Field.evod.get(c)))).count();
+        baseMagicNumber = magicNumber = (int)adp().hand.group.stream().filter(c -> c != this && (!c.upgraded || (evod && !Evo.Field.evod.get(c)))).count();
         super.applyPowers();
     }
 }

@@ -30,7 +30,7 @@ public class GiganticGrowth extends AbstractAbbyCard {
                 AbstractCard c = cards.get(AbstractDungeon.cardRng.random(cards.size() - 1));
                 cards.remove(c);
                 Mutations.mutate(c);
-                if (i < secondMagic)
+                if (evod && i < secondMagic)
                     att(new MoveCardsAction(p.hand, p.drawPile, card -> card == c));
             }
         });

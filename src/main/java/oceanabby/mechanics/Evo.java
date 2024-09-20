@@ -49,7 +49,7 @@ public class Evo {
             ((AbstractAbbyCard)c).evod = true;
             ((AbstractAbbyCard)c).evo();
         }
-        if (CardCrawlGame.isInARun() && AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT)
+        if (isInCombat())
             c.applyPowers();
         c.initializeDescription();
     }
@@ -68,7 +68,6 @@ public class Evo {
     }
 
     public static AbstractGameAction action(AbstractCard c) {
-        ((AbstractAbbyCard)c).evod = false;
         return actionify(() -> {
             if (shouldEvo(c) && !Field.evod.get(c))
                 c.superFlash();
@@ -110,13 +109,22 @@ public class Evo {
                 } 
                 if (adp().hand.group.size() - cannotUpgrade.size() == 1)
                     for (AbstractCard c : adp().hand.group) {
-                        evo(c);
-                        c.superFlash();
-                        if (upgrade && c.canUpgrade())
-                            c.upgrade();
-                        c.applyPowers();
-                        isDone = true;
-                        return;
+                        if (available.test(c)) {
+                            evo(c);
+                            c.superFlash();
+                            if (upgrade && c.canUpgrade())
+                                c.upgrade();
+                            c.applyPowers();
+                            isDone = true;
+                            ArrayList<AbstractCard> canUpgrade = new ArrayList<>();
+                            for (AbstractCard c2 : adp().hand.group) {
+                                if (available.test(c2))
+                                    canUpgrade.add(c2);
+                            }
+                            if (callback != null)
+                                callback.accept(canUpgrade);
+                            return;
+                        }
                     }
                 adp().hand.group.removeAll(cannotUpgrade);
                 if (adp().hand.group.size() > 1) {
@@ -125,13 +133,7 @@ public class Evo {
                     upgrading = true;
                     tickDuration();
                     return;
-                } 
-                if (adp().hand.group.size() == 1) {
-                    adp().hand.getTopCard().upgrade();
-                    adp().hand.getTopCard().superFlash();
-                    returnCards();
-                    isDone = true;
-                } 
+                }
               } 
               if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
                     for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
@@ -145,7 +147,8 @@ public class Evo {
                     returnCards();
                     AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
                     AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
-                    callback.accept(AbstractDungeon.handCardSelectScreen.selectedCards.group);
+                    if (callback != null)
+                        callback.accept(AbstractDungeon.handCardSelectScreen.selectedCards.group);
                     isDone = true;
               } 
               tickDuration();

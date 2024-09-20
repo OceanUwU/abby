@@ -19,6 +19,7 @@ public class Claw extends AbstractAbbyCard {
         super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         setDamage(3);
         setMagic(1, +1);
+        Evo.evo(this);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

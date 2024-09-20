@@ -24,7 +24,7 @@ public class BodyHorror extends AbstractAbbyCard {
             @Override public void atStartOfTurn() {
                 flash();
                 for (int i = 0; i < Adaptations.adaptations.size(); i++)
-                    att(new GainBlockAction(m, amount));
+                    att(new GainBlockAction(p, amount));
             }
 
             public void updateDescription() {

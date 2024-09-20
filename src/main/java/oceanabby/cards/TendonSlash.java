@@ -1,6 +1,7 @@
 package oceanabby.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -55,7 +56,7 @@ public class TendonSlash extends AbstractAbbyCard {
                     att(action(m));
             });
             blckTop();
-            dmgTop(getRandomEnemy(), null);
+            dmgTop(getRandomEnemy(), AttackEffect.SLASH_HORIZONTAL);
         });
     }
 }

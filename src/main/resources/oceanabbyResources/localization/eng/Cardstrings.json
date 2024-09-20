@@ -44,18 +44,18 @@
   },
   "${ModID}:Adaptation": {
     "NAME": "Mitosis",
-    "DESCRIPTION": "${ModID}:Evo your hand.{!${ModID}:EVO!|>0= NL Gain Block equal to the number of cards ${ModID}:Evo'd.}{!B!|>-1=(!B!)}{!M!|1= NL Discard !M! card at random.|>1= NL Discard !M! cards at random.}"
+    "DESCRIPTION": "${ModID}:Evo your hand.{!${ModID}:EVO!|>0= NL Gain Block equal to the number of cards ${ModID}:Evo'd.}{!B!|>-1= (!B!)}{!M!|1= NL Discard !M! card at random.|>1= NL Discard !M! cards at random.}"
   },
   "${ModID}:Anger": {
     "NAME": "Batter",
-    "DESCRIPTION": "Deal !D! damage. NL Remove all ${ModID}:Mutations from a card to{!${ModID}:EVO!|>0= apply !${ModID}:m2! Weak and} make the enemy lose !M! Strength.",
+    "DESCRIPTION": "Deal !D! damage. Remove a card's ${ModID}:Mutations to{!${ModID}:EVO!|>0= apply !${ModID}:m2! Weak and} make the enemy lose !M! Strength.",
     "EXTENDED_DESCRIPTION": [
       "remove Mutations from"
     ]
   },
   "${ModID}:Bile": {
     "NAME": "Corrosive Spit",
-    "DESCRIPTION": "Deal !D! damage. If the enemy has {!${ModID}:EVO!|>0=a debuff|@=${ModID}:Acid}, apply !M! ${ModID}:Acid"
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy has {!${ModID}:EVO!|>0=a debuff|@=${ModID}:Acid}, apply !M! ${ModID}:Acid"
   },
   "${ModID}:Bite": {
     "NAME": "Snake Snap",
@@ -97,14 +97,14 @@
   },
   "${ModID}:Changeling": {
     "NAME": "Changeling",
-    "DESCRIPTION": "${ModID}:Mutate !M!{!Upgrades!|0= random} card{!M!|>1=s}.{!${ModID}:EVO!|>0= NL Reduce {!M!|1=its cost|@=their costs} by !${ModID}:m2! this turn.}",
+    "DESCRIPTION": "${ModID}:Mutate !M!{!Upgrades!|0= random} card{!M!|>1=s}.{!${ModID}:EVO!|>0= NL Reduce its cost by !${ModID}:m2! this turn.}",
     "EXTENDED_DESCRIPTION": [
       "mutate"
     ]
   },
   "${ModID}:ChemicalWarfare": {
     "NAME": "Chemical Warfare",
-    "DESCRIPTION": "Gain !B! Block. {!${ModID}:EVO!|>0=Potions|@=The next potion} you use this turn is used {!M!|1=once|2=twice|3=thrice|@=!M! times}.",
+    "DESCRIPTION": "Gain !B! Block. {!${ModID}:EVO!|>0=Potions|@=The next potion} you use this turn {!${ModID}:EVO!|>0=are|@=is} used {!M!|1=once|2=twice|@=!M! times}.",
     "EXTENDED_DESCRIPTION": [
       "Chemical Power",
       "The next potion you use this turn is used #b",
@@ -124,7 +124,7 @@
   },
   "${ModID}:CosmicHorror": {
     "NAME": "Cosmic Horror",
-    "DESCRIPTION": "Future ${ModID}:Adaptations last !M! additional turn{!M!|>1=s}.{!${ModID}:EVO!|>0= NL Whenever an ${ModID}:Adaptation ends, gain{!${ModID}:m2!|repeat= [E]}.}",
+    "DESCRIPTION": "Future ${ModID}:Adaptations last !M! additional turn{!M!|>1=s}.{!${ModID}:EVO!|>0= NL Whenever an ${ModID}:Adaptation ends, gain [E].}",
     "EXTENDED_DESCRIPTION": [
       "Cosmic Horror",
       "Future #yAdaptations last #b",
@@ -179,7 +179,7 @@
   },
   "${ModID}:ExperimentalTreatment": {
     "NAME": "Experiment",
-    "DESCRIPTION": "Add !M! random card{!M!|>1=s} into your hand. NL {!M!|1=It costs|@=They cost} 0 this turn."
+    "DESCRIPTION": "Add !M! random{!${ModID}:EVO!|>0= ${ModID}:Mutated} card{!M!|>1=s} into your hand. NL {!M!|1=It costs|@=They cost} 0 this turn."
   },
   "${ModID}:ExplosivePustules": {
     "NAME": "Explosive Pustules",
@@ -224,7 +224,7 @@
   },
   "${ModID}:GetOut": {
     "NAME": "Get Out",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL Your next {!${ModID}:m2!|1=Attack deals|@=!${ModID}:m2! Attacks deal} no damage.",
+    "DESCRIPTION": "Apply !M! Vulnerable{!${ModID}:EVO!|>0= to ALL enemies}. NL Your next {!${ModID}:m2!|1=Attack deals|@=!${ModID}:m2! Attacks deal} no damage.",
     "EXTENDED_DESCRIPTION": [
       "Exhausted",
       "Your next #b",
@@ -234,7 +234,7 @@
   },
   "${ModID}:GiganticGrowth": {
     "NAME": "Gigantic Growth",
-    "DESCRIPTION": "Mutate !M! random card{!M!|>0=s} in your draw pile.{!${ModID}:EVO!|>0= NL Add {!${ModID}:m2!} of them into your hand at random.}"
+    "DESCRIPTION": "Mutate !M! random card{!M!|>0=s} in your draw pile.{!${ModID}:EVO!|>0= NL Add !${ModID}:m2! of them into your hand at random.}"
   },
   "${ModID}:HalfRemembered": {
     "NAME": "Remembrance",
@@ -244,8 +244,8 @@
       "Whenever you play an #yEvo'd card, #yDevo it.",
       "Remembrance: Draw",
       "Whenever you play an #yEvo'd card, draw #b",
-      "card.",
-      "cards.",
+      " card.",
+      " cards.",
       "Remembrance: Energy",
       "Whenever you play an #yEvo'd card, gain ",
       "Remembrance: Block",
@@ -275,7 +275,7 @@
   },
   "${ModID}:Hostility": {
     "NAME": "Hostility",
-    "DESCRIPTION": "Whenever you take unblocked damage, deal !M! damage {!${ModID}:EVO!|>0=to ALL enemies.|@=back}.",
+    "DESCRIPTION": "Whenever you take unblocked damage, deal !M! damage {!${ModID}:EVO!|>0=to ALL enemies|@=back}.",
     "EXTENDED_DESCRIPTION": [
       "Hostility",
       "Hostility EVO",
@@ -296,10 +296,10 @@
     "NAME": "Spread",
     "DESCRIPTION": "Discard !M! card{!M!|>1=s} from your draw pile. ${ModID}:Mutate{!${ModID}:EVO!|-1= and ${ModID}:Evo|1= and Upgrade|2=, ${ModID}:Evo, and Upgrade} them.",
     "EXTENDED_DESCRIPTION": [
-      "Mutate",
-      "Mutate and Upgrade",
-      "Mutate and Evo",
-      "Mutate, Evo, and Upgrade"
+      "Select cards to discard and Mutate.",
+      "Select cards to discard, Mutate, and Upgrade.",
+      "Select cards to discard, Mutate, and Evo.",
+      "Select cards to discard, Mutate, Evo, and Upgrade."
     ]
   },
   "${ModID}:JacobsLadder": {
@@ -476,7 +476,7 @@
   },
   "${ModID}:StemCells": {
     "NAME": "Stem Cells",
-    "DESCRIPTION": "{!Upgrades!|0=At|@=Now and at} the start of your turn, ${ModID}:Mutate and ${ModID}:Evo !M! card{!M!|>0=s}.",
+    "DESCRIPTION": "{!Upgrades!|0=At|@=Now and at} the start of your turn, ${ModID}:Mutate and ${ModID}:Evo !M! card{!M!|>1=s}.",
     "EXTENDED_DESCRIPTION": [
       "Stem Cells",
       "Stem Cells EVO",
@@ -494,7 +494,7 @@
   },
   "${ModID}:SurpriseAttack": {
     "NAME": "Surprise Attack",
-    "DESCRIPTION": "Deal !D! damage{!${ModID}:m2!|1=|2= twice|@= !${ModID}:m2! times}. NL Put !M! card{!M!|>1=s} from your discard pile into your hand and ${ModID}:Mutate {!M!|1=it|@=them},"
+    "DESCRIPTION": "Deal !D! damage{!${ModID}:m2!|1=|2= twice|@= !${ModID}:m2! times}. NL Put !M! card{!M!|>1=s} from your discard pile into your hand and ${ModID}:Mutate {!M!|1=it|@=them}."
   },
   "${ModID}:SurvivalOfTheFittest": {
     "NAME": "Lick Clean",

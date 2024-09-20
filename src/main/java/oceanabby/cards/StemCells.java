@@ -22,7 +22,7 @@ public class StemCells extends AbstractAbbyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!evod)
             applyToSelf(new LambdaPower(ID, exDesc, exDesc[0], PowerType.BUFF, false, p, magicNumber) {
-                @Override public void atStartOfTurn() {
+                @Override public void atStartOfTurnPostDraw() {
                     flash();
                     atb(new SelectCardsInHandAction(amount, strings[6], c -> Mutations.canMutate(c), cards -> cards.forEach(c -> Mutations.mutate(c))));
                 }
@@ -33,7 +33,7 @@ public class StemCells extends AbstractAbbyCard {
             });
         else
             applyToSelf(new LambdaPower(ID + "Evo", exDesc, exDesc[1], PowerType.BUFF, false, p, magicNumber) {
-                @Override public void atStartOfTurn() {
+                @Override public void atStartOfTurnPostDraw() {
                     flash();
                     atb(new SelectCardsInHandAction(amount, strings[7], c -> Mutations.canMutate(c) || Evo.shouldEvo(c), cards -> cards.forEach(c -> {Mutations.mutate(c); Evo.evo(c);})));
                 }

@@ -1,5 +1,6 @@
 package oceanabby.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -24,7 +25,7 @@ public class Flatten extends AbstractAbbyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
-        dmg(m, null);
+        dmg(m, AttackEffect.BLUNT_HEAVY);
         if (evod) {
             actB(() -> { upgrade(); superFlash(); });
             atb(new WaitAction(0.3f));

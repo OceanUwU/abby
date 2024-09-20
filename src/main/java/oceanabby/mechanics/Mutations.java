@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import oceanabby.cards.AbstractAbbyCard;
 import oceanabby.mutations.AbstractMutation;
 
@@ -64,15 +63,15 @@ public class Mutations {
     }
 
     public static long countMutations(AbstractCard c) {
-        return getMutations(c).count();
+        return getMutations(c).size();
     }
 
     public static boolean isMutated(AbstractCard c) {
         return countMutations(c) > 0;
     }
 
-    public static Stream<AbstractMutation> getMutations(AbstractCard c) {
-        return CardModifierManager.modifiers(c).stream().filter(m -> m instanceof AbstractMutation).map(m -> (AbstractMutation)m);
+    public static List<AbstractMutation> getMutations(AbstractCard c) {
+        return CardModifierManager.modifiers(c).stream().filter(m -> m instanceof AbstractMutation).map(m -> (AbstractMutation)m).collect(Collectors.toList());
     }
 
     private static void initialize() {

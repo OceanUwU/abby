@@ -9,6 +9,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -60,7 +61,7 @@ public abstract class AbstractAdaptation extends AbstractAbbyCard {
     public void onThrob() {}
     public void onEnd() {}
 
-    public float atDamageReceive(float damage, DamageInfo.DamageType damageType) {
+    public float atDamageFinalReceive(float damage, DamageInfo.DamageType damageType) {
         return damage;
     }
 
@@ -174,10 +175,19 @@ public abstract class AbstractAdaptation extends AbstractAbbyCard {
 
     @SpirePatch(clz=DamageInfo.class, method="applyPowers")
     public static class AtDamageReceivePatch {
-        @SpireInsertPatch(rloc=34, localvars={"tmp"})
+        @SpireInsertPatch(rloc=48, localvars={"tmp"})
         public static void Insert(DamageInfo __instance, AbstractCreature owner, AbstractCreature target, @ByRef float[] tmp) {
             for (AbstractAdaptation adaptation : Adaptations.adaptations)
-                tmp[0] = adaptation.atDamageReceive(tmp[0], __instance.type);
+                tmp[0] = adaptation.atDamageFinalReceive(tmp[0], __instance.type);
+        }
+    }
+
+    @SpirePatch(clz=AbstractMonster.class, method="calculateDamage")
+    public static class AtDamageReceivePatch2 {
+        @SpireInsertPatch(rloc=35, localvars={"tmp"})
+        public static void Insert(AbstractMonster __instance, int dmg, @ByRef float[] tmp) {
+            for (AbstractAdaptation adaptation : Adaptations.adaptations)
+                tmp[0] = adaptation.atDamageFinalReceive(tmp[0], DamageType.NORMAL);
         }
     }
 

@@ -34,7 +34,7 @@ public class ExplosivePustules extends AbstractAbbyCard {
         };
         po.ID += String.valueOf(applied++);
         applyToSelf(po);
-        if (evod)
+        if (upgraded)
             addAptation();
     }
 

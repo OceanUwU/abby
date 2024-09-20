@@ -22,7 +22,7 @@ public class Deformation extends AbstractAbbyCard {
             applyToSelf(new LambdaPower(ID, exDesc, exDesc[0], PowerType.BUFF, false, p, 1) {
                 @Override public void atStartOfTurn() {
                     flash();
-                    makeInHand(new Splice());
+                    makeInHand(new Splice(), amount);
                 }
 
                 public void updateDescription() {
@@ -35,7 +35,7 @@ public class Deformation extends AbstractAbbyCard {
                     flash();
                     AbstractCard c = new Splice();
                     c.upgrade();
-                    makeInHand(c);
+                    makeInHand(c, amount);
                 }
 
                 public void updateDescription() {

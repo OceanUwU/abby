@@ -39,8 +39,8 @@ public class PerfectedCatalyst extends AbstractAbbyRelic {
     public void onEquip() {
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
             if (Mutations.isMutated(c)) {
-                for (Object m : Mutations.getMutations(c).toArray())
-                    CardModifierManager.removeSpecificModifier(c, (AbstractMutation)m, true);
+                for (AbstractMutation m : Mutations.getMutations(c))
+                    CardModifierManager.removeSpecificModifier(c, m, true);
                 AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy(), MathUtils.random(0.1F, 0.9F) * Settings.WIDTH, MathUtils.random(0.2F, 0.8F) * Settings.HEIGHT));
             }
     }

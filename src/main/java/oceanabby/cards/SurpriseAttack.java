@@ -15,22 +15,23 @@ public class SurpriseAttack extends AbstractAbbyCard {
     public SurpriseAttack() {
         super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         setDamage(3);
-        setMagic(2, +1);
+        setMagic(1, + 1);
+        setSecondMagic(2);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < magicNumber; i++)
             dmg(m, AttackEffect.BLUNT_LIGHT);
-        atb(new MoveCardsAction(p.hand, p.discardPile, 1, cards -> cards.forEach(c ->att(Mutations.action(c)))));
+        atb(new MoveCardsAction(p.hand, p.discardPile, magicNumber, cards -> cards.forEach(c ->att(Mutations.action(c)))));
     }
 
     @Override
     public void evo() {
-        upgradeMagicNumber(1);
+        upgradeSecondMagic(1);
     }
 
     @Override
     public void devo() {
-        upgradeMagicNumber(-1);
+        upgradeSecondMagic(-1);
     }
 }

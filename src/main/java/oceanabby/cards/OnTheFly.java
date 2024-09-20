@@ -1,6 +1,8 @@
 package oceanabby.cards;
 
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 
 import static oceanabby.AbbyMod.makeID;
@@ -16,8 +18,20 @@ public class OnTheFly extends AbstractAdaptation {
     }
 
     @Override
-    public float atDamageReceive(float damage, DamageInfo.DamageType damageType) {
-        return damage * (1f - ((float)magicNumber / 100f));
+    public void onThrob() {
+        AbstractDungeon.onModifyPower();
+    }
+
+    @Override
+    public void onEnd() {
+        actB(() -> AbstractDungeon.onModifyPower());
+    }
+
+    @Override
+    public float atDamageFinalReceive(float damage, DamageInfo.DamageType damageType) {
+        if (damageType == DamageType.NORMAL)
+            return damage * (1f - ((float)magicNumber / 100f));
+        return damage;
     }
 
     @Override

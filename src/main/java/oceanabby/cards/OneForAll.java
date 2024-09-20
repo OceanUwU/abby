@@ -2,6 +2,7 @@ package oceanabby.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -35,11 +36,13 @@ public class OneForAll extends AbstractAbbyCard {
                 m.damage(new DamageInfo(p, damage, damageTypeForTurn));
 
                 if (m.lastDamageTaken > 0) {
+                    att(new WaitAction(0.1f));
                     ApplyPowerAction instant = new ApplyPowerAction(m, p, new Acid(m, m.lastDamageTaken), m.lastDamageTaken);
                     ReflectionHacks.setPrivate(instant, ApplyPowerAction.class, "startingDuration", 0.01f);
                     ReflectionHacks.setPrivate(instant, AbstractGameAction.class, "duration", 0.01f);
                     att(instant);
                 }
+                att(new WaitAction(0.1f));
 
                 if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead())
                     AbstractDungeon.actionManager.clearPostCombatActions();

@@ -30,10 +30,10 @@ public class BurnVictim extends AbstractAbbyCard {
     }
 
     @Override public void evo() {
-        upgradeMagicNumber(-5);
+        upgradeThirdMagic(-5);
     }
 
     @Override public void devo() {
-        upgradeMagicNumber(5);
+        upgradeThirdMagic(5);
     }
 }

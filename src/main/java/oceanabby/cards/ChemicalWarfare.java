@@ -25,8 +25,9 @@ public class ChemicalWarfare extends AbstractAbbyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        blck();
         if (!evod)
-            applyToSelf(new LambdaPower(ID, exDesc, exDesc[0], PowerType.BUFF, false, p, magicNumber) {
+            applyToSelf(new LambdaPower(ID, exDesc, exDesc[0], PowerType.BUFF, false, p, magicNumber - 1) {
                 public void atStartOfTurn() {
                     atb(new RemoveSpecificPowerAction(owner, owner, this));
                 }
@@ -36,7 +37,7 @@ public class ChemicalWarfare extends AbstractAbbyCard {
                 }
             });
         else
-            applyToSelf(new LambdaPower(ID + "Evo", exDesc, exDesc[4], PowerType.BUFF, false, p, magicNumber) {
+            applyToSelf(new LambdaPower(ID + "Evo", exDesc, exDesc[4], PowerType.BUFF, false, p, magicNumber - 1) {
                 public void atStartOfTurn() {
                     atb(new RemoveSpecificPowerAction(owner, owner, this));
                 }

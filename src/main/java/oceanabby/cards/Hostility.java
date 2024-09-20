@@ -35,7 +35,7 @@ public class Hostility extends AbstractAbbyCard {
                     description = strings[2] + amount + strings[3];
                 }
             });
-        else;
+        else
             applyToSelf(new LambdaPower(ID + "Evo", exDesc, exDesc[1], PowerType.BUFF, false, p, magicNumber) {  
                 @Override public int onAttacked(DamageInfo info, int damageAmount) {
                     if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && damageAmount > 0) {
