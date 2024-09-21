@@ -318,7 +318,7 @@
   },
   "${ModID}:Lurk": {
     "NAME": "Lurk",
-    "DESCRIPTION": "Gain !B! Block. Scry !M!."
+    "DESCRIPTION": "Gain !B! Block. NL Scry !M!."
   },
   "${ModID}:Marrow": {
     "NAME": "Marrow",
@@ -389,11 +389,11 @@
   },
   "${ModID}:Phantasmagoria": {
     "NAME": "Phantasmagoria",
-    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL The Enemy loses !M! Strength this turn.}"
+    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL Enemy loses !M! Strength this turn.}"
   },
   "${ModID}:PileOn": {
     "NAME": "Pile On",
-    "DESCRIPTION": "Add !M! ${ModID}:Evo'd *Marrow{!M!>1=s} into your hand.{!${ModID}:EVO!|>0= NL They deal !${ModID}:m3! additional damage.} NL Shuffle !${ModID}:m2! *Dazed into your draw pile."
+    "DESCRIPTION": "Add !M! ${ModID}:Evo'd *Marrow{!M!|>1=s} into your hand.{!${ModID}:EVO!|>0= NL They deal !${ModID}:m3! additional damage.} NL Shuffle !${ModID}:m2! *Dazed into your draw pile."
   },
   "${ModID}:Pounce": {
     "NAME": "Pounce",
@@ -476,7 +476,7 @@
   },
   "${ModID}:StemCells": {
     "NAME": "Stem Cells",
-    "DESCRIPTION": "{!Upgrades!|0=At|@=Now and at} the start of your turn, ${ModID}:Mutate and ${ModID}:Evo !M! card{!M!|>1=s}.",
+    "DESCRIPTION": "{!Upgrades!|0=At|@=Now and at} the start of your turn, ${ModID}:Mutate{!${ModID}:EVO!|>0= and ${ModID}:Evo} !M! card{!M!|>1=s}.",
     "EXTENDED_DESCRIPTION": [
       "Stem Cells",
       "Stem Cells EVO",
@@ -490,7 +490,7 @@
   },
   "${ModID}:StrangeScience": {
     "NAME": "Rewire",
-    "DESCRIPTION": "Gain !${ModID}:m2! Orb slot{!M!|>1=s}.{!${ModID}:EVO!|>0= NL Channel !${ModID}:m3! Frost.} NL ${ModID}:Adapt !M!: *Cybernetics."
+    "DESCRIPTION": "Gain !${ModID}:m2! Orb slot{!${ModID}:m2!|>1=s}.{!${ModID}:EVO!|>0= NL Channel !${ModID}:m3! Frost.} NL ${ModID}:Adapt !M!: *Cybernetics."
   },
   "${ModID}:SurpriseAttack": {
     "NAME": "Surprise Attack",
@@ -514,7 +514,7 @@
   },
   "${ModID}:TendonSlash": {
     "NAME": "Tendon Slash",
-    "DESCRIPTION": "{!${ModID}:EVO!|>0=Give the enemy !${ModID}:d2! Block. NL }Gain !B! Block and deal !D! damage until the enemy has no Block."
+    "DESCRIPTION": "{!${ModID}:EVO!|>0=Give the enemy !${ModID}:m2! Block. NL }Gain !B! Block and deal !D! damage until the enemy has no Block."
   },
   "${ModID}:Tendrils": {
     "NAME": "Tendrils",

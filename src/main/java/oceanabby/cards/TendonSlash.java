@@ -28,25 +28,25 @@ public class TendonSlash extends AbstractAbbyCard {
     @Override
     public void update() {
         super.update();
-        secondMagic = damage + 1;
+        baseSecondMagic = secondMagic = damage + 1;
     }
 
     @Override
     public void applyPowers() {
         super.applyPowers();
-        secondMagic = damage + 1;
+        baseSecondMagic = secondMagic = damage + 1;
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         super.calculateCardDamage(mo);
-        secondMagic = damage + 1;
+        baseSecondMagic = secondMagic = damage + 1;
     }
 
     @Override
     public void upgrade() {
         super.upgrade();
-        baseSecondMagic = secondMagic = secondMagic + 1;
+        baseSecondMagic = secondMagic = damage + 1;
     }
 
     private AbstractGameAction action(AbstractMonster m) {
@@ -56,7 +56,7 @@ public class TendonSlash extends AbstractAbbyCard {
                     att(action(m));
             });
             blckTop();
-            dmgTop(getRandomEnemy(), AttackEffect.SLASH_HORIZONTAL);
+            dmgTop(m, AttackEffect.SLASH_HORIZONTAL);
         });
     }
 }

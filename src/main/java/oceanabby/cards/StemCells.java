@@ -39,7 +39,7 @@ public class StemCells extends AbstractAbbyCard {
                 }
 
                 public void updateDescription() {
-                    description = strings[2] + amount + strings[amount == 1 ? 4 : 5];
+                    description = strings[3] + amount + strings[amount == 1 ? 4 : 5];
                 }
             });
         if (upgraded) {

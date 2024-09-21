@@ -146,9 +146,9 @@ public class Evo {
                     } 
                     returnCards();
                     AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-                    AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
                     if (callback != null)
-                        callback.accept(AbstractDungeon.handCardSelectScreen.selectedCards.group);
+                        callback.accept(new ArrayList<>(AbstractDungeon.handCardSelectScreen.selectedCards.group));
+                    AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
                     isDone = true;
               } 
               tickDuration();

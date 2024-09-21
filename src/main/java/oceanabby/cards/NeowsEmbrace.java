@@ -49,10 +49,10 @@ public class NeowsEmbrace extends AbstractAbbyCard {
                 }
             };
             po.amount2 = 1;
-            applyToEnemy(m, po);
+            applyToEnemy(mo, po);
             if (evod) {
-                atb(new DamageAction(mo, new DamageInfo(p, secondMagic, DamageType.HP_LOSS), AttackEffect.BLUNT_LIGHT));
-                AbstractAbbyPower po2 = new LambdaPower(ID + "Evo", exDesc, exDesc[0], PowerType.BUFF, false, mo, secondMagic) {
+                atb(new DamageAction(mo, new DamageInfo(p, secondMagic, DamageType.HP_LOSS), AttackEffect.POISON));
+                AbstractAbbyPower po2 = new LambdaPower(ID + "Evo", exDesc, exDesc[0], PowerType.DEBUFF, false, mo, secondMagic) {
                     public void atStartOfTurn() {
                         if (owner instanceof AbstractMonster)
                             if (((AbstractMonster)owner).getIntentBaseDmg() > 0)
@@ -61,17 +61,17 @@ public class NeowsEmbrace extends AbstractAbbyCard {
     
                     public void atEndOfTurn(boolean isPlayer) {
                         if (isPlayer || amount2 <= 0) {
-                            atb(new HealAction(m, m, amount));
+                            atb(new HealAction(owner, owner, amount));
                             atb(new RemoveSpecificPowerAction(owner, owner, this));
                         }
                     }
     
                     public void updateDescription() {
-                        description = strings[1] + amount + strings[2];
+                        description = strings[4] + amount + strings[5];
                     }
                 };
                 po2.amount2 = 1;
-                applyToEnemy(m, po2);
+                applyToEnemy(mo, po2);
             }
         });
     }

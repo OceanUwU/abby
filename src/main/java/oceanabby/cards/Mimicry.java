@@ -44,8 +44,8 @@ public class Mimicry extends AbstractAbbyCard {
                     cardRarity = AbstractCard.CardRarity.UNCOMMON;
                 else
                     cardRarity = AbstractCard.CardRarity.RARE;
-                AbstractCard[] availableCards = (AbstractCard[])CardLibrary.getAllCards().stream().filter(c -> c.color == color && c.rarity == cardRarity && !c.hasTag(CardTags.HEALING)).toArray();
-                cards.add(availableCards[AbstractDungeon.cardRng.random(availableCards.length - 1)].makeCopy());
+                Object[] availableCards = CardLibrary.getAllCards().stream().filter(c -> c.color == color && c.rarity == cardRarity && !c.hasTag(CardTags.HEALING)).toArray();
+                cards.add(((AbstractCard)availableCards[AbstractDungeon.cardRng.random(availableCards.length - 1)]).makeCopy());
             }
             if (evod)
                 for (AbstractCard c : cards)

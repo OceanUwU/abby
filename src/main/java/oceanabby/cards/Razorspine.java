@@ -1,3 +1,4 @@
+
 package oceanabby.cards;
 
 import com.badlogic.gdx.graphics.Color;
@@ -15,14 +16,15 @@ public class Razorspine extends AbstractAdaptation {
     public Razorspine() {
         super(ID);
         setMagic(5, +3);
+        setSecondMagic(3);
     }
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != adp() && damageAmount > 0) {
-            if (evod)
-                addToTop(new DamageAction(info.owner, new DamageInfo(adp(), magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_DIAGONAL, true));
+        if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != adp()) {
             addToTop(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(magicNumber, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+            if (evod)
+                addToTop(new DamageAction(info.owner, new DamageInfo(adp(), secondMagic, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_DIAGONAL, true));
             pulse(Color.BROWN, Color.GOLD);
         }
         return damageAmount;

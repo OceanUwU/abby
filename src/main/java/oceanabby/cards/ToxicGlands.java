@@ -45,8 +45,10 @@ public class ToxicGlands extends AbstractAdaptation {
         public static void Insert(AbstractMonster __instance, DamageInfo info) {
             if (info.type == DamageInfo.DamageType.NORMAL && __instance.lastDamageTaken > 0)
                 for (AbstractAdaptation a : Adaptations.adaptations)
-                    if (a instanceof ToxicGlands)
-                        applyToEnemy(__instance, new Acid(__instance, __instance.lastDamageTaken * 100 / a.magicNumber));
+                    if (a instanceof ToxicGlands) {
+                        a.pulse(Color.LIME, Color.GREEN);
+                        applyToEnemy(__instance, new Acid(__instance, __instance.lastDamageTaken * a.magicNumber / 100));
+                    }
         }
         private static class Locator extends SpireInsertLocator {
             public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException {

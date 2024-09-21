@@ -15,8 +15,6 @@ import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import java.util.ArrayList;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
-import oceanabby.mechanics.Adaptations;
-import oceanabby.powers.Acid;
 import oceanabby.powers.LambdaPower;
 
 import static oceanabby.AbbyMod.makeID;
@@ -52,21 +50,19 @@ public class SurvivalOfTheFittest extends AbstractAbbyCard {
     )
     public static class SurvivalPatch {
         @SpireInsertPatch( locator = Locator.class )
-    public static void Insert(AbstractMonster __instance, DamageInfo info) {
-        if (__instance.lastDamageTaken > 0) {
+        public static void Insert(AbstractMonster __instance, DamageInfo info) {
+            if (__instance.lastDamageTaken > 0) {
                 if (adp().hasPower(ID)) {
                     adp().getPower(ID).flashWithoutSound();
-                    applyToSelfTop(new VigorPower(adp(), __instance.lastDamageTaken * 100 / pwrAmt(adp(), ID)));
+                    applyToSelfTop(new VigorPower(adp(), __instance.lastDamageTaken * pwrAmt(adp(), ID) / 100));
                 }
                 if (adp().hasPower(ID + "Evo")) {
                     adp().getPower(ID + "Evo").flashWithoutSound();
-                    att(new GainBlockAction(adp(), pwrAmt(__instance, ID + "Evo")));
+                    att(new GainBlockAction(adp(), pwrAmt(adp(), ID + "Evo")));
                 }
             }
-                for (AbstractAdaptation a : Adaptations.adaptations)
-                    if (a instanceof ToxicGlands)
-                        applyToEnemy(__instance, new Acid(__instance, __instance.lastDamageTaken * 100 / a.magicNumber));
         }
+
         private static class Locator extends SpireInsertLocator {
             public int[] Locate(CtBehavior ctMethodToPatch) throws CannotCompileException, PatchingException {
                 Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractMonster.class, "lastDamageTaken");

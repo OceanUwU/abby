@@ -41,7 +41,7 @@ public class NoMercy extends AbstractAbbyCard {
             }
 
             public void updateDescription() {
-                description = strings[1] + amount + strings[amount == 1 ? 2 : 3] + amount2 + (evoIt ? (amount2 == 1 ? 6 : 7) : (amount2 == 1 ? 4 : 5)) + strings[8];
+                description = strings[1] + amount + strings[amount == 1 ? 2 : 3] + amount2 + strings[evoIt ? (amount2 == 1 ? 6 : 7) : (amount2 == 1 ? 4 : 5)] + strings[8];
             }
         };
         po.ID += String.valueOf(applied++);

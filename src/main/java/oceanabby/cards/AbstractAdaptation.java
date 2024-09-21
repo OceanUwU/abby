@@ -208,4 +208,13 @@ public abstract class AbstractAdaptation extends AbstractAbbyCard {
                 tmp[0] = adaptation.atDamageGive(tmp[0], __instance.damageTypeForTurn, __instance);
         }
     }
+
+    @SpirePatch(clz=AbstractCard.class, method="calculateCardDamage")
+    public static class AtDamageGivePatch2 {
+        @SpireInsertPatch(rloc=16, localvars={"tmp"})
+        public static void Insert(AbstractCard __instance, AbstractMonster mo, @ByRef float[] tmp) {
+            for (AbstractAdaptation adaptation : Adaptations.adaptations)
+                tmp[0] = adaptation.atDamageGive(tmp[0], __instance.damageTypeForTurn, __instance);
+        }
+    }
 }

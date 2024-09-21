@@ -3,6 +3,7 @@ package oceanabby.cards;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import oceanabby.mechanics.Adaptations;
@@ -25,6 +26,23 @@ public class Robotization extends AbstractAdaptation {
         for (int i = 0; i < magicNumber; i++)
             att(new ChannelAction(new Lightning()));
         pulse(Color.YELLOW, Color.WHITE);
+    }
+
+    @Override
+    public void onEnd() {
+        actB(() -> AbstractDungeon.onModifyPower());
+    }
+
+    @Override
+    public void evo() {
+        if (isInCombat())
+            actB(() -> AbstractDungeon.onModifyPower());
+    }
+
+    @Override
+    public void devo() {
+        if (isInCombat())
+            actB(() -> AbstractDungeon.onModifyPower());
     }
 
     @SpirePatch(clz=AbstractOrb.class, method="applyFocus")

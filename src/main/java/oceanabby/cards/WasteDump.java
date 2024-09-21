@@ -21,7 +21,7 @@ public class WasteDump extends AbstractAbbyCard {
         applyToSelf(new LambdaPower(ID, exDesc, exDesc[0], PowerType.BUFF, false, p, magicNumber) {
             @Override public void atStartOfTurn() {
                 flash();
-                forAllMonstersLiving(mo -> applyToEnemy(mo, new Acid(m, amount)));
+                forAllMonstersLiving(mo -> applyToEnemy(mo, new Acid(mo, amount)));
             }
 
             public void updateDescription() {
