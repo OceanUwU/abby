@@ -130,7 +130,7 @@ public class Evo {
                 if (adp().hand.group.size() > 1) {
                     AbstractDungeon.handCardSelectScreen.open(uiStrings.TEXT[upgrade ? 1 : 0], 1, false, false, false, true);
                     evoing = true;
-                    upgrading = true;
+                    upgrading = upgrade;
                     tickDuration();
                     return;
                 }

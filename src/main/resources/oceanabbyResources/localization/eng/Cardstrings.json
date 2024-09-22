@@ -55,7 +55,7 @@
   },
   "${ModID}:Bile": {
     "NAME": "Corrosive Spit",
-    "DESCRIPTION": "Deal !D! damage. NL If the enemy has {!${ModID}:EVO!|>0=a debuff|@=${ModID}:Acid}, apply !M! ${ModID}:Acid"
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy has {!${ModID}:EVO!|>0=a debuff|@=${ModID}:Acid}, apply !M! ${ModID}:Acid."
   },
   "${ModID}:Bite": {
     "NAME": "Snake Snap",

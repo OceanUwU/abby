@@ -29,4 +29,14 @@ public class WrithingTentacles extends AbstractAbbyCard {
                 att(Mutations.action(cards.get(AbstractDungeon.cardRng.random(cards.size() - 1))));
         });
     }
+
+    @Override
+    public void evo() {
+        upgradeMagicNumber(1);
+    }
+
+    @Override
+    public void devo() {
+        upgradeMagicNumber(-1);
+    }
 }

@@ -29,6 +29,8 @@ public class Tendrils extends AbstractAbbyCard {
             baseBlock = damage * secondMagic / 100;
             super.applyPowers();
         }
+        if (baseBlock == -1)
+            block = -1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -55,5 +57,10 @@ public class Tendrils extends AbstractAbbyCard {
     @Override
     public void onLoadedMisc() {
         baseDamage = damage = misc;
+    }
+    
+    @Override
+    public void devo() {
+        setBlock(-1);
     }
 }
