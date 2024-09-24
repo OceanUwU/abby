@@ -20,7 +20,7 @@ public class SurpriseAttack extends AbstractAbbyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < magicNumber; i++)
+        for (int i = 0; i < secondMagic; i++)
             dmg(m, AttackEffect.BLUNT_LIGHT);
         atb(new MoveCardsAction(p.hand, p.discardPile, magicNumber, cards -> cards.forEach(c ->att(Mutations.action(c)))));
     }
