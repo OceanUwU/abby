@@ -36,12 +36,12 @@ public class Changeling extends AbstractAbbyCard {
             actB(() -> {
                 ArrayList<AbstractCard> cards = new ArrayList<>(adp().hand.group.stream().filter(c -> Mutations.canMutate(c)).collect(Collectors.toList()));
                 for (int i = 0; i < magicNumber; i++) {
+                    if (cards.size() <= 0)
+                        break;
                     int chosen = AbstractDungeon.cardRng.random(cards.size() - 1);
                     att(reduceCost(cards.get(chosen)));
                     att(Mutations.action(cards.get(chosen)));
                     cards.remove(chosen);
-                    if (cards.size() <= 0)
-                        break;
                 }
             });
         else
