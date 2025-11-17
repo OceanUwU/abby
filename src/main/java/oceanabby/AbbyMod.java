@@ -165,8 +165,8 @@ public class AbbyMod implements
             .packageFilter(AbstractAbbyCard.class)
             .setDefaultSeen(true)
             .any(AbstractCard.class, (info, card) -> {
-                if (card instanceof AbstractAdaptation)
-                    return;
+                //if (card instanceof AbstractAdaptation)
+                //    return;
                 BaseMod.addCard(card);
                 if (info.seen)
                    UnlockTracker.unlockCard(card.cardID);

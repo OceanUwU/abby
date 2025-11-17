@@ -25,6 +25,7 @@ import com.megacrit.cardcrawl.vfx.BobEffect;
 import oceanabby.actions.AddAptationAction;
 import oceanabby.mechanics.Adaptations;
 
+import static oceanabby.AbbyMod.makeImagePath;
 import static oceanabby.util.Wiz.*;
 
 public abstract class AbstractAdaptation extends AbstractAbbyCard {
@@ -39,7 +40,8 @@ public abstract class AbstractAdaptation extends AbstractAbbyCard {
     private BobEffect bobEffect = new BobEffect(2f * Settings.scale, 0.75f);
 
     public AbstractAdaptation(final String cardID) {
-        super(cardID, -2, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
+        super(cardID, -2, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF, CardColor.COLORLESS);
+        setBackgroundTexture(makeImagePath("512/adaptation.png"), makeImagePath("1024/adaptation.png"));
         targetDrawScale = unhoveredScale;
     }
 
@@ -78,6 +80,7 @@ public abstract class AbstractAdaptation extends AbstractAbbyCard {
     }
 
     public void movePos(int slot, int numSlots) {
+        if (AbstractDungeon.player == null) return;
         target_x = AbstractDungeon.player.drawX + (numSlots > 1 ? (gapBetween * (slot - (numSlots - 1) / 2f)) : 0f);
         target_y = AbstractDungeon.player.drawY + AbstractDungeon.player.hb_h / 2f + (260f + (AbstractDungeon.player.orbs.size() > 0 ? 100f : 0f)) * Settings.scale + bobEffect.y
             + (numSlots > 1 ? (((float)Math.cos((slot - (numSlots - 1) / 2f) / (numSlots - 1)) - 1f) * (float)Math.log(numSlots - 1)) * 180f : 0);

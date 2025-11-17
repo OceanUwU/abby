@@ -324,14 +324,6 @@
     "NAME": "Marrow",
     "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL Gain !B! Block.}"
   },
-  "${ModID}:ChargedMarrow": {
-    "NAME": "Charged Marrow",
-    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL Gain !B! Block.} NL Gain{!M!|repeat= [E]}."
-  },
-  "${ModID}:ShiningMarrow": {
-    "NAME": "Shiny Marrow",
-    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL Gain !B! Block.} NL Draw !M! card{!M!|>1=s}."
-  },
   "${ModID}:MeatShield": {
     "NAME": "Meat Shield",
     "DESCRIPTION": "Gain !B! Block.{!${ModID}:EVO!|>0= NL Increase this card's block by !M! this combat.}"
