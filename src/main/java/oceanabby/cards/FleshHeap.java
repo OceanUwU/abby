@@ -2,6 +2,7 @@ package oceanabby.cards;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardAtBottomOfDeckAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
@@ -14,6 +15,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
+import com.megacrit.cardcrawl.powers.PainfulStabsPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -57,6 +59,17 @@ public class FleshHeap extends AbstractAbbyCard {
                 if (__instance.actions.size() < numActions)
                     m.getPower(ID).flash();
             }
+        }
+    }
+
+    @SpirePatch(clz=PainfulStabsPower.class, method="onInflictDamage")
+    public static class PainfulStabsPatch {
+        public static SpireReturn<Void> Prefix(PainfulStabsPower __instance) {
+            if (__instance.owner.hasPower(ID)) {
+                __instance.owner.getPower(ID).flash();
+                return SpireReturn.Return();
+            }
+            return SpireReturn.Continue();
         }
     }
 

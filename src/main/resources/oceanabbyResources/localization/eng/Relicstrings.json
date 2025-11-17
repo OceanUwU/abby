@@ -50,9 +50,9 @@
     "NAME": "Emergency Guide",
     "FLAVOR": "It's from the lab you escaped from. Describes protocol in the event of a containment breach",
     "DESCRIPTIONS": [
-      "At the start of each combat, shuffle #b1 #yCharged #yMarrow+ into your draw pile.",
+      "At the start of each combat, shuffle #b1 #y${ModID}:Edible #yMarrow+ into your draw pile.",
       "At the start of each combat, shuffle #b",
-      " #yCharged #yMarrows+ into your draw pile."
+      " #y${ModID}:Edible #yMarrows+ into your draw pile."
     ]
   },
   "${ModID}:EldritchHieroglyphs": {

@@ -40,7 +40,7 @@ public class CosmicHorror extends AbstractAbbyCard {
                 public void updateDescription() {
                     description = strings[5];
                     for (int i = 0; i < amount; i++)
-                        description += " [E]";
+                        description += "[E] ";
                     description += LocalizedStrings.PERIOD;
                 }
             });

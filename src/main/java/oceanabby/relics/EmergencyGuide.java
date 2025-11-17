@@ -9,16 +9,21 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import oceanabby.cards.ChargedMarrow;
+import oceanabby.cards.Marrow;
 import oceanabby.characters.TheAberrant;
+import oceanabby.mechanics.Mutations;
+import oceanabby.mutations.Edible;
 
 public class EmergencyGuide extends AbstractAbbyRelic {
     public static final String ID = makeID("EmergencyGuide");
     private static int POWER = 2;
+    private AbstractCard card;
 
     public EmergencyGuide() {
         super(ID, RelicTier.SHOP, LandingSound.FLAT, TheAberrant.Enums.ABERRANT_COLOUR);
-        tips.add(new CardPowerTip(new ChargedMarrow()));
+        card = new Marrow();
+        Mutations.mutateWith(card, new Edible());
+        tips.add(new CardPowerTip(card));
     }
 
     public String getUpdatedDescription() {
@@ -29,6 +34,6 @@ public class EmergencyGuide extends AbstractAbbyRelic {
     public void atBattleStart() {
         flash();
         addToBot((AbstractGameAction)new RelicAboveCreatureAction((AbstractCreature)AbstractDungeon.player, this));
-        addToBot((AbstractGameAction)new MakeTempCardInDrawPileAction((AbstractCard)new ChargedMarrow(), POWER, true, true));
+        addToBot((AbstractGameAction)new MakeTempCardInDrawPileAction(card, POWER, true, true));
     }
 }

@@ -22,18 +22,22 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import oceanabby.cards.Abomination;
 import oceanabby.cards.Defend;
 import oceanabby.cards.Spew;
 import oceanabby.cards.Strike;
 import oceanabby.relics.MutationCatalyst;
 import oceanabby.util.TexLoader;
+import oceanabby.vfx.AbbyVictoryEffect;
 import java.util.ArrayList;
+import java.util.List;
 
 import static oceanabby.AbbyMod.*;
 import static oceanabby.characters.TheAberrant.Enums.ABERRANT_COLOUR;
@@ -266,6 +270,30 @@ public class TheAberrant extends CustomPlayer {
     @Override
     public String getSensoryStoneText() {
         return TEXT[3];
+    }
+
+    @Override
+    public Texture getCutsceneBg() {
+        return TexLoader.getTexture(makeImagePath("ending/bg.png"));
+    }
+
+    private static boolean endEffectStarted = false;
+    @Override
+    public List<CutscenePanel> getCutscenePanels() {
+        endEffectStarted = false;
+        List<CutscenePanel> panels = new ArrayList<>();
+        panels.add(new CutscenePanel(makeImagePath("ending/1.png"), "MONSTER_SLIME_ATTACK"));
+        panels.add(new CutscenePanel(makeImagePath("ending/2.png")));
+        panels.add(new CutscenePanel(makeImagePath("ending/3.png")));
+        return panels;
+    }
+
+    @Override
+    public void updateVictoryVfx(ArrayList<AbstractGameEffect> effects) {
+        if (!endEffectStarted) {
+            effects.add(new AbbyVictoryEffect());
+            endEffectStarted = true;
+        }
     }
 
     public static class Enums {

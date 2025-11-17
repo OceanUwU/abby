@@ -9,9 +9,9 @@
     "${ModID}:PrimordialSoup": {
         "NAME": "Primordial Soup",
         "DESCRIPTIONS": [
-            "Choose #b1 of #b3 random #yMutated cards to add to your hand.",
+            "Choose #b1 of #b3 random #yMutated cards to add to your hand, it costs #b0 this turn.",
             "Choose #b1 of #b3 random #yMutated and add #b",
-            " copies to your hand."
+            " copies to your hand, they cost #b0 this turn."
         ]
     },
     "${ModID}:RadioactiveSpider": {

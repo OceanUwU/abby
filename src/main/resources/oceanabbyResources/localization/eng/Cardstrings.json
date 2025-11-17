@@ -275,18 +275,18 @@
   },
   "${ModID}:Hostility": {
     "NAME": "Hostility",
-    "DESCRIPTION": "Whenever you take unblocked damage, deal !M! damage {!${ModID}:EVO!|>0=to ALL enemies|@=back}.",
+    "DESCRIPTION": "Whenever youreceivee unblocked attack damage, deal !M! damage {!${ModID}:EVO!|>0=to ALL enemies|@=back}.",
     "EXTENDED_DESCRIPTION": [
       "Hostility",
       "Hostility EVO",
-      "Whenever you take unblocked damage, deal #b",
+      "Whenever you receive unblocked attack damage, deal #b",
       " damage back.",
       " damage to ALL enemies."
     ]
   },
   "${ModID}:Humanity": {
     "NAME": "Humanity",
-    "DESCRIPTION": "Shuffle !M! *Shiny *Marrow{!M!|>1=s} into your draw pile.{!${ModID}:EVO!|>0= NL Add !${ModID}:m2! of them into your hand.}"
+    "DESCRIPTION": "Shuffle !M! ${ModID}:Swift *Marrow{!M!|>1=s} into your draw pile.{!${ModID}:EVO!|>0= NL Add !${ModID}:m2! of them into your hand.}"
   },
   "${ModID}:Isolation": {
     "NAME": "Alter",
@@ -338,7 +338,7 @@
   },
   "${ModID}:MetalCrusher": {
     "NAME": "Metal Crusher",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Adapt !M!: *Razorspine.{!${ModID}:EVO!|>0= Increase that ${ModID}:Adaptations's damage by !${ModID}:m2!}"
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Adapt !M!: *Razorspine{!${ModID}:EVO!|>0= with +!${ModID}:m2! damage}."
   },
   "${ModID}:Mimicry": {
     "NAME": "Mimicry",

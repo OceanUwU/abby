@@ -1,6 +1,5 @@
 package oceanabby.potions;
 
-import basemod.BaseMod;
 import basemod.ReflectionHacks;
 import oceanabby.AbbyMod;
 import oceanabby.cards.AbstractAbbyCard;
@@ -9,7 +8,6 @@ import oceanabby.util.TexLoader;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 
 import static oceanabby.AbbyMod.makeID;
@@ -42,6 +40,6 @@ public class GhostInNoJar extends AbstractAbbyPotion {
     }
 
     public void addAdditionalTips() {
-        tips.add(new PowerTip(BaseMod.getKeywordTitle(makeID("todo")), BaseMod.getKeywordDescription(makeID("todo"))));
+        //tips.add(new PowerTip(BaseMod.getKeywordTitle(makeID("todo")), BaseMod.getKeywordDescription(makeID("todo"))));
     }
 }
