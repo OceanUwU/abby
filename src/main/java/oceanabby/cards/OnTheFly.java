@@ -36,6 +36,7 @@ public class OnTheFly extends AbstractAdaptation {
 
     @Override
     public void evo() {
-        applyToSelf(new ArtifactPower(adp(), secondMagic));
+        if (isInCombat())
+            applyToSelf(new ArtifactPower(adp(), secondMagic));
     }
 }

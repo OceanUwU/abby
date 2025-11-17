@@ -267,7 +267,7 @@
   },
   "${ModID}:HardShell": {
     "NAME": "Hard Shell",
-    "DESCRIPTION": "${ModID}:Throb: Gain !B! Block."
+    "DESCRIPTION": "${ModID}:Throb: Gain !B! Block{!${ModID}:EVO!|>0= and !M! *Plated *Armor}."
   },
   "${ModID}:Headhunt": {
     "NAME": "Headhunt",
