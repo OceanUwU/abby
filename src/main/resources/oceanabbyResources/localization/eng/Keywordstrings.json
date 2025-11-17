@@ -75,5 +75,12 @@
       "devo"
     ],
     "DESCRIPTION": "Remove a card's #yEvo."
+  },
+  {
+    "PROPER_NAME": "Swift",
+    "NAMES": [
+      "swift"
+    ],
+    "DESCRIPTION": "A #yMutation applied to a card. Swift cards draw #b1 card when played."
   }
 ]
