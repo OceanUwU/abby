@@ -1,13 +1,5 @@
 [
   {
-    "PROPER_NAME": "TODO",
-    "NAMES": [
-      "todo",
-      "todos"
-    ],
-    "DESCRIPTION": "TODO: Make your own epic keywords"
-  },
-  {
     "PROPER_NAME": "Adaptation",
     "NAMES": [
       "adapt",
@@ -82,5 +74,12 @@
       "swift"
     ],
     "DESCRIPTION": "A #yMutation applied to a card. Swift cards draw #b1 card when played."
+  },
+  {
+    "PROPER_NAME": "Edible",
+    "NAMES": [
+      "edible"
+    ],
+    "DESCRIPTION": "A #yMutation applied to a card. Edible cards grant [E] when played."
   }
 ]

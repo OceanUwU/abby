@@ -2,6 +2,7 @@ package oceanabby.cards;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
@@ -24,6 +25,7 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import oceanabby.actions.AddAptationAction;
 import oceanabby.mechanics.Adaptations;
+import oceanabby.util.TexLoader;
 
 import static oceanabby.AbbyMod.makeImagePath;
 import static oceanabby.util.Wiz.*;
@@ -43,6 +45,14 @@ public abstract class AbstractAdaptation extends AbstractAbbyCard {
         super(cardID, -2, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF, CardColor.COLORLESS);
         setBackgroundTexture(makeImagePath("512/adaptation.png"), makeImagePath("1024/adaptation.png"));
         targetDrawScale = unhoveredScale;
+    }
+
+    public Texture getBackgroundSmallTexture() {
+        return imgMap.get(textureBackgroundSmallImg);
+    }
+
+    public Texture getBackgroundLargeTexture() {
+         return imgMap.get(this.textureBackgroundLargeImg);
     }
 
     @Override
