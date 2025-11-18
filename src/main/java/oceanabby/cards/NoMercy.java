@@ -1,61 +1,63 @@
 package oceanabby.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
 import oceanabby.mechanics.Evo;
-import oceanabby.powers.AbstractAbbyPower;
-import oceanabby.powers.LambdaPower;
 
 import static oceanabby.AbbyMod.makeID;
-import static oceanabby.util.Wiz.*;
+import static oceanabby.util.Wiz.actB;
 
 public class NoMercy extends AbstractAbbyCard {
     public final static String ID = makeID("NoMercy");
 
-    private static int applied = 0;
-
     public NoMercy() {
-        super(ID, 0, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
-        setDamage(5);
+        super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         setMagic(2, +1);
-        setSecondMagic(1);
-        cardsToPreview = new Marrow();
+        cardsToPreview = new MarrowAdaptation();
+        MultiCardPreview.add(this, new Marrow());
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AttackEffect.SLASH_VERTICAL);
-        AbstractAbbyPower po = new LambdaPower(ID, exDesc, exDesc[0], PowerType.BUFF, true, p, magicNumber) {
-            public boolean evoIt = evod;
-
-            public void atStartOfTurn() {
-                flash();
-                AbstractCard c = new Marrow();
-                if (evoIt)
-                    Evo.evo(c);
-                makeInHand(c, amount2);
-                atb(new ReducePowerAction(p, m, this, 1));
-            }
-
-            public void updateDescription() {
-                description = strings[1] + amount + strings[amount == 1 ? 2 : 3] + amount2 + strings[evoIt ? (amount2 == 1 ? 6 : 7) : (amount2 == 1 ? 4 : 5)] + strings[8];
-            }
-        };
-        po.ID += String.valueOf(applied++);
-        po.amount2 = secondMagic;
-        po.isTwoAmount = true;
-        po.updateDescription();
-        applyToSelf(po);
+        addAptation();
+        if (evod)
+            actB(() -> {
+                for (AbstractCard c : p.hand.group)
+                    if (c instanceof Marrow)
+                        Evo.evo(c);
+            });
     }
 
     @Override public void evo() {
-        Evo.evo(cardsToPreview);
+        AbstractCard c = new Marrow();
+        Evo.evo(c);
+        MultiCardPreview.add(this, c);
     }
 
     @Override public void devo() {
-        Evo.devo(cardsToPreview);
+        MultiCardPreview.multiCardPreview.get(this).removeIf(c -> c instanceof Marrow && Evo.isEvod(c));
     }
 }
+
+/*
+old version that gave you a power
+
+AbstractAbbyPower po = new LambdaPower(ID, exDesc, exDesc[0], PowerType.BUFF, true, p, magicNumber) {
+    public boolean evoIt = evod;
+
+    public void atStartOfTurn() {
+        flash();
+        AbstractCard c = new Marrow();
+        if (evoIt)
+            Evo.evo(c);
+        makeInHand(c, amount2);
+        atb(new ReducePowerAction(p, m, this, 1));
+    }
+
+    public void updateDescription() {
+        description = strings[1] + amount + strings[amount == 1 ? 2 : 3] + amount2 + strings[evoIt ? (amount2 == 1 ? 6 : 7) : (amount2 == 1 ? 4 : 5)] + strings[8];
+    }
+};
+*/

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Lightning;
+import com.megacrit.cardcrawl.powers.FocusPower;
 import oceanabby.mechanics.Adaptations;
 import oceanabby.mechanics.Evo;
 
@@ -19,10 +20,13 @@ public class Robotization extends AbstractAdaptation {
         super(ID);
         setMagic(1);
         setSecondMagic(2);
+        setThirdMagic(1);
     }
 
     @Override
     public void onThrob() {
+        if (upgraded)
+            applyToSelfTop(new FocusPower(adp(), thirdMagic));
         for (int i = 0; i < magicNumber; i++)
             att(new ChannelAction(new Lightning()));
         pulse(Color.YELLOW, Color.WHITE);

@@ -37,6 +37,10 @@ public class Evo {
         return c.cost > -2;
     }
 
+    public static boolean isEvod(AbstractCard c) {
+        return Field.evod.get(c);
+    }
+
     public static void evo(AbstractCard c) {
         if (sharedStrings == null)
             sharedStrings = CardCrawlGame.languagePack.getCardStrings(makeID("Evo")).EXTENDED_DESCRIPTION;
@@ -172,7 +176,7 @@ public class Evo {
             if (evoing) {
                 __instance.upgradePreviewCard = __instance.selectedCards.group.get(0).makeStatEquivalentCopy();
                 evo(__instance.upgradePreviewCard);
-                if (upgrading) {
+                if (upgrading && __instance.upgradePreviewCard.canUpgrade()) {
                     __instance.upgradePreviewCard.upgrade();
                     __instance.upgradePreviewCard.displayUpgrades();
                 }

@@ -354,7 +354,7 @@
   },
   "${ModID}:NoMercy": {
     "NAME": "No Mercy",
-    "DESCRIPTION": "Deal !D! damage. NL At the start of your {!M!|1=next turn|@=!M! next turns}, add !${ModID}:m2!{!${ModID}:EVO!|>0= ${ModID}:Evo'd} *Marrow{!${ModID}:m2!|>1=s} into your hand.",
+    "DESCRIPTION": "${ModID}:Adapt !M!: *Steel *Bones.{!${ModID}:EVO!|>0= NL ${ModID}:Evo all *Marrows in your hand.}",
     "EXTENDED_DESCRIPTION": [
       "Merciless",
       "At the start of your next #b",
@@ -391,7 +391,7 @@
     "NAME": "Pounce",
     "DESCRIPTION": "Deal !D! damage. NL Draw !M! card{!M!|>1=s}. NL ${ModID}:Evo {!M!|1=it|2=1 and discard the other|@=one and discard the others}.",
     "EXTENDED_DESCRIPTION": [
-      "Deal !D! damage. NL Draw !M! card{!M!|>1=s}. NL ${ModID}:Evo 1."
+      "Deal !D! damage. NL Draw !M! card{!M!|>1=s}. NL ${ModID}:Evo 1 of them."
     ]
   },
   "${ModID}:Psionics": {
@@ -412,7 +412,7 @@
       "Radiant",
       "Whenever you play a #yMarrow, increase the damage of #yMarrows by #b",
       ".",
-      "Bones",
+      "Calcium",
       "#yMarrows deal #b",
       " additional damage."
     ]
@@ -435,7 +435,7 @@
   },
   "${ModID}:Robotization": {
     "NAME": "Cybernetics",
-    "DESCRIPTION": "{!${ModID}:EVO!|>0=Lightning deals !${ModID}:m2! additional damage. NL }${ModID}:Throb: Channel !M! Lightning."
+    "DESCRIPTION": "{!${ModID}:EVO!|>0=Lightning deals !${ModID}:m2! additional damage. NL }${ModID}:Throb: Channel !M! Lightning{!Upgrades!|>0= and gain !${ModID}:m3! Focus}."
   },
   "${ModID}:SalivaSlick": {
     "NAME": "Saliva Slick",
@@ -546,5 +546,9 @@
   "${ModID}:WrithingTentacles": {
     "NAME": "Writhing Tentacles",
     "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Mutate !M! random card{!M!|>1=s} in your hand."
+  },
+  "${ModID}:MarrowAdaptation": {
+    "NAME": "Steel Bones",
+    "DESCRIPTION": "${ModID}:Throb: Add !M!{!${ModID}:EVO!|>0= ${ModID}:Evo'd} *Marrow{!M!|>1=s}{!Upgrades!|>0=+} into your hand."
   }
 }
