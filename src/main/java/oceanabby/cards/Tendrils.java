@@ -20,6 +20,7 @@ public class Tendrils extends AbstractAbbyCard {
         setMagic(2, +1);
         setExhaust(true);
         setSecondMagic(25);
+        tags.add(CardTags.HEALING);
     }
 
     @Override
