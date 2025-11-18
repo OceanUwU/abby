@@ -234,7 +234,7 @@
   },
   "${ModID}:GiganticGrowth": {
     "NAME": "Gigantic Growth",
-    "DESCRIPTION": "Mutate !M! random card{!M!|>0=s} in your draw pile.{!${ModID}:EVO!|>0= NL Add !${ModID}:m2! of them into your hand at random.}"
+    "DESCRIPTION": "${ModID}:Mutate !M! random card{!M!|>0=s} in your draw pile.{!${ModID}:EVO!|>0= NL Add !${ModID}:m2! of them into your hand at random.}"
   },
   "${ModID}:HalfRemembered": {
     "NAME": "Remembrance",
@@ -275,7 +275,7 @@
   },
   "${ModID}:Hostility": {
     "NAME": "Hostility",
-    "DESCRIPTION": "Whenever youreceivee unblocked attack damage, deal !M! damage {!${ModID}:EVO!|>0=to ALL enemies|@=back}.",
+    "DESCRIPTION": "Whenever you receive unblocked attack damage, deal !M! damage {!${ModID}:EVO!|>0=to ALL enemies|@=back}.",
     "EXTENDED_DESCRIPTION": [
       "Hostility",
       "Hostility EVO",
@@ -536,7 +536,7 @@
   },
   "${ModID}:WasteDump": {
     "NAME": "Waste Dump",
-    "DESCRIPTION": "At the start of your turn, apply !M! Acid to ALL enemies.",
+    "DESCRIPTION": "At the start of your turn, apply !M! ${ModID}:Acid to ALL enemies.",
     "EXTENDED_DESCRIPTION": [
       "Waste Dump",
       "At the start of your turn, apply #b",

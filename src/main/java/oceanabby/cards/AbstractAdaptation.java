@@ -25,7 +25,6 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import oceanabby.actions.AddAptationAction;
 import oceanabby.mechanics.Adaptations;
-import oceanabby.util.TexLoader;
 
 import static oceanabby.AbbyMod.makeImagePath;
 import static oceanabby.util.Wiz.*;

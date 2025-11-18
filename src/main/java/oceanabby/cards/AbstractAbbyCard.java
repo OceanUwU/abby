@@ -409,6 +409,7 @@ public abstract class AbstractAbbyCard extends CustomCard {
         setHaunted(haunted);
         upgradesHaunted = true;
         hauntedUpgrade = up;
+        tags.add(CardTags.HEALING);
         if (upgraded) upgradeHaunted(hauntedUpgrade);
     }
 

@@ -21,9 +21,9 @@ public class EasyPrey extends AbstractAbbyCard {
         actB(() -> {
             if (m != null) {
                 if (m.currentHealth < magicNumber)
-                    dmg(m, AttackEffect.SLASH_DIAGONAL);
+                    dmgTop(m, AttackEffect.SLASH_DIAGONAL);
                 else
-                    altDmg(m, AttackEffect.BLUNT_LIGHT);
+                    altDmgTop(m, AttackEffect.BLUNT_LIGHT);
             }
         });
     }

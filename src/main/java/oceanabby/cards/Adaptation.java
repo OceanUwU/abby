@@ -29,6 +29,8 @@ public class Adaptation extends AbstractAbbyCard {
         if (evod)
             baseBlock = (int)adp().hand.group.stream().filter(c -> c != this && !Evo.Field.evod.get(c)).count();
         super.applyPowers();
+        if (!evod)
+            baseBlock = block = -1;
     }
 
     @Override public void evo() {

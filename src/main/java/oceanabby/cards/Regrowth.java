@@ -14,7 +14,6 @@ public class Regrowth extends AbstractAbbyCard {
         setHaunted(12);
         setMagic(5, +3);
         setExhaust(true);
-        tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
