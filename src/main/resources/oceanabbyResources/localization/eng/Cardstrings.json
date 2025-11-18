@@ -330,7 +330,7 @@
   },
   "${ModID}:MetalCrusher": {
     "NAME": "Metal Crusher",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Adapt !M!: *Razorspine{!${ModID}:EVO!|>0= with +!${ModID}:m2! damage}."
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Adapt !M!: *Razorspine{!${ModID}:EVO!|>0= with + !${ModID}:m2! damage}."
   },
   "${ModID}:Mimicry": {
     "NAME": "Mimicry",
