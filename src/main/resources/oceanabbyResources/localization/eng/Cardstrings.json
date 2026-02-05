@@ -120,7 +120,7 @@
   },
   "${ModID}:Claw": {
     "NAME": "Gro-Claw",
-    "DESCRIPTION": "Deal !D! damage.{!${ModID}:EVO!|>0= NL Increase the damage of ALL ${ModID}:Evo'd Attacks by !M!.}"
+    "DESCRIPTION": "Starts combat ${ModID}:Evo'd. NL Deal !D! damage.{!${ModID}:EVO!|>0= NL Increase the damage of ALL ${ModID}:Evo'd Attacks by !M! this combat.}"
   },
   "${ModID}:CosmicHorror": {
     "NAME": "Cosmic Horror",
@@ -228,8 +228,8 @@
     "EXTENDED_DESCRIPTION": [
       "Exhausted",
       "Your next #b",
-      " Attack deals no damage",
-      " Attacks deal no damage"
+      " Attack deals no damage.",
+      " Attacks deal no damage."
     ]
   },
   "${ModID}:GiganticGrowth": {
@@ -308,10 +308,14 @@
   },
   "${ModID}:LastDitch": {
     "NAME": "Press On",
-    "DESCRIPTION": "Deal !D! damage. NL Your next ${ModID}:Adaptation lasts !M! additional turn{!M!|>1=s}.",
+    "DESCRIPTION": "Your next ${ModID}:Adaptation is created twice.{!${ModID}:m2!|1= NL The copy lasts 1 additional turn.|0=|@= NL The copy lasts !${ModID}:m2! additional turns.}",
     "EXTENDED_DESCRIPTION": [
       "Pressing On",
-      "Your next adaptation lasts #b",
+      "Your next #yAdaptation will be duplicated #b",
+      " time.",
+      " times.",
+      "Prolonging",
+      "The next duplicated #yAdaptation lasts #b",
       " additional turn.",
       " additional turns."
     ]
@@ -456,7 +460,7 @@
   },
   "${ModID}:SplayYourGuts": {
     "NAME": "Splay Guts",
-    "DESCRIPTION": "Deal !D! damage. NL Shuffle !M! *Marrow{!M!|>1=s}{!Upgrades!|>0=+} into your draw pile{!${ModID}:EVO!|>0= and discard pile}."
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle !M! ${ModID}:Swift *Marrow{!M!|>1=s}{!Upgrades!|>0=+} into your draw pile{!${ModID}:EVO!|>0= and discard pile}."
   },
   "${ModID}:Splice": {
     "NAME": "Splice",
@@ -522,7 +526,7 @@
   },
   "${ModID}:ToTheLimit": {
     "NAME": "To The Limit",
-    "DESCRIPTION": "Gain !M! temporary Strength{!${ModID}:EVO!|>0= and !${ModID}:m2! Dexterity}. NL {!${ModID}:m3!|1=If you lose any HP this turn|@=For !${ModID}:m3! turns, if you lose any HP}, die.",
+    "DESCRIPTION": "Gain !M! Strength{!${ModID}:EVO!|>0= and !${ModID}:m2! Dexterity}. NL {!${ModID}:m3!|1=If you lose any HP this turn|@=For !${ModID}:m3! turns, if you lose any HP}, die.",
     "EXTENDED_DESCRIPTION": [
       "At The Limit",
       "For #b",

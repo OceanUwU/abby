@@ -14,7 +14,7 @@ public class Disarming extends AbstractMutation {
     }
     
     protected int getPower() {
-        return 3;
+        return 2;
     }
     
     public boolean canMutate(AbstractCard c) {

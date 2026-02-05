@@ -4,6 +4,8 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import oceanabby.mechanics.Mutations;
+import oceanabby.mutations.Swift;
 
 import static oceanabby.AbbyMod.makeID;
 import static oceanabby.util.Wiz.*;
@@ -13,9 +15,10 @@ public class SplayYourGuts extends AbstractAbbyCard {
 
     public SplayYourGuts() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        setDamage(8, +1);
+        setDamage(6, +2);
         setMagic(1);
         cardsToPreview = new Marrow();
+        Mutations.mutateWith(cardsToPreview, new Swift());
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -1,10 +1,12 @@
 package oceanabby.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
+import oceanabby.actions.AddAptationAction;
 import oceanabby.powers.LambdaPower;
 
 import static oceanabby.AbbyMod.makeID;
@@ -15,31 +17,44 @@ public class LastDitch extends AbstractAbbyCard {
 
 
     public LastDitch() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        setDamage(8, +1);
-        setMagic(1, +1);
+        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.NONE);
+        //setMagic(1);
+        setSecondMagic(0, +1);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AttackEffect.SLASH_VERTICAL);
-        applyToSelf(new LambdaPower(ID, exDesc, exDesc[0], PowerType.BUFF, false, p, magicNumber) {
+        applyToSelf(new LambdaPower(ID, exDesc, exDesc[0], PowerType.BUFF, false, p, 1) {
             @Override public void onAdapt(AbstractAdaptation a) {
                 flash();
-                a.counter += amount;
-                att(new RemoveSpecificPowerAction(owner, owner, this));
+                AbstractAdaptation copy = (AbstractAdaptation)a.makeStatEquivalentCopy();
+                if (p.hasPower(ID + "Turn")) {
+                    AbstractPower pwr = p.getPower(ID + "Turn");
+                    pwr.flash();
+                    copy.counter += pwr.amount;
+                }
+                att(
+                    new ReducePowerAction(owner, owner, this, 1),
+                    new RemoveSpecificPowerAction(owner, owner, ID + "Turn"),
+                    new AddAptationAction(copy, copy.counter));
             }
 
             public void updateDescription() {
                 description = strings[1] + amount + strings[amount == 1 ? 2 : 3];
             }
         });
+        if (secondMagic > 0)
+            applyToSelf(new LambdaPower(ID + "Turn", exDesc, exDesc[0], PowerType.BUFF, false, p, secondMagic) {
+                public void updateDescription() {
+                    description = strings[1] + amount + strings[amount == 1 ? 2 : 3];
+                }
+            });
     }
 
     @Override public void evo() {
-        upgradeMagicNumber(1);
+        upgradeSecondMagic(1);
     }
 
     @Override public void devo() {
-        upgradeMagicNumber(-1);
+        upgradeSecondMagic(-1);
     }
 }

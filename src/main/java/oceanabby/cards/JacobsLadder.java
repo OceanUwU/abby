@@ -11,7 +11,7 @@ public class JacobsLadder extends AbstractAbbyCard {
 
     public JacobsLadder() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        setBlock(4, +2);
+        setBlock(5, +2);
         setSecondBlock(4);
     }
 

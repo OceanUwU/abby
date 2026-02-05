@@ -16,7 +16,7 @@ public class ESP extends AbstractAbbyCard {
 
     public ESP() {
         super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
-        setMagic(2, +1);
+        setMagic(3, +1);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

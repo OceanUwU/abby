@@ -8,8 +8,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.LoseDexterityPower;
-import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
@@ -25,19 +23,16 @@ public class ToTheLimit extends AbstractAbbyCard {
     public ToTheLimit() {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         setHaunted(20, -5);
-        setMagic(10, +2);
-        setSecondMagic(3);
+        setMagic(8, +2);
+        setSecondMagic(2);
         setThirdMagic(1);
         setExhaust(true);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new StrengthPower(p, magicNumber));
-        applyToSelf(new LoseStrengthPower(p, magicNumber));
-        if (evod) {
+        if (evod)
             applyToSelf(new DexterityPower(p, secondMagic));
-            applyToSelf(new LoseDexterityPower(p, secondMagic));
-        }
         applyToSelf(new LambdaPower(ID, exDesc, exDesc[0], PowerType.DEBUFF, false, p, thirdMagic) {
             private boolean done = false;
             

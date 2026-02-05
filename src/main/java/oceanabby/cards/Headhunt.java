@@ -28,7 +28,7 @@ public class Headhunt extends AbstractAbbyCard {
         actB(() -> {
             for (AbstractMonster mo : monsters) {
                 if (!getEnemies().contains(mo)) {
-                    att(new DamageAllEnemiesAction(AbstractDungeon.player, secondDamage, damageTypeForTurn, AttackEffect.BLUNT_HEAVY));
+                    att(new DamageAllEnemiesAction(AbstractDungeon.player, baseSecondDamage, damageTypeForTurn, AttackEffect.BLUNT_HEAVY));
                     break;
                 }
             }

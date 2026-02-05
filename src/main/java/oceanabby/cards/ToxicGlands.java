@@ -46,8 +46,10 @@ public class ToxicGlands extends AbstractAdaptation {
             if (info.type == DamageInfo.DamageType.NORMAL && __instance.lastDamageTaken > 0)
                 for (AbstractAdaptation a : Adaptations.adaptations)
                     if (a instanceof ToxicGlands) {
+                        int amt = __instance.lastDamageTaken * a.magicNumber / 100;
+                        if (amt <= 0) continue;
                         a.pulse(Color.LIME, Color.GREEN);
-                        applyToEnemy(__instance, new Acid(__instance, __instance.lastDamageTaken * a.magicNumber / 100));
+                        applyToEnemy(__instance, new Acid(__instance, amt));
                     }
         }
         private static class Locator extends SpireInsertLocator {
