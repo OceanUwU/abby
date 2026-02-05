@@ -48,7 +48,7 @@
     "NAMES": [
       "haunted"
     ],
-    "DESCRIPTION": "If a haunted card is in your hand at the end of turn, it is removed from your deck PERMANENTLY and you lose X HP."
+    "DESCRIPTION": "If a haunted card is in your hand at the end of turn, it is removed from your deck permanently and you lose X HP."
   },
   {
     "PROPER_NAME": "Evo",
