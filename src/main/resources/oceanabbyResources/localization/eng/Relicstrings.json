@@ -59,9 +59,9 @@
     "NAME": "Eldritch Hieroglyphs",
     "FLAVOR": "Depicts the wrath of Neow as her child was stolen from her.",
     "DESCRIPTIONS": [
-      "Whenever you shuffle your draw pile, #y${ModID}:Mutate the top card",
+      "Whenever you shuffle your draw pile, #y${ModID}:Mutate the top card.",
       "Whenever you shuffle your draw pile, #y${ModID}:Mutate the top #b",
-      " cards"
+      " cards."
     ]
   },
   "${ModID}:ToxicSludge": {
