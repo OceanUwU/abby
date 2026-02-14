@@ -15,7 +15,7 @@ public class TendonSlash extends AbstractAbbyCard {
     public TendonSlash() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         setDamage(4, +2);
-        setSecondMagic(baseDamage + 1);
+        setSecondMagic(7);
         setBlock(4, +2);
     }
 

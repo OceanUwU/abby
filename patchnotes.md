@@ -1,3 +1,8 @@
+# v0.1.3
+- fixed a potential bug where chomp wouldnt consider enemy debuffs/buffs
+- fixed tendon slash's evo claiming to give the enemy 0 block
+- fixed non-evo'd mitosis sometimes saying "(0)" in its card text if you had dexterity
+
 # v0.1.2
 ## balance
 - Press On reworked: Attack -> Skill, Uncommon -> Rare, now reads "Your next Adaptation is created twice. (The copy lasts 1 additional turn.)"

@@ -24,11 +24,11 @@ public class Adaptation extends AbstractAbbyCard {
         if (!upgraded)
             atb(new DiscardAction(p, p, magicNumber, true));
     }
-  
-    @Override public void applyPowers() {
+
+    @Override public void applyPowersToBlock() {
         if (evod)
             baseBlock = (int)adp().hand.group.stream().filter(c -> c != this && !Evo.Field.evod.get(c)).count();
-        super.applyPowers();
+        super.applyPowersToBlock();
         if (!evod)
             baseBlock = block = -1;
     }
