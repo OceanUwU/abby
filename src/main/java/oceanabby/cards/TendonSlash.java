@@ -15,7 +15,7 @@ public class TendonSlash extends AbstractAbbyCard {
     public TendonSlash() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         setDamage(4, +2);
-        setSecondMagic(7);
+        setSecondMagic(baseDamage + 1);
         setBlock(4, +2);
     }
 
@@ -29,24 +29,32 @@ public class TendonSlash extends AbstractAbbyCard {
     public void update() {
         super.update();
         baseSecondMagic = secondMagic = damage + 1;
+        if (!isInCombat())
+            baseSecondMagic = secondMagic = baseDamage + 1;
     }
 
     @Override
     public void applyPowers() {
         super.applyPowers();
         baseSecondMagic = secondMagic = damage + 1;
+        if (!isInCombat())
+            baseSecondMagic = secondMagic = baseDamage + 1;
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         super.calculateCardDamage(mo);
         baseSecondMagic = secondMagic = damage + 1;
+        if (!isInCombat())
+            baseSecondMagic = secondMagic = baseDamage + 1;
     }
 
     @Override
     public void upgrade() {
         super.upgrade();
         baseSecondMagic = secondMagic = damage + 1;
+        if (!isInCombat())
+            baseSecondMagic = secondMagic = baseDamage + 1;
     }
 
     private AbstractGameAction action(AbstractMonster m) {

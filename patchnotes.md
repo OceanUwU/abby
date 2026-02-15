@@ -1,3 +1,6 @@
+[h1]v0.1.4[/h1]
+- actually fixed tendon slash's evo preview being incorrect outside of combat
+
 # v0.1.3
 - fixed a potential bug where chomp wouldnt consider enemy debuffs/buffs
 - fixed tendon slash's evo claiming to give the enemy 0 block
