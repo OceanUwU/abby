@@ -4,6 +4,7 @@ import basemod.abstracts.CustomCard;
 import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PurgeField;
@@ -172,6 +173,13 @@ public abstract class AbstractAbbyCard extends CustomCard {
             textureString = makeImagePath("ui/missing.png");
         }
         return textureString;
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if (haunted >= 0)
+            glowColor = new Color(1.0F, 0.1F, 0.1F, 0.25F);
     }
 
     @Override

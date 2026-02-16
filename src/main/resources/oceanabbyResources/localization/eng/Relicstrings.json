@@ -3,9 +3,9 @@
     "NAME": "Mutation Catalyst",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      "Card rewards are #y${ModID}:Mutated until you add #b",
-      " #y${ModID}:Mutated card to your deck.",
-      " #y${ModID}:Mutated cards to your deck."
+      "Your first #b",
+      " card rewards are #y${ModID}:Mutated.",
+      "Your first card reward is #y${ModID}:Mutated."
     ]
   },
   "${ModID}:PaperDragyn": {
@@ -50,9 +50,9 @@
     "NAME": "Emergency Guide",
     "FLAVOR": "It's from the lab you escaped from. Describes protocol in the event of a containment breach",
     "DESCRIPTIONS": [
-      "At the start of each combat, shuffle #b1 #y${ModID}:Edible #yMarrow+ into your draw pile.",
+      "At the start of each combat, shuffle #b1 #y${ModID}:Swift #y${ModID}:Edible #yMarrow+ into your draw pile.",
       "At the start of each combat, shuffle #b",
-      " #y${ModID}:Edible #yMarrows+ into your draw pile."
+      " #y${ModID}:Swift #y${ModID}:Edible #yMarrows+ into your draw pile."
     ]
   },
   "${ModID}:EldritchHieroglyphs": {
@@ -76,6 +76,14 @@
     "FLAVOR": "Our research has only just begun...",
     "DESCRIPTIONS": [
       "Replaces #pMutation #pCatalyst. Upon pickup, remove all #y${ModID}:Mutations from cards in your deck. Whenever you #ySmith a card, #y${ModID}:Evo it too."
+    ]
+  },
+  "${ModID}:FusionHammer": {
+    "NAME": "Fusion Hammer",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      " at the start of your turn. You can no longer #ySmith or #y${ModID}:Evolve at Rest Sites.",
+      "Gain [E]"
     ]
   }
 }

@@ -33,5 +33,17 @@
             "Evo",
             "Evo and Upgrade"
         ]
-    }
+    },
+  "${ModID}:EvoCampfireOption": {
+    "TEXT": [
+      "Evolve",
+      "Evo a card in your deck.",
+      "No evo-able cards."
+    ]
+  },
+  "${ModID}:EvoCampfireEffect": {
+    "TEXT": [
+      "Select Cards to Evo."
+    ]
+  }
 }

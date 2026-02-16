@@ -29,10 +29,10 @@ public class EasyPrey extends AbstractAbbyCard {
     }
 
     @Override public void evo() {
-        upgradeMagicNumber(+15);
+        upgradeMagicNumber(+20);
     }
 
     @Override public void devo() {
-        upgradeMagicNumber(-15);
+        upgradeMagicNumber(-20);
     }
 }

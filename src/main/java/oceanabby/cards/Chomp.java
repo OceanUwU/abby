@@ -18,7 +18,7 @@ public class Chomp extends AbstractAbbyCard {
 
     public Chomp() {
         super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        setDamage(7, +3);
+        setDamage(7, +2);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

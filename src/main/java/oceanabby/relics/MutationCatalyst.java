@@ -14,7 +14,7 @@ import oceanabby.mechanics.Mutations;
 
 public class MutationCatalyst extends AbstractAbbyRelic {
     public static final String ID = makeID("MutationCatalyst");
-    private static int POWER = 1;
+    private static int POWER = 2;
 
     public MutationCatalyst() {
         super(ID, RelicTier.STARTER, LandingSound.CLINK, TheAberrant.Enums.ABERRANT_COLOUR);
@@ -22,7 +22,8 @@ public class MutationCatalyst extends AbstractAbbyRelic {
     }
 
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + POWER + DESCRIPTIONS[POWER == 1 ? 1 : 2];
+        if (POWER == 1) return DESCRIPTIONS[2];
+        return DESCRIPTIONS[0] + POWER + DESCRIPTIONS[1];
     }
 
     @Override
@@ -42,20 +43,26 @@ public class MutationCatalyst extends AbstractAbbyRelic {
     @SpirePatch(clz=RewardItem.class, method=SpirePatch.CONSTRUCTOR, paramtypez={AbstractCard.CardColor.class})
     public static class MutateEm {
         public static void Postfix(RewardItem __instance) {
-            if (__instance.cards.size() > 0)
+            if (__instance.cards.size() > 0) {
                 for (AbstractRelic r : AbstractDungeon.player.relics)
-                    if (r.relicId.equals(ID) && r.counter > 0)
+                    if (r.relicId.equals(ID) && r.counter > 0) {
+                        if (--r.counter <= 0)
+                            r.counter = -1;
+                        r.flash();
                         for (AbstractCard c : __instance.cards)
                             Mutations.mutate(c);
+                    }
+            }
         }
     }
 
     @SpirePatch(clz=RewardItem.class, method="claimReward")
     public static class FlashIt {
         @SpireInsertPatch(rloc=54)
-        public static void Insert() {
-            if (adp().hasRelic(ID) && adp().getRelic(ID).counter > 0)
-                adp().getRelic(ID).flash();
+        public static void Insert(RewardItem __instance) {
+            if (__instance.cards != null && __instance.cards.size() > 0 && Mutations.isMutated(__instance.cards.get(0)))
+                if (adp().hasRelic(ID))
+                    adp().getRelic(ID).flash();                
         }
     }
 }

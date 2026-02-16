@@ -12,7 +12,7 @@ public class Regrowth extends AbstractAbbyCard {
     public Regrowth() {
         super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         setHaunted(12);
-        setMagic(5, +3);
+        setMagic(4, +1);
         setExhaust(true);
     }
 

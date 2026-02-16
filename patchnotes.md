@@ -1,3 +1,21 @@
+[h1]v0.2.0[/h1]
+[h2]balance[/h2]
+- You can now permanently Evo cards at campfires
+
+- Regrowth: max HP given 5 (8) -> 4 (5)
+- Chomp: damage 7 (10) -> 7 (9)
+- Waste Dump: Acid applied 2 -> 3
+- Batter: Strength removed 3 -> 4
+- Easy Prey: HP threshold: 50 [65 when EVO'd] -> 50 [70 when EVO'd]
+- Mutation Catalyst (starter relic): now always mutates your first 2 card rewards, but you can no longer retain the relic's effect by skipping the cards.
+- The Symbiont: Relics needed 3 -> 2
+- Emergency Guide: Shuffled Marrows are now also Swift
+[h2]qol[/h2]
+- Haunted cards now glow red in your hand.
+
+[h1]v0.1.6[/h1]
+- fixed tendrils EVO giving 400% block rather than 25%
+
 [h1]v0.1.5[/h1]
 - fixed Venomous always being 2
 

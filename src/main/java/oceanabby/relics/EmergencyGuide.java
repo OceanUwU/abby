@@ -13,6 +13,7 @@ import oceanabby.cards.Marrow;
 import oceanabby.characters.TheAberrant;
 import oceanabby.mechanics.Mutations;
 import oceanabby.mutations.Edible;
+import oceanabby.mutations.Swift;
 
 public class EmergencyGuide extends AbstractAbbyRelic {
     public static final String ID = makeID("EmergencyGuide");
@@ -22,6 +23,7 @@ public class EmergencyGuide extends AbstractAbbyRelic {
     public EmergencyGuide() {
         super(ID, RelicTier.SHOP, LandingSound.FLAT, TheAberrant.Enums.ABERRANT_COLOUR);
         card = new Marrow();
+        Mutations.mutateWith(card, new Swift());
         Mutations.mutateWith(card, new Edible());
         tips.add(new CardPowerTip(card));
     }

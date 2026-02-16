@@ -27,7 +27,7 @@ public class Tendrils extends AbstractAbbyCard {
     public void applyPowers() {
         super.applyPowers();
         if (evod) {
-            baseBlock = damage * 100 / secondMagic;
+            baseBlock = damage * secondMagic / 100;
             super.applyPowers();
         }
         if (baseBlock <= 0)

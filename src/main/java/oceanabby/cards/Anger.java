@@ -19,7 +19,7 @@ public class Anger extends AbstractAbbyCard {
     public Anger() {
         super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         setDamage(9, +3);
-        setMagic(3, +1);
+        setMagic(4, +1);
         setSecondMagic(2);
         setExhaust(true);
     }
