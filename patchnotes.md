@@ -1,3 +1,6 @@
+[h1]v0.1.5[/h1]
+- fixed Venomous always being 2
+
 [h1]v0.1.4[/h1]
 - actually fixed tendon slash's evo preview being incorrect outside of combat
 
