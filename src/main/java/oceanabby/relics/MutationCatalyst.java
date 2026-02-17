@@ -26,19 +26,6 @@ public class MutationCatalyst extends AbstractAbbyRelic {
         return DESCRIPTIONS[0] + POWER + DESCRIPTIONS[1];
     }
 
-    @Override
-    public void onMasterDeckChange() {
-        if (counter > 0) {
-            for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
-                if (Mutations.isMutated(c)) {
-                    counter--;
-                    flash();
-                    if (counter <= 0)
-                        counter = -2;
-                }
-        }
-    }
-
     @SpirePatch(clz=RewardItem.class, method=SpirePatch.CONSTRUCTOR, paramtypez={})
     @SpirePatch(clz=RewardItem.class, method=SpirePatch.CONSTRUCTOR, paramtypez={AbstractCard.CardColor.class})
     public static class MutateEm {

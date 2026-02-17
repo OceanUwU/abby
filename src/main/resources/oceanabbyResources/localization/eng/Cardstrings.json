@@ -28,7 +28,7 @@
   },
   "${ModID}:Abomination": {
     "NAME": "Abomination",
-    "DESCRIPTION": "Deal !D! damage. Shuffle !M! ${ModID}:Evo'd{!Upgrades!|>0= and ${ModID}:Mutated} *Marrow{!M!|>1=s}{!${ModID}:EVO!|>0=+} into your draw pile."
+    "DESCRIPTION": "Deal !D! damage. Shuffle !M! ${ModID}:Evo'd{!Upgrades!|>0= ${ModID}:Swift} *Marrow{!M!|>1=s}{!${ModID}:EVO!|>0=+} into your draw pile."
   },
   "${ModID}:AcidSpit": {
     "NAME": "Venomous",

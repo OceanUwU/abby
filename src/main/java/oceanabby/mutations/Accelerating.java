@@ -17,7 +17,7 @@ public class Accelerating extends AbstractMutation {
     
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
         actB(() -> {
-            ArrayList<AbstractCard> cards = new ArrayList<>(adp().hand.group.stream().filter(c -> Evo.shouldEvo(c)).collect(Collectors.toList()));
+            ArrayList<AbstractCard> cards = new ArrayList<>(adp().hand.group.stream().filter(c -> Evo.shouldEvo(c) && !Evo.isEvod(c)).collect(Collectors.toList()));
             if (cards.size() > 0)
                 Evo.evo(cards.get(AbstractDungeon.cardRng.random(cards.size() - 1)));
         });

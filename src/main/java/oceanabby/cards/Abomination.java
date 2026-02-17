@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import oceanabby.mechanics.Evo;
 import oceanabby.mechanics.Mutations;
+import oceanabby.mutations.Swift;
 
 import static oceanabby.AbbyMod.makeID;
 import static oceanabby.util.Wiz.*;
@@ -25,10 +26,14 @@ public class Abomination extends AbstractAbbyCard {
         dmg(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
         for (int i = 0; i < magicNumber; i++) {
             AbstractCard c = cardsToPreview.makeStatEquivalentCopy();
-            if (upgraded)
-                Mutations.mutate(c);
             shuffleIn(c);
         }
+    }
+
+    @Override
+    public void upp() {
+        super.upp();
+        Mutations.mutateWith(cardsToPreview, new Swift());
     }
 
     @Override public void evo() {

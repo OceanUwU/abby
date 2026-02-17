@@ -1,3 +1,9 @@
+[h1]v0.2.1[/h1]
+- Abomination+: no longer gives random mutations to the Marrows, now always applies Swift
+- Fixed: adding a mutated card to your deck no longer uses up a charge of Mutation Catalyst
+- Fixed the "accelerating" mutation being able to target cards that were already Evo'd, resulting in no effect
+- Fixed Fusion Hammer displaying a non-existing keyword
+
 [h1]v0.2.0[/h1]
 [h2]balance[/h2]
 - You can now permanently Evo cards at campfires

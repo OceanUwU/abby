@@ -81,5 +81,12 @@
       "edible"
     ],
     "DESCRIPTION": "A #yMutation applied to a card. Edible cards grant [E] when played."
+  },
+  {
+    "PROPER_NAME": "Evolve",
+    "NAMES": [
+      "evolve"
+    ],
+    "DESCRIPTION": "#yEvo a card at a Rest Site."
   }
 ]
