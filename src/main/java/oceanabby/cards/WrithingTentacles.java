@@ -23,10 +23,15 @@ public class WrithingTentacles extends AbstractAbbyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
+        int amt = magicNumber;
         actB(() -> {
             ArrayList<AbstractCard> cards = new ArrayList<>(adp().hand.group.stream().filter(c -> Mutations.canMutate(c)).collect(Collectors.toList()));
-            if (cards.size() > 0)
-                att(Mutations.action(cards.get(AbstractDungeon.cardRng.random(cards.size() - 1))));
+            int amnt = amt;
+            while (amnt-- > 0 && cards.size() > 0) {
+                int chosen = AbstractDungeon.cardRng.random(cards.size() - 1);
+                att(Mutations.action(cards.get(chosen)));
+                cards.remove(chosen);
+            }
         });
     }
 

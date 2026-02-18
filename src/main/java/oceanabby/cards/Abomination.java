@@ -16,7 +16,7 @@ public class Abomination extends AbstractAbbyCard {
 
     public Abomination() {
         super(ID, 2, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
-        setDamage(5);
+        setDamage(8);
         setMagic(2);
         cardsToPreview = new Marrow();
         Evo.evo(cardsToPreview);

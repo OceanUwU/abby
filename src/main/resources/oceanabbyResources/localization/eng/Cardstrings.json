@@ -238,19 +238,21 @@
   },
   "${ModID}:HalfRemembered": {
     "NAME": "Remembrance",
-    "DESCRIPTION": "Whenever you play an ${ModID}:Evo'd card, ${ModID}:Devo it,{!${ModID}:EVO!|>0= gain !${ModID}:m3! Block,} draw !M! card{!M!|>1=s} and gain{!${ModID}:m2!|repeat= [E]}.",
+    "DESCRIPTION": "The first time you play an ${ModID}:Evo'd card each turn, ${ModID}:Devo it,{!${ModID}:EVO!|>0= gain !${ModID}:m3! Block,} draw !M! card{!M!|>1=s} and gain{!${ModID}:m2!|repeat= [E]}.",
     "EXTENDED_DESCRIPTION": [
       "Remembrance",
-      "Whenever you play an #yEvo'd card, #yDevo it.",
+      "The first time you play an #yEvo'd card each turn, #yDevo it.",
       "Remembrance: Draw",
-      "Whenever you play an #yEvo'd card, draw #b",
+      "The first time you play an #yEvo'd card each turn, draw #b",
       " card.",
       " cards.",
       "Remembrance: Energy",
-      "Whenever you play an #yEvo'd card, gain ",
+      "The first time you play an #yEvo'd card each turn, gain ",
       "Remembrance: Block",
-      "Whenever you play an #yEvo'd card, gain #b",
-      " #yBlock."
+      "The first time you play an #yEvo'd card each turn, gain #b",
+      " #yBlock.",
+      " NL Has not yet triggered this turn.",
+      " NL Has already triggered this turn."
     ]
   },
   "${ModID}:HarbingerForm": {
@@ -286,7 +288,7 @@
   },
   "${ModID}:Humanity": {
     "NAME": "Humanity",
-    "DESCRIPTION": "Shuffle !M! ${ModID}:Swift *Marrow{!M!|>1=s} into your draw pile.{!${ModID}:EVO!|>0= NL Add !${ModID}:m2! of them into your hand.}"
+    "DESCRIPTION": "Shuffle !M! ${ModID}:Swift *Marrow{!M!|>1=s} into your draw pile.{!${ModID}:EVO!|>0= NL Put !${ModID}:m2! of them into your hand.}"
   },
   "${ModID}:Isolation": {
     "NAME": "Alter",

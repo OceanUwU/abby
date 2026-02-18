@@ -1,3 +1,9 @@
+[h1]v0.2.2[/h1]
+- Abomination: damage 5 -> 8
+- Remembrance: can now only trigger once per turn
+- Fixed: Writhing Tentacles EVO now correctly targets 2 cards rather than 1
+- Tweaked Humanity EVO's wording to clarify it doesnt give you an extra card
+
 [h1]v0.2.1[/h1]
 - Abomination+: no longer gives random mutations to the Marrows, now always applies Swift
 - Fixed: adding a mutated card to your deck no longer uses up a charge of Mutation Catalyst
