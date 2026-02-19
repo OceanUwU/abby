@@ -37,10 +37,9 @@ public class OneForAll extends AbstractAbbyCard {
 
                 if (m.lastDamageTaken > 0) {
                     att(new WaitAction(0.1f));
-                    ApplyPowerAction instant = new ApplyPowerAction(m, p, new Acid(m, m.lastDamageTaken), m.lastDamageTaken);
+                    ApplyPowerAction instant = applyToEnemyTop(m, new Acid(m, m.lastDamageTaken));
                     ReflectionHacks.setPrivate(instant, ApplyPowerAction.class, "startingDuration", 0.01f);
                     ReflectionHacks.setPrivate(instant, AbstractGameAction.class, "duration", 0.01f);
-                    att(instant);
                 }
                 att(new WaitAction(0.1f));
 

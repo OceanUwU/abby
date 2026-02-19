@@ -1,3 +1,6 @@
+[h1]v0.2.3[/h1]
+- Fixed venomous not working if the enemy already had acid
+
 [h1]v0.2.2[/h1]
 - Abomination: damage 5 -> 8
 - Remembrance: can now only trigger once per turn

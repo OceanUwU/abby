@@ -26,7 +26,6 @@ public class AcidSpit extends AbstractAbbyCard {
         applyToSelf(new LambdaPower(ID, exDesc, exDesc[0], PowerType.BUFF, false, p, magicNumber) {
             @Override public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
                 if (power instanceof Acid && source == owner) {
-                    power.amount += amount;
                     flash();
                 }
             }

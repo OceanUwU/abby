@@ -18,7 +18,8 @@ import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import oceanabby.actions.TimedVFXAction;
-
+import oceanabby.cards.AcidSpit;
+import oceanabby.powers.Acid;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -165,12 +166,20 @@ public class Wiz {
         topDeck(c, 1);
     }
 
-    public static void applyToEnemy(AbstractMonster m, AbstractPower po) {
-        atb(new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount));
+    public static ApplyPowerAction applyToEnemy(AbstractMonster m, AbstractPower po) {
+        if (po instanceof Acid && adp().hasPower(AcidSpit.ID))
+            po.amount += adp().getPower(AcidSpit.ID).amount;
+        ApplyPowerAction action = new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount);
+        atb(action);
+        return action;
     }
 
-    public static void applyToEnemyTop(AbstractMonster m, AbstractPower po) {
-        att(new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount));
+    public static ApplyPowerAction applyToEnemyTop(AbstractMonster m, AbstractPower po) {
+        if (po instanceof Acid && adp().hasPower(AcidSpit.ID))
+            po.amount += adp().getPower(AcidSpit.ID).amount;
+        ApplyPowerAction action = new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount);
+        att(action);
+        return action;
     }
 
     public static void applyToSelf(AbstractPower po) {
