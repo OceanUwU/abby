@@ -1,3 +1,6 @@
+[h1]v0.2.4[/h1]
+- Fixed venomous EVO giving the wrong amount of buff
+
 [h1]v0.2.3[/h1]
 - Fixed venomous not working if the enemy already had acid
 
